@@ -3,7 +3,7 @@
 \usepackage{hyperref}
 
 % TODO - NEW TITLE
-\title{Harsh Stochastic Changing Environments Lead to Task Loss and Decreased Evolvability in Digital Organisms}
+\title{The Evolution of Evolvability: Changing Environments Promote Rapid Adaptation in Digital Organisms}
 \author{Rosangela Canino-Koning$^{1,2}$, Michael J. Wiser$^{2,3}$, \and Charles Ofria$^{1,2,3}$ \\
 \mbox{}\\
 $^{1}$Department of Computer Science and Engineering, Michigan State University, East Lansing, MI, USA \\
@@ -15,87 +15,87 @@ caninoko@msu.edu}
 \maketitle
 
 \begin{abstract}
-% Genetic spaces are often described in terms of fitness landscapes or genotype-to-phenotype maps, where each potential genetic sequence is associated with its phenotypic properties and is linked to other genotypes that are a single mutational step away.  The positions close to a genotype make up its "mutational landscape" and, in aggregate, determine the short-term evolutionary potential of a population.
-% % @CAO: The first part of this paragraph is providing terminology.  The rest is, I assume, talking about the contributions of this paper, but we never make that clear (a casual reader might assume that we're still providing background.)  If the impact of more phenotypes in a neighborhood is all well accepted already, ignore this comment.
-% Populations with wider ranges of phenotypes in their mutational neighborhood tend to be more evolvable. Likewise, those with fewer phenotypic changes available in their local neighborhoods are more mutationally robust.
-% % * <mjwiser@gmail.com> 2016-12-01T20:00:55.643Z:
-% %
-% % > evolvable
-% %
-% % Since this is the abstract it may not be necessary here, but I think a few words or even a sentence giving a general sense of what you mean by more evolvable would help with clarity.
-% %
-% % ^.
-% As such, forces that alter the distribution of phenotypes available by mutation can have a profound effect on subsequent evolutionary dynamics.
+Genetic spaces are often described in terms of fitness landscapes or genotype-to-phenotype maps, where each potential genetic sequence is associated with its phenotypic properties and is linked to other genotypes that are a single mutational step away.  The positions close to a genotype make up its "mutational landscape" and, in aggregate, determine the short-term evolutionary potential of a population.
+% @CAO: The first part of this paragraph is providing terminology.  The rest is, I assume, talking about the contributions of this paper, but we never make that clear (a casual reader might assume that we're still providing background.)  If the impact of more phenotypes in a neighborhood is all well accepted already, ignore this comment.
+Populations with wider ranges of phenotypes in their mutational neighborhood tend to be more evolvable. Likewise, those with fewer phenotypic changes available in their local neighborhoods are more mutationally robust.
+% * <mjwiser@gmail.com> 2016-12-01T20:00:55.643Z:
+%
+% > evolvable
+%
+% Since this is the abstract it may not be necessary here, but I think a few words or even a sentence giving a general sense of what you mean by more evolvable would help with clarity.
+%
+% ^.
+As such, forces that alter the distribution of phenotypes available by mutation can have a profound effect on subsequent evolutionary dynamics.
 
-% % @CAO: How about beginning this paragraph with something like "Environmental change alters a fitness landscape and is believed to create selective pressures for populations to rapidly adapt to those changes.  Indeed, we demonstrate..."
-% % @RCK: Done.
-% Environmental change alters a fitness landscape and is believed to create selective pressures for populations to rapidly adapt to those changes.  Indeed, we demonstrate that cyclically-changing environments can push populations toward more evolvable mutational landscapes where a wide range of alternate phenotypes are available, though purely deleterious mutations remain suppressed. We further show that populations in environments with drastic changes shift phenotypes more readily than those in environments with more benign changes. We trace this effect to repeated population bottlenecks in the harsh environments, which result in shorter coalescence times and keep populations in regions of the mutational landscape where the phenotypic shifts in question are more likely to occur.
+% @CAO: How about beginning this paragraph with something like "Environmental change alters a fitness landscape and is believed to create selective pressures for populations to rapidly adapt to those changes.  Indeed, we demonstrate..."
+% @RCK: Done.
+Environmental change alters a fitness landscape and is believed to create selective pressures for populations to rapidly adapt to those changes.  Indeed, we demonstrate that cyclically-changing environments can push populations toward more evolvable mutational landscapes where a wide range of alternate phenotypes are available, though purely deleterious mutations remain suppressed. We further show that populations in environments with drastic changes shift phenotypes more readily than those in environments with more benign changes. We trace this effect to repeated population bottlenecks in the harsh environments, which result in shorter coalescence times and keep populations in regions of the mutational landscape where the phenotypic shifts in question are more likely to occur.
 \end{abstract}
 
 \section{Introduction}
 
-% Fitness landscapes are a mathematical tool to map genetic sequences to expected evolutionary fitness. Many studies have examined the important role that different types of fitness landscapes play on evolutionary dynamics and outcomes, both in biological populations \citep{khan_negative_2011,szendro_quantitative_2013,weinreich_darwinian_2006,nahum_tortoisehare_2015} and in evolutionary computation settings \citep{merz_fitness_2000,humeau_paradiseo-mo:_2013,kallel_theoretical_2013}. However, real-world fitness landscapes are far more complex and varied than the limited or idealized models that are used in most of these studies. Neighboring regions of real landscapes can have starkly different properties from each other based on the effects of and interactions among mutations (i.e., the mutational landscape).  Examples of the type of properties that we are interested in include robustness, epistasis, and modularity, all of which are measurements of how information is organized inside of a genome and commonly categorized as components of an organism's ``genetic architecture''.  Isolated pockets in a landscape can often be characteristically different from the landscape as a whole due to the amount and organization of genetic information.  In fact, in most natural fitness landscapes, the vast majority of neighborhoods consist entirely of non-replicating genomes with zero fitness (and thus no genetic information), making life itself appear to be a rare exception \citep{gavrilets_fitness_2004}.
+Fitness landscapes are a mathematical tool to map genetic sequences to expected evolutionary fitness. Many studies have examined the important role that different types of fitness landscapes play on evolutionary dynamics and outcomes, both in biological populations \citep{khan_negative_2011,szendro_quantitative_2013,weinreich_darwinian_2006,nahum_tortoisehare_2015} and in evolutionary computation settings \citep{merz_fitness_2000,humeau_paradiseo-mo:_2013,kallel_theoretical_2013}. However, real-world fitness landscapes are far more complex and varied than the limited or idealized models that are used in most of these studies. Neighboring regions of real landscapes can have starkly different properties from each other based on the effects of and interactions among mutations (i.e., the mutational landscape).  Examples of the type of properties that we are interested in include robustness, epistasis, and modularity, all of which are measurements of how information is organized inside of a genome and commonly categorized as components of an organism's ``genetic architecture''.  Isolated pockets in a landscape can often be characteristically different from the landscape as a whole due to the amount and organization of genetic information.  In fact, in most natural fitness landscapes, the vast majority of neighborhoods consist entirely of non-replicating genomes with zero fitness (and thus no genetic information), making life itself appear to be a rare exception \citep{gavrilets_fitness_2004}.
 
-% Evolution on these convoluted landscapes is clearly limited to those regions that have non-zero fitness, with a selective pressure for fitness to increase. Beyond that, however, populations can evolve toward neighborhoods with specific local properties based on the evolutionary forces acting upon the populations.  For example, high mutation rates drive populations toward neighborhoods with a higher fraction of neutral mutations in an effect dubbed “survival of the flattest” \citep{wilke_evolution_2001}. Similarly, sexual populations tend toward regions of the fitness landscape with more modularity \citep{misevic_sexual_2006} and more negative epistasis \citep{misevic_experiments_2010} than otherwise equivalent asexual populations.
+Evolution on these convoluted landscapes is clearly limited to those regions that have non-zero fitness, with a selective pressure for fitness to increase. Beyond that, however, populations can evolve toward neighborhoods with specific local properties based on the evolutionary forces acting upon the populations.  For example, high mutation rates drive populations toward neighborhoods with a higher fraction of neutral mutations in an effect dubbed “survival of the flattest” \citep{wilke_evolution_2001}. Similarly, sexual populations tend toward regions of the fitness landscape with more modularity \citep{misevic_sexual_2006} and more negative epistasis \citep{misevic_experiments_2010} than otherwise equivalent asexual populations.
 
-% Understanding these dynamics is of broad interest.  It is important to evolutionary computation, given the strong influence of local landscape properties on the quality of the final solutions that an evolving population is able to obtain. Its relevance to evolutionary biology is equally obvious -- the local landscape that a population occupies will influence the selective forces at play in the population, creating a feedback cycle between these two important evolutionary factors \citep{zaman_coevolution_2014,meyer_repeatability_2012}. Disentangling such interactions is likely to provide further insights into fundamental evolutionary dynamics.  Computational artificial life systems have the advantage of being able to bridge these two realms: they have unconstrained evolutionary dynamics similar to natural systems, while maintaining the ability to rapidly perform experiments and collect any data we need about populations or their local landscapes.
-% % * <mjwiser@gmail.com> 2016-12-01T20:34:49.014Z:
-% %
-% % I can suggest other citations here, so we're not solely citing people out of Charles' and Rich's labs.
-% %
-% % ^ <mjwiser@gmail.com> 2017-01-30T18:26:00.719Z:
-% %
-% % A few suggested citations here, given Charles' agreement:
-% % Aita et al 2002.  Surveying a local fitness landscape of a protein with epistatic sites for the study of directed evolution 
-% % Bershtein et al 2006 Robustness–epistasis link shapes the fitness landscape of a randomly drifting protein
-% % Martin and Lenormand 2006 THE FITNESS EFFECT OF MUTATIONS ACROSS ENVIRONMENTS: A SURVEY IN LIGHT OF FITNESS LANDSCAPE MODELS
-% % Kvitek and Sherlock 2009 Reciprocal Sign Epistasis between Frequently Experimentally Evolved Adaptive Mutations Causes a Rugged Fitness Landscape
-% %
-% % ^ <mjwiser@gmail.com> 2017-01-30T18:26:30.874Z:
-% %
-% % I can pick out a few more recent ones if these seem older than you'd prefer.
-% %
-% % ^.
-% % @CAO: Good call Mike!
+Understanding these dynamics is of broad interest.  It is important to evolutionary computation, given the strong influence of local landscape properties on the quality of the final solutions that an evolving population is able to obtain. Its relevance to evolutionary biology is equally obvious -- the local landscape that a population occupies will influence the selective forces at play in the population, creating a feedback cycle between these two important evolutionary factors \citep{zaman_coevolution_2014,meyer_repeatability_2012}. Disentangling such interactions is likely to provide further insights into fundamental evolutionary dynamics.  Computational artificial life systems have the advantage of being able to bridge these two realms: they have unconstrained evolutionary dynamics similar to natural systems, while maintaining the ability to rapidly perform experiments and collect any data we need about populations or their local landscapes.
+% * <mjwiser@gmail.com> 2016-12-01T20:34:49.014Z:
+%
+% I can suggest other citations here, so we're not solely citing people out of Charles' and Rich's labs.
+%
+% ^ <mjwiser@gmail.com> 2017-01-30T18:26:00.719Z:
+%
+% A few suggested citations here, given Charles' agreement:
+% Aita et al 2002.  Surveying a local fitness landscape of a protein with epistatic sites for the study of directed evolution 
+% Bershtein et al 2006 Robustness–epistasis link shapes the fitness landscape of a randomly drifting protein
+% Martin and Lenormand 2006 THE FITNESS EFFECT OF MUTATIONS ACROSS ENVIRONMENTS: A SURVEY IN LIGHT OF FITNESS LANDSCAPE MODELS
+% Kvitek and Sherlock 2009 Reciprocal Sign Epistasis between Frequently Experimentally Evolved Adaptive Mutations Causes a Rugged Fitness Landscape
+%
+% ^ <mjwiser@gmail.com> 2017-01-30T18:26:30.874Z:
+%
+% I can pick out a few more recent ones if these seem older than you'd prefer.
+%
+% ^.
+% @CAO: Good call Mike!
 
-% \subsection{Evolvability and Genetic Architecture}
-% Evolvability refers to a series of distinct but overlapping concepts that are generally concerned with adaptation, variation, and/or novelty generation \citep{pigliucci_is_2008}. For the purposes this paper, we will focus on evolvability as the capability of genomes to generate adaptive variation in response to mutation. This kind of evolvability depends primarily on the organization and interrelation of information in the genome; that is, the genetic architecture, and the resulting genotype-to-phenotype map \citep{gunter_p._wagner_perspective:_1996}. An example of evolvable architecture can be found in some bacterial genomes that contain highly mutable genome regions, called contingency loci. Small sets of insertions or deletions to these regions create transcription frameshifts that alter the expression of nearby coding regions, thus allowing populations to easily switch phenotypes via minor mutations. Contingency loci are most often seen in the genomes of pathogens, which are subject to frequent environmental shifts caused by the host immune system \citep{bayliss_simple_2001}. Thus, these populations are able to produce large amounts of heritable variation despite the reduction in population diversity resulting from population bottlenecks.
-% % * <mjwiser@gmail.com> 2016-12-01T20:36:39.552Z:
-% %
-% % > For the purposes this paper, we will focus on evolvability as the capability of genomes to generate adaptive variation in response to mutation.
-% %
-% % This is the kind of sentence I thought would be useful earlier.
-% %
-% % ^.
-% % * <mjwiser@gmail.com> 2016-12-01T20:40:58.724Z:
-% %
-% % Do you think it would be worthwhile to include an example of something that is not what we mean by evolvable architecture?  Specifically, I'm thinking here of yeast mating types.  Most haploid yeast carry a non-expressed version of each of the two mating type casettes, and can switch mating type by gene conversion (the Wikipedia article gives a good summary of this).  It is therefore a genetic architecture that has the property of being able to easily change and have that change be inherited.   But this switching back and forth between two defined states doesn't generate a large amount of heritable variation in the way that a contingency locus does, and thus isn't really what we're talking about.
-% %
-% % ^.
-% % @CAO: While I think that his might be useful, I also worry that it would be confusing to the reader unless we take up much more space to put it into context.  I don't think it would be easy to be done well.
+\subsection{Evolvability and Genetic Architecture}
+Evolvability refers to a series of distinct but overlapping concepts that are generally concerned with adaptation, variation, and/or novelty generation \citep{pigliucci_is_2008}. For the purposes this paper, we will focus on evolvability as the capability of genomes to generate adaptive variation in response to mutation. This kind of evolvability depends primarily on the organization and interrelation of information in the genome; that is, the genetic architecture, and the resulting genotype-to-phenotype map \citep{gunter_p._wagner_perspective:_1996}. An example of evolvable architecture can be found in some bacterial genomes that contain highly mutable genome regions, called contingency loci. Small sets of insertions or deletions to these regions create transcription frameshifts that alter the expression of nearby coding regions, thus allowing populations to easily switch phenotypes via minor mutations. Contingency loci are most often seen in the genomes of pathogens, which are subject to frequent environmental shifts caused by the host immune system \citep{bayliss_simple_2001}. Thus, these populations are able to produce large amounts of heritable variation despite the reduction in population diversity resulting from population bottlenecks.
+% * <mjwiser@gmail.com> 2016-12-01T20:36:39.552Z:
+%
+% > For the purposes this paper, we will focus on evolvability as the capability of genomes to generate adaptive variation in response to mutation.
+%
+% This is the kind of sentence I thought would be useful earlier.
+%
+% ^.
+% * <mjwiser@gmail.com> 2016-12-01T20:40:58.724Z:
+%
+% Do you think it would be worthwhile to include an example of something that is not what we mean by evolvable architecture?  Specifically, I'm thinking here of yeast mating types.  Most haploid yeast carry a non-expressed version of each of the two mating type casettes, and can switch mating type by gene conversion (the Wikipedia article gives a good summary of this).  It is therefore a genetic architecture that has the property of being able to easily change and have that change be inherited.   But this switching back and forth between two defined states doesn't generate a large amount of heritable variation in the way that a contingency locus does, and thus isn't really what we're talking about.
+%
+% ^.
+% @CAO: While I think that his might be useful, I also worry that it would be confusing to the reader unless we take up much more space to put it into context.  I don't think it would be easy to be done well.
 
-% \subsubsection{Mutational Landscapes}
-% Properties of genetic architectures such as evolvability and robustness are determined by the shape of the resulting mutational landscape \citep{andreas_wagner_robustness_2008}. Robust genetic architectures that can tolerate more mutations without altering their phenotype reside in mutational landscapes that connect to more neutral mutants. Similarly, architectures that more easily switch phenotypes in response to mutation without substantial reduction in fitness, reside in more evolvable regions of genotype-space.
+\subsubsection{Mutational Landscapes}
+Properties of genetic architectures such as evolvability and robustness are determined by the shape of the resulting mutational landscape \citep{andreas_wagner_robustness_2008}. Robust genetic architectures that can tolerate more mutations without altering their phenotype reside in mutational landscapes that connect to more neutral mutants. Similarly, architectures that more easily switch phenotypes in response to mutation without substantial reduction in fitness, reside in more evolvable regions of genotype-space.
 
-% It is worth noting that not all regions of the mutational landscape are equally accessible. Some genome regions may be more resistant to mutation than others \citep{lee_rate_2012}, thereby altering [@RCK TODO] the probabilities of mutations occurring that lead into certain regions of the mutational landscape. This kind of differential probability may therefore moderate a population's diffusion through the mutational landscape.
-% % @CAO: How would it be altered?  I'm not sure I understand the last couple of sentences here...
-% % * <mjwiser@gmail.com> 2017-01-30T18:58:49.934Z:
-% % 
-% % There are several ways I could interpret this sentence about the Lee paper, so I feel I need to read the paper.  Is it that there are certain regions of a genome that are harder to mutate, either because they are physically constrained or that they are more easily error-checked?  Is it that certain regions of the mutational landscape are more resistant to mutations?  If it's the latter, perhaps a rephrasing along the line of "Some regions of the mutational landscape are more resistant to mutations (preferably with some explanation of how).  As such, regions of the mutational landscape that are bordered by such mutation-resistant regions are less accessible, as the set of genotypes that are mutationally close to them are themselves resistant to mutations."
-% % 
-% % ^.
-% % @RCK: Will look into it and clarify.
-% Further, in regions of the landscape where there are fewer available mutations that provide potentially adaptive traits, response to selection is likely to be weaker than in regions where there are many adaptive variants available within a few mutational steps \citep{alberch_genes_1991,carter_role_2005}.
+It is worth noting that not all regions of the mutational landscape are equally accessible. Some genome regions may be more resistant to mutation than others \citep{lee_rate_2012}, thereby altering [@RCK TODO] the probabilities of mutations occurring that lead into certain regions of the mutational landscape. This kind of differential probability may therefore moderate a population's diffusion through the mutational landscape.
+% @CAO: How would it be altered?  I'm not sure I understand the last couple of sentences here...
+% * <mjwiser@gmail.com> 2017-01-30T18:58:49.934Z:
+% 
+% There are several ways I could interpret this sentence about the Lee paper, so I feel I need to read the paper.  Is it that there are certain regions of a genome that are harder to mutate, either because they are physically constrained or that they are more easily error-checked?  Is it that certain regions of the mutational landscape are more resistant to mutations?  If it's the latter, perhaps a rephrasing along the line of "Some regions of the mutational landscape are more resistant to mutations (preferably with some explanation of how).  As such, regions of the mutational landscape that are bordered by such mutation-resistant regions are less accessible, as the set of genotypes that are mutationally close to them are themselves resistant to mutations."
+% 
+% ^.
+% @RCK: Will look into it and clarify.
+Further, in regions of the landscape where there are fewer available mutations that provide potentially adaptive traits, response to selection is likely to be weaker than in regions where there are many adaptive variants available within a few mutational steps \citep{alberch_genes_1991,carter_role_2005}.
 
 %%%%%%%%%%%%%%% NEW SECTION A1 10/4 %%%%%%%%%%%%%%%%%
 \subsubsection{Landscape Metrics} 
-Assessing the qualities of the nearby mutational landscape requires measures that can relate types of phenotypes and their fitness effects with the probabilities that these mutants will arise in the population. In order to assess the relative neutrality of the nearby mutational network, we will measure the \textbf{Genomic Diffusion Rate} $D_g$ \cite{ofria_evolution_2002}. This rate approximates the overall rate at which the population encounters new neutral genotypes.
+Assessing the qualities of the nearby mutational landscape requires measures that can relate phenotypes and their fitness effects with the probabilities that these mutants will arise in the population. In order to assess the relative neutrality of the nearby mutational network, we will measure the \textbf{Genomic Diffusion Rate} $D_g$ \cite{ofria_evolution_2002}. This rate approximates the overall rate at which the population encounters new neutral genotypes.
 % * <mjwiser@gmail.com> 2017-01-30T19:04:10.203Z:
 % 
 % > types of phenotypes
 % This phrase feels quite vague to me.  I don't know what a type of phenotype means in this context.
 % 
-% ^.
+% @RCK ->done<- removed "types of". I really just meant variations in phenotypes, which I think the word by itself captures better.
 
 % @CAO: I moved the equations until AFTER you describe what all of the variables mean.
 % * <mjwiser@gmail.com> 2017-01-30T19:05:26.396Z:
@@ -130,7 +130,14 @@ $D_p = F_\nu - F_{p\nu}$
 The difference between the overall neutral fidelity and the phenotype-preserving neutral fidelity ($F_\nu - F_{p\nu}$) yields the phenotypic diffusion rate.
 %@CAO: I added a couple of sentences here to explain the math, which I think is all we need; I commented out the longer paragraph below since the logic flows the same as above and I think it should be intuitive.
 %Neutrality in all cases is normalized by fitness in all experimental environments. 
-Neutrality is calculated based on an expected fitness, weighted across all experimental environments, given their probability of occurring.
+
+
+
+%%%Neutrality is calculated based on an expected fitness, weighted across all experimental environments, given their probability of occurring.
+% @RCK - 6/6/17 - moved expected value paragraph up to here, and commented out above sentence.
+
+
+
 %Normalized neutrality therefore gives the expected fitness value across the changing meta-environment.
 %@CAO: This last part about changing meta-environments is a bit abrupt and confusing.  How do we normalize?  Is the current environment weighted more?  I think we need to either leave this part out (until later) or else spend a whole paragraph explaining what we mean.
 % * <mjwiser@gmail.com> 2017-01-30T19:09:46.216Z:
@@ -145,15 +152,8 @@ Neutrality is calculated based on an expected fitness, weighted across all exper
 
 %%%%%%%%%%%%%%%% END NEW SECTION A1 %%%%%%%%%%%%%%%%%%%
 
-% \subsection{Changing environments create more paths to different kinds of phenotypes}
-% Directional selection adjusts the composition of phenotypes and genotypes in a population \citep{wright_evolution_1931}, typically moving that population across the mutational landscape to local regions of higher fitness. When populations find a fitness peak, they tend to cluster there, and
-% exploration of that landscape slows dramatically.
-% %the accumulation of new phenotype-altering mutations decreases \citep{wright_stochastic_1964,kauffman_towards_1987}.
-% In changing environments, however, the direction of selection is not fixed and peaks are not stable.  Instead, as the environment changes, populations are driven to explore new regions of the mutational landscape \citep{kashtan_varying_2007,connelly_negative_2015}. As they proceed, populations accumulate and carry with them the history of prior explorations and adaptations, and use them as raw material for new adaptation \citep{mcclintock_significance_1993}. Indeed, earlier work has shown that changing environments promote evolvability in many contexts, without compromising robustness\citep{crombach_evolution_2008,wilke_evolution_2001}. Strength of selection is also an important component of this exploration, since the harshness of the environment drives the speed with which organisms adapt to new conditions \citep{goddard_sex_2005}.
-
-% In this paper, we show how changing environments not only drive exploration of the mutational landscape, but also select for populations whose genetic architectures are qualitatively different than those from populations evolved in static environmental conditions. In particular, we show that populations evolved under harsh, cyclically-changing environments have many more changes along their phylogenetic histories than those evolved in static or benign changing environments. Organisms evolved in these populations also contain reservoirs of pseudogene-like vestigial loci that were acquired and deactivated through repeated adaptation and fixation cycles. As a result, populations evolved in these harsh cyclically-changing environments are low in standing neutral diversity at the population level, but they still connect with many more phenotypically-interesting regions of the mutational landscape than more diverse populations evolved in static or benign environments.
-
 %%%%%%%%%%%%% NEW SECTION A2 - 10/5 %%%%%%%%%%%%%%%
+%% MOVED HERE 6/6/17
 \subsubsection{Expected Value of Fitness Landscapes}
 In the context of changing environments, the expected fitness value ($E(w)$), and thus the neutrality, of a mutant in the mutational landscape will vary depending on the environmental context. So, in one environment, a mutant may be highly fit, but the same allele may be highly deleterious in a different environment. In order to address this variation, all metrics must be normalized by the probability that a particular environment will occur ($P_i$). That is, the nearby mutational landscape must be evaluated in each possible environment, yielding a traditional fitness landscape. Then, the set of fitnesses of each mutant ($w_i$) in each environment must be aggregated according to the probability of that environment occurring.
 % * <mjwiser@gmail.com> 2016-12-01T20:56:58.657Z:
@@ -170,18 +170,28 @@ $E(w) = \displaystyle\sum_{i=1}^{e} w_i P_i$
 \end{center}
 %%%%%%%%%%%%%% END NEW SECTION A2 %%%%%%%%%%%%%%%%%
 
+\subsection{Changing environments create more paths to different kinds of phenotypes}
+Directional selection adjusts the composition of phenotypes and genotypes in a population \citep{wright_evolution_1931}, typically moving that population across the mutational landscape to local regions of higher fitness. When populations find a fitness peak, they tend to cluster there, and
+exploration of that landscape slows dramatically.
+%the accumulation of new phenotype-altering mutations decreases \citep{wright_stochastic_1964,kauffman_towards_1987}.
+In changing environments, however, the direction of selection is not fixed and peaks are not stable.  Instead, as the environment changes, populations are driven to explore new regions of the mutational landscape \citep{kashtan_varying_2007,connelly_negative_2015}. As they proceed, populations accumulate and carry with them the history of prior explorations and adaptations, and use them as raw material for new adaptation \citep{mcclintock_significance_1993}. Indeed, earlier work has shown that changing environments promote evolvability in many contexts, without compromising robustness\citep{crombach_evolution_2008,wilke_evolution_2001}. Strength of selection is also an important component of this exploration, since the harshness of the environment drives the speed with which organisms adapt to new conditions \citep{goddard_sex_2005}.
+
+In this paper, we show how changing environments not only drive exploration of the mutational landscape, but also select for populations whose genetic architectures are qualitatively different than those from populations evolved in static environmental conditions. In particular, we show that populations evolved under harsh, cyclically-changing environments have many more changes along their phylogenetic histories than those evolved in static or benign changing environments. Organisms evolved in these populations also contain reservoirs of pseudogene-like vestigial loci that were acquired and deactivated through repeated adaptation and fixation cycles. As a result, populations evolved in these harsh cyclically-changing environments are low in standing neutral diversity at the population level, but they still connect with many more phenotypically-interesting regions of the mutational landscape than more diverse populations evolved in static or benign environments.
+
+
+
 \subsection{Digital Evolution}
-% %Digital Evolution is a sub-field of Artificial Life that focuses on studying evolutionary dynamics using self-replicating computer programs as model organisms \citep{mckinley_harnessing_2008}.
-% % @CAO: Restructured; talking about a subfield of ALife might only confuse this audience.
-% Digital Evolution uses self-replicating computer programs as model organisms to study evolutionary dynamics~\citep{mckinley_harnessing_2008}.
-% Unlike theoretical simulations, digital organisms have a fully functional genome that direct them to self-replicate, mutate, and compete with their peers for resources and space in which to reproduce. %Because populations of digital organisms have a source of variation, inheritance of genetic material across generations, and are subject to selective pressures, they undergo evolution by natural selection.
-% Because digital organisms undergo genetic mutations (i.e., variation) that are passed on to their offspring (inheritance), and are their survival is based on the actions they take (differential selection), they undergo evolution by natural selection. % @CAO Cite Dennett?
+%Digital Evolution is a sub-field of Artificial Life that focuses on studying evolutionary dynamics using self-replicating computer programs as model organisms \citep{mckinley_harnessing_2008}.
+% @CAO: Restructured; talking about a subfield of ALife might only confuse this audience.
+Digital Evolution uses self-replicating computer programs as model organisms to study evolutionary dynamics~\citep{mckinley_harnessing_2008}.
+Unlike theoretical simulations, digital organisms have a fully functional genome that direct them to self-replicate, mutate, and compete with their peers for resources and space in which to reproduce. %Because populations of digital organisms have a source of variation, inheritance of genetic material across generations, and are subject to selective pressures, they undergo evolution by natural selection.
+Because digital organisms undergo genetic mutations (i.e., variation) that are passed on to their offspring (inheritance), and are their survival is based on the actions they take (differential selection), they undergo evolution by natural selection. % @CAO Cite Dennett?
 
-% Digital organisms do not suffer from many of the drawbacks of experimentation on natural organisms.  Three of the advantages of digital organisms are particularly relevant for our study.  First, the rates of reproduction in digital systems are much faster than in even the most rapidly-reproducing physical organisms; we can process generations of organisms in seconds, rather than the hours required for the fastest biological organisms under sustained conditions \citep{ryan_evolution_1953,lenski_long-term_1991}, or the weeks to years needed for more complex multicellular organisms \citep{anderson_outcrossing_2010,stearns_experimental_2000}.
+Digital organisms do not suffer from many of the drawbacks of experimentation on natural organisms.  Three of the advantages of digital organisms are particularly relevant for our study.  First, the rates of reproduction in digital systems are much faster than in even the most rapidly-reproducing physical organisms; we can process generations of organisms in seconds, rather than the hours required for the fastest biological organisms under sustained conditions \citep{ryan_evolution_1953,lenski_long-term_1991}, or the weeks to years needed for more complex multicellular organisms \citep{anderson_outcrossing_2010,stearns_experimental_2000}.
 
-% Second, using digital organisms allows us to tightly control and verify experimental conditions. For example, in physical organisms, factors such as mutation rate can generally be measured only after the fact, or coarsely altered through mutagens. In digital organisms, however, we can not only control mutation rates with fine-grained precision, but also types and probabilities of different types mutations (e.g., substitutions vs. insertions vs. deletions). Furthermore, we are also able to track and replay the evolutionary history of every organism at any point in time to verify that unusual or unexpected results do not represent measurement error.  This ability to exactly replicate evolutionary results at an individual organism level is firmly out of reach for experiments with physical organisms.
+Second, using digital organisms allows us to tightly control and verify experimental conditions. For example, in physical organisms, factors such as mutation rate can generally be measured only after the fact, or coarsely altered through mutagens. In digital organisms, however, we can not only control mutation rates with fine-grained precision, but also types and probabilities of different types mutations (e.g., substitutions vs. insertions vs. deletions). Furthermore, we are also able to track and replay the evolutionary history of every organism at any point in time to verify that unusual or unexpected results do not represent measurement error.  This ability to exactly replicate evolutionary results at an individual organism level is firmly out of reach for experiments with physical organisms.
 
-% Finally, we can precisely and perfectly map the mutational landscape around the genome of a digital organism, and identify the role of every site in its genome\citep{ofria_evolution_2002}; such exhaustive techniques are not feasible in even the simplest physical organisms.  All of these factors make digital organisms ideal for studying the effects of changing environments on the mutational landscape.
+Finally, we can precisely and perfectly map the mutational landscape around the genome of a digital organism, and identify the role of every site in its genome\citep{ofria_evolution_2002}; such exhaustive techniques are not feasible in even the simplest physical organisms.  All of these factors make digital organisms ideal for studying the effects of changing environments on the mutational landscape.
 
 \section{Methods}
 
@@ -219,7 +229,7 @@ In order to examine the dynamics and mechanisms of evolving populations in chang
 For the cyclic environment,%%%%%%%%%%% END NEW SECTION B1
 we subjected a total of 150 replicate populations of digital organisms to two different treatments of two-phase cyclically
 % Should this be "cyclical" or "cyclically"?  I think the former is an adjective and the latter is an adverb, so you want the latter.  (probably would need to be fixed throughout if I'm correct.)
-% @RCK: TODO - do a search for cyclical.
+% @RCK: done
 changing environments, plus a static control. The environment cycles between equal-length periods of reward and punishment. Each cycle extends for 1000 updates, or roughly 30 generations. In the static control, there is no cycle. Rather, the rewards remain constant. The complete experiment extends for 200 cycles, or 200,000 updates, approximately 6,000 generations.
 
 %We structured the environment to provide large rewards to organisms for performing two challenging bit-wise logical tasks: XOR and EQU.
@@ -229,8 +239,10 @@ In the static control, % @CAO: otherwise it sounds like these are always rewarde
 XOR is rewarded with a CPU speed (and thus fitness) multiple of 8, while EQU is rewarded with a CPU speed multiple of 32. % @CAO: I worry that these seem like arbitrary values and warrant some explanation.
 %@RCK - fixing, see above (TODO)
 In the harsh treatment, as the cycle progresses, the XOR reward remains constant, while the EQU reward cycles between a 32-fold bonus and a correspondingly harsh 32-fold penalty (i.e., CPU speed is divided by 32 when EQU is performed in the off cycle). The benign treatment is nearly identical to the harsh treatment, except that the reward merely goes away in the off-cycle as opposed to incurring a severe penalty.
+
 %%%%%%%%%%% NEW SECTION B2 10/29
 % @CAO: New paragraph here?
+% @RCK done
 The stochastic changing environment experiment is similar to the cyclic environment, except that rather than the environment
 %changing regularly back and forth
 toggling
@@ -280,7 +292,7 @@ in the benign and control treatments led populations in them to have higher stan
 % I feel like this figure would be easier to talk about if you split it into three panels, and mention that each panel has both an upper and a lower part.  It would also probably be easier to read if the axes on the left were on the top panel, rather than the middle one; since you have two graphs in each panel, it doesn't make sense to just have a single axis label off to the side.  However, you probably *can* have only a single x axis label, since the axes are the same for all the panels, and for both graphs within a panel.
 % 
 % ^.
-%@RCK - TODO fix figure above.
+%@RCK - TODO fix figure below.
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[trim={-0.85cm 0 0.1cm 0.2cm},clip,width=1\columnwidth]{figures/control__entropy}
@@ -348,7 +360,7 @@ most abundant genotype at the end of the experiment for
 each replicate population. This landscape contained 
 % @CAO: You should give an exact number here.  How big is the instruction set?  If it's the default 26, then there are 25 alternate values for each of 121 positions, for a total of 3025.  Given the 3200 number that you supplied, I'm assuming you used a size 27 instruction set?
 % @RCK, note the word "approximately" above. If we hate that, then, yeah 3025. (I was counting 26*121, which is 3146, but you're right, since it's single-step surrounding the dominant)
-3,025 distinct mutants (121 loci with 25 possible mutations per locus) in each of the 50 replicates per treatment, for a total of almost 450,000 mutants surveyed.
+3,025 distinct mutants (121 loci with 25 possible mutations per locus) in each of the 50 replicates per treatment, for a total of nearly 450,000 mutants surveyed.
 % @CAO: Where did this 500k number come from?  I assume it's 3200 mutants/replicate * 50 replicates / treatment * 3 treatments?  Probably worth spelling out.  
 We found that the availability of reservoirs of vestigial sites shifted the evolved organisms'% Maybe cut "treatment-" ?  We claim that its the reservoirs doing it, and "treatment-evolved" just seems like an odd compound adjective to me.
 position in the mutational neighborhood. % @CAO: "mutational neighborhood" might be clearer?
