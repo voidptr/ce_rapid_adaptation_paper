@@ -372,7 +372,7 @@ A task lost due to mutation keeps many more paths that are one or two mutational
 %%%%%%%%%% NEW SECTION C 10/29 %%%%%%%%%%
 Further, while the proportion of mutants in the nearby landscape that had expected fitness values equal to or greater than the ancestor
 % @CAO: Can this previous phrasing be just "Further, while the proportion of non-deleterious mutations in the local landscape...".  I feel like "non-deleterious" gets at our point clearly, while "fitness values equal or greater" is both awkward AND makes it seem like we particularly care about "greater" for some reason, which we don't, we just care that they are not harmful.
-remained approximately the same, we found that the proportion of these mutants with different (adaptive) phenotypes increased.
+remained approximately the same, we found that the proportion of these mutants with different (potentially adaptive) phenotypes increased.
 % @CAO: Why do we say "adaptive" in parentheses, since usually it will still be harmful to change to another phenotype.  I assume it would be more accurate to say "potentially adaptive" there?
 %%%%%%%%%%% END NEW SECTION C 10/29 %%%%%%%%%%
 In this way, the treatment organisms
@@ -416,14 +416,16 @@ Note that while overall neutral exploration capacity remains relatively stable b
 \subsubsection{Stochastic Changing Environments}
 
 %Interestingly, against
-Contrary to our expectations, stochastic changing environments were less effective at promoting evolvability than cyclically changing environments. In all measures, the harsh stochastic environmental treatment under-performed as compared to the harsh cyclically changing environment. We hypothesize that this effect was driven by the inconsistent time spans between the population experiencing a given environmental condition in the stochastic treatments. Especially long time spans without a reward for a task, even if rare, could allow vestigial sites to drift away, thus pushing subsequent evolution closer to the control treatment. As a result, the EQU task was lost in a much larger proportion of treatments. (Figure~ TODO FIGURE FOR EQU USE)
+Contrary to our expectations, stochastic changing environments were no more effective at promoting evolvability than cyclically changing environments. In most measures, the harsh stochastic environmental treatment performed comparably to the harsh cyclically changing environment. 
+%We hypothesize that this similarity persisted despite the inconsistent time spans between the population experiencing a given environmental condition in the stochastic treatments, because the mean time spent in each environment was comparable to the cyclic environment. 
+The only measure that significantly underperformed was the number of EQU vestigial sites in the harsh stochastic changing environment. We hypothesize that this reduction was driven by the variation in contiguous time spans spent in each environment. Especially long time spans without a reward for a task, even if rare, could allow vestigial sites to drift away, thus pushing subsequent evolution closer to the control treatment. 
 
-While the vestigial site counts in the stochastic environment were, overall, relatively similar to those in the cyclic environment, the pattern was very different for the functional sites. In the harsh treatment in particular, there was much more variation between replicates, with a marked reduction in the number of EQU-only functional sites. One feature that stands out is that the mean number of XOR-only functional task sites was greatly increased as compared to the cyclic environments, matched with a great decrease in the number of overlapping sites. On the surface, this pattern would seem to indicate greater modularity and separation of tasks, however, in reality, the effect can be largely accounted for by a generalized reduction in the number of times the EQU task was retained. In other words, the EQU task was lost much more often in the stochastic environments, indicating that the stochastic environment was in general more hostile to the retention of EQU.  
+%While the vestigial site counts in the stochastic environment were, overall, relatively similar to those in the cyclic environment, the pattern was very different for the functional sites. In the harsh treatment in particular, there was much more variation between replicates, with a marked reduction in the number of EQU-only functional sites. One feature that stands out is that the mean number of XOR-only functional task sites was greatly increased as compared to the cyclic environments, matched with a great decrease in the number of overlapping sites. On the surface, this pattern would seem to indicate greater modularity and separation of tasks, however, in reality, the effect can be largely accounted for by a generalized reduction in the number of times the EQU task was retained. In other words, the EQU task was lost much more often in the stochastic environments, indicating that the stochastic environment was in general more hostile to the retention of EQU.  
 (Figure~\ref{fig:CSE_func_vestigial})
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[trim={0 0 0 0}, clip, width=1\columnwidth]{figures/CSE_func_vest__box.png}
+\includegraphics[trim={0 0 0 0}, clip, width=1\columnwidth]{figures/CSE_func_vest__filtered__box.png}
 % TODO - stats
 \caption{\textbf{Number of functional and vestigial sites by treatment} in a stochastic changing environment. The vestigial site counts remain comparable to the cyclic environment (TODO STATS), however, there was much greater variance in functional site counts in the harsh environment as compared to the cyclic harsh environment (TODO STATS).%
 %-old (One-Way ANOVA F(2,132) = 54.35, p $<<$ 0.0001).
@@ -432,11 +434,13 @@ While the vestigial site counts in the stochastic environment were, overall, rel
 \end{center}
 \end{figure}
 
-Similarly, both the overall fraction of 1-step mutants that lost EQU, and the fraction of 2nd-step regaining of EQU, were much lower in the stochastic harsh treatment than in the cyclic harsh treatment. This result indicates that stochastic harsh was less effective at promoting evolution toward areas of the mutational landscape where such mutations were common. %present. (Figures~\ref{fig:CSE_single_step},~\ref{fig:CSE_two_step})
+Similarly, both the overall fraction of 1-step mutants that lost EQU, and the fraction of 2nd-step regaining of EQU, were comparable to the cyclic treatments. 
+%This result indicates that stochastic harsh was less effective at promoting evolution toward areas of the mutational landscape where such mutations were common. %present. 
+(Figures~\ref{fig:CSE_single_step},~\ref{fig:CSE_two_step})
 
 \begin{figure}[h!] %% FIGURE 10
 \begin{center}
-\includegraphics[trim={0.2cm 0 0 0.2cm},clip,width=1\columnwidth]{figures/CSE_frac_1step__box.png}
+\includegraphics[trim={0.2cm 0 0 0.2cm},clip,width=1\columnwidth]{figures/CSE_frac_1step__filtered__box.png}
 % TODO - stats
 \caption{\textbf{A survey of the single-step mutational neighborhood} in the stochastic changing environment around organisms that performed the fluctuating task. Again, in the static and benign treatments, values are comparable to the cyclic changing environment (TODO STATS). However, in the harsh treatment, the variance of fractions was much greater (TODO STATS), while the means for both loss of the fluctuating task (EQU) and loss of both task were greatly reduced. (TODO STATS). This result indicates that in the context of a harsh treatment, stochastic environmental change is less effective at moving organisms to areas of the fitness landscape where they can more easily switch task expression. %
 }\label{fig:CSE_single_step}
@@ -454,7 +458,7 @@ Finally, $D_P$ showed much larger variances, but settled on a lower mean in the 
 
 \begin{figure}[h!] %% FIGURE 12
 \begin{center}
-\includegraphics[trim={0.2cm 0 0.4cm 0.25cm},clip,width=1\columnwidth]{figures/CSE_D_g_D_p__box.png}
+\includegraphics[trim={0.2cm 0 0.4cm 0.25cm},clip,width=1\columnwidth]{figures/CSE_D_g_D_p__filtered__box.png}
 \caption{\textbf{Genomic and Phenotypic Diffusion Rates} in stochastic changing environments, showing the probabilities of producing offspring that are genotypically and phenotypically different from the parent, while remaining fitness neutral or better. As in the cyclic environment $D_g$ remains stable, at comparble levels (TODO STATS), however, the variance in $D_p$ is much greater in the stochastic harsh environment compared to the cyclic (TODO STATS), and the mean is significantly lower (TODO STATS). This result shows that stochastic environments are not as effective as cyclic environments at increasing the probability that organisms will produce phenotypically different, yet neutral offspring.
 }\label{fig:CSE_diffusion_rate}
 \end{center}
