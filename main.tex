@@ -316,6 +316,7 @@ Measures of neutral exploration, however, only show part of the picture. While s
 The difference between the overall neutral fidelity and the phenotype-preserving neutral fidelity ($F_\nu - F_{p\nu}$) yields the phenotypic diffusion rate.
 
 \subsubsection*{Expected Value of Fitness Landscapes}
+%=addressing expected fitness in fluctuating environments
 In the context of changing environments, the expected fitness value ($E(w)$), and thus the neutrality, of a mutant in the mutational landscape will vary depending on the environmental context. So, in one environment, a mutant may be highly fit, but the same allele may be highly deleterious in a different environment. In order to address this variation, all metrics must be normalized by the probability that a particular environment will occur ($P_i$). That is, the nearby mutational landscape must be evaluated in each possible environment, yielding a traditional fitness landscape. Then, the set of fitnesses of each mutant ($w_i$) in each environment must be aggregated according to the probability of that environment occurring.
 \begin{eqnarray}
 \label{eq:expected_fitness_value}
@@ -323,48 +324,57 @@ In the context of changing environments, the expected fitness value ($E(w)$), an
 \end{eqnarray}
 
 \subsection*{Changing environments create more paths to different kinds of phenotypes}
-Sustained directional selection adjusts the composition of phenotypes and genotypes in a population \cite{wright_evolution_1931}, typically moving that population across the mutational landscape to local regions of higher fitness. When populations find a fitness peak, they tend to cluster there, and
-exploration of that region of the landscape slows dramatically.
+%=sustained directional selection for adaptation
+Sustained directional selection adjusts the composition of phenotypes and genotypes in a population \cite{wright_evolution_1931}, typically moving that population across the mutational landscape to local regions of higher fitness. When populations find a fitness peak, they tend to cluster there, and exploration of that region of the landscape slows dramatically.
 
+%=CE promotes exploration
 In changing environments, however, the direction of selection is not fixed and peaks are not stable.  Instead, as the environment changes, populations are driven to explore new regions of the mutational landscape \cite{kashtan_varying_2007,connelly_negative_2015}. As they proceed, populations accumulate and carry with the genetic material acquired in prior explorations and adaptations, and use this history as raw material for new adaptation \cite{mcclintock_significance_1993}. Indeed, earlier work has shown that changing environments promote evolvability in many contexts, without compromising robustness \cite{crombach_evolution_2008,wilke_evolution_2001}. Strength of selection is also an important component of this exploration, since the harshness of the environment drives the speed with which organisms adapt to new conditions \cite{goddard_sex_2005}.
 
+%=CE not only drives exploration, but changes surrounding mutational landscape environment
 In this paper, we show how changing environments not only drive exploration of the mutational landscape, but also select for populations whose genetic architectures are qualitatively different than those from populations evolved in static environmental conditions. In particular, we show that populations evolved under harsh, cyclically-changing environments have many more changes along their phylogenetic histories than those evolved in static or benign changing environments. Organisms evolved in these populations also contain reservoirs of pseudogene-like vestigial loci that were acquired and deactivated through repeated adaptation and fixation cycles. As a result, populations evolved in these harsh cyclically-changing environments are low in standing neutral diversity at the population level, but they still connect locally with many more phenotypically-interesting regions of the mutational landscape than more diverse populations evolved in static or benign environments.
-
-
 
 \section*{Methods}
 
 \subsection*{Digital Evolution}
-Digital Evolution uses self-replicating computer programs as model organisms to study evolutionary dynamics~\cite{mckinley_harnessing_2008}.
-Unlike theoretical simulations, digital organisms have a fully functional genome that direct them to self-replicate, mutate, and compete with their peers for resources and space in which to reproduce. Because digital organisms undergo genetic mutations (i.e., variation) that are passed on to their offspring (inheritance), and their survival is based on the actions they take (differential selection), they undergo evolution by natural selection. % @CAO Cite Dennett?
+%=DE for studying evolution
+Digital Evolution uses self-replicating computer programs as model organisms to study evolutionary dynamics~\cite{mckinley_harnessing_2008}. Unlike theoretical simulations, digital organisms have a fully functional genome that direct them to self-replicate, mutate, and compete with their peers for resources and space in which to reproduce. Because digital organisms undergo genetic mutations (i.e., variation) that are passed on to their offspring (inheritance), and their survival is based on the actions they take (differential selection), they undergo evolution by natural selection. % @CAO Cite Dennett?
 
+%=DE is better than natural for three reasons. 1 - reproduction rate
 Digital organisms do not suffer from many of the drawbacks of experimentation on natural organisms.  Three of the advantages of digital organisms are particularly relevant for our study.  First, the rates of reproduction in digital systems are much faster than in even the most rapidly-reproducing physical organisms; we can process generations of organisms in seconds, rather than the hours required for the fastest biological organisms under sustained conditions \cite{ryan_evolution_1953,lenski_long-term_1991}, or the weeks to years needed for more complex multicellular organisms \cite{anderson_outcrossing_2010,stearns_experimental_2000}.
 
+%=2 - DE is more controllable
 Second, using digital organisms allows us to tightly control and verify experimental conditions. For example, in physical organisms, factors such as mutation rate can generally be measured only after the fact, or coarsely altered through mutagens. In digital organisms, however, we can not only control mutation rates with fine-grained precision, but also types and probabilities of different types mutations (e.g., substitutions vs. insertions vs. deletions). Furthermore, we are also able to track and replay the evolutionary history of every organism at any point in time to verify that unusual or unexpected results do not represent measurement error.  This ability to exactly replicate evolutionary results at an individual organism level is firmly out of reach for experiments with physical organisms.
 
+%=3 - DE is completely knowable
 Finally, we can precisely and perfectly map the mutational landscape around the genome of a digital organism, and identify the role of every site in its genome\cite{ofria_evolution_2002}; such exhaustive techniques are not feasible in even the simplest physical organisms.  All of these factors make digital organisms ideal for studying the effects of changing environments on the mutational landscape.
 
 \subsubsection*{Avida Digital Evolution Platform}
+%=Avida for doing these experiments
 We used Avida \cite{lenski_evolutionary_2003} to examine the effects of cyclic changing environments on the genomes of evolved digital organisms. Avida is a software platform for performing evolution experiments with digital organisms in a virtual world.
 
+%=[FIGURE - Avida CPU]
 \begin{figure}[!h]
 \includegraphics[width=0.5\columnwidth]{figures/squishedCPU_extra.png}
 \caption{{\bf An example virtual CPU from Avida}, with a circular genome (blue), three registers (purple), input and output handlers (tan), and an instruction pointer (yellow) indicating the next instruction to be executed.%
 }\label{fig:cpu}
 \end{figure}
 
+%=description of Avida organism
 An Avida organism is composed of a circular genome of assembly-like computer instructions that are executed in a virtual CPU (Fig~\ref{fig:cpu}). Populations of these organisms are placed in a toroidal world in individual cells where they are allowed to execute, reproduce, compete for space, mutate, and evolve.
 
 % @CAO: I feel like a lot of this paragraph repeats information from the last section that was more generically about digital evolution.  We should probably tighten it up here.
+%=Avida are self-replicating, but without perfect fidelity
 Organisms in Avida are self-replicating, and experience mutation. The genome in the initial default organism contains all of the instructions necessary for reproduction. However, the instructions are not copied into an offspring with perfect fidelity. By default, the reproductive copy instruction is faulty, meaning that it will probabilistically introduce errors (mutations) into the offspring genomes. These offspring organisms execute their own genomes even when different from their parent, and in turn pass on their inherited mutations, along with new mutations, to their own offspring (i.e., variation in the systems is heritable).
 
+%=Avida worlds are constrained and thus competition
 Avida worlds can be space- or resource-constrained. Avida allows the experimenter to configure many aspects of the environment, thus subjecting the organisms to various kinds of selective pressures.  In many cases, these environments will include resources that can be metabolized by performing specific functions or activities, resulting in a boost to execution speed that gives the organisms a competitive advantage. However, even without explicit external pressures, organisms still experience an implicit pressure to execute more quickly and efficiently. The organisms that run fastest are typically able to also reproduce fastest, and thus out-compete their peers for space.
 
-%% TODO - make the new git repos for the journal paper
+%=Avida and paper download information
+%=[TODO - make the new git repos for the journal paper]
 Avida is available for download without cost from \url{http://avida.devosoft.org/}, and specific versions along with data-files to reproduce the experiments described in this paper may be found at \url{https://github.com/voidptr/avida} and \url{https://github.com/voidptr/ce_evolvability}.
 
 \subsection*{Experimental Design}
-
+%=design for experimental environment
 In order to examine the dynamics and mechanisms of evolving populations in changing environments (CE), we performed two sets of experiments: one in a cyclically changing environment, and the other in a stochastic changing environment. Further, in order to assess the longer-term evolvability effects of changing environments we introduced CE-adapted populations to a completely new environment where they could adapt to a new set of tasks.
 
 \subsubsection*{Cyclic and Stochastic Changing Environments}
