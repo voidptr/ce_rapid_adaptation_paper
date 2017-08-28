@@ -5,21 +5,21 @@
 %
 % -- IMPORTANT NOTE
 %
-% This template contains comments intended 
-% to minimize problems and delays during our production 
+% This template contains comments intended
+% to minimize problems and delays during our production
 % process. Please follow the template instructions
 % whenever possible.
 %
-% % % % % % % % % % % % % % % % % % % % % % % 
+% % % % % % % % % % % % % % % % % % % % % % %
 %
-% Once your paper is accepted for publication, 
-% PLEASE REMOVE ALL TRACKED CHANGES in this file 
-% and leave only the final text of your manuscript. 
+% Once your paper is accepted for publication,
+% PLEASE REMOVE ALL TRACKED CHANGES in this file
+% and leave only the final text of your manuscript.
 % PLOS recommends the use of latexdiff to track changes during review, as this will help to maintain a clean tex file.
 % Visit https://www.ctan.org/pkg/latexdiff?lang=en for info or contact us at latex@plos.org.
 %
 %
-% There are no restrictions on package use within the LaTeX files except that 
+% There are no restrictions on package use within the LaTeX files except that
 % no packages listed in the template may be deleted.
 %
 % Please do not include colors or graphics in the text.
@@ -33,8 +33,8 @@
 % Please include tables/figure captions directly after the paragraph where they are first cited in the text.
 %
 % DO NOT INCLUDE GRAPHICS IN YOUR MANUSCRIPT
-% - Figures should be uploaded separately from your manuscript file. 
-% - Figures generated using LaTeX should be extracted and removed from the PDF before submission. 
+% - Figures should be uploaded separately from your manuscript file.
+% - Figures generated using LaTeX should be extracted and removed from the PDF before submission.
 % - Figures containing multiple panels/subfigures must be combined into one image file before submission.
 % For figure citations, please use "Fig" instead of "Figure".
 % See http://journals.plos.org/plosone/s/figures for PLOS figure guidelines.
@@ -58,15 +58,15 @@
 %
 % Do not include text that is not math in the math environment. For example, CO2 should be written as CO\textsubscript{2} instead of CO$_2$.
 %
-% Please add line breaks to long display equations when possible in order to fit size of the column. 
+% Please add line breaks to long display equations when possible in order to fit size of the column.
 %
 % For inline equations, please do not include punctuation (commas, etc) within the math environment unless this is part of the equation.
 %
-% When adding superscript or subscripts outside of brackets/braces, please group using {}.  For example, change "[U(D,E,\gamma)]^2" to "{[U(D,E,\gamma)]}^2". 
+% When adding superscript or subscripts outside of brackets/braces, please group using {}.  For example, change "[U(D,E,\gamma)]^2" to "{[U(D,E,\gamma)]}^2".
 %
 % Do not use \cal for caligraphic font.  Instead, use \mathcal{}
 %
-% % % % % % % % % % % % % % % % % % % % % % % % 
+% % % % % % % % % % % % % % % % % % % % % % % %
 %
 % Please contact latex@plos.org with any questions.
 %
@@ -125,13 +125,13 @@
 
 
 % Remove comment for double spacing
-%\usepackage{setspace} 
+%\usepackage{setspace}
 %\doublespacing
 
 % Text layout
 \raggedright
 \setlength{\parindent}{0.5cm}
-\textwidth 5.25in 
+\textwidth 5.25in
 \textheight 8.75in
 
 % Bold the 'Figure #' in the caption and separate it from the title/caption with a period
@@ -164,24 +164,24 @@
 \fancyfootoffset[L]{2.25in}
 \lfoot{\sf PLOS}
 
-%% Include all macros below
-
-\newcommand{\lorem}{{\bf LOREM}}
-\newcommand{\ipsum}{{\bf IPSUM}}
-
 %% END MACROS SECTION
 
 
+
+
+
+
+
 \begin{document}
+
 \vspace*{0.2in}
 
 % Title must be 250 characters or less.
 \begin{flushleft}
 {\Large
-\textbf\newline{The Evolution of Evolvability: Changing Environments Promote Rapid Adaptation in Digital Organisms} % Please use "sentence case" for title and headings (capitalize only the first word in a title (or heading), the first word in a subtitle (or subheading), and any proper nouns).
+\textbf\newline{The evolution of evolvability: Changing environments promote rapid adaptation in digital organisms} % Please use "sentence case" for title and headings (capitalize only the first word in a title (or heading), the first word in a subtitle (or subheading), and any proper nouns).
 }
 \newline
-% Insert author names, affiliations and corresponding author email (do not include titles, positions, or degrees).
 \\
 Rosangela Canino-Koning\textsuperscript{1,2*},
 Michael J. Wiser\textsuperscript{2,3},
@@ -190,7 +190,7 @@ Charles Ofria\textsuperscript{1,2,3\ddag}
 \bigskip
 \textbf{1} Department of Computer Science and Engineering, Michigan State University, East Lansing, MI, USA
 \\
-\textbf{2} BEACON Center for the Study of Evolution in Action, Michigan State University, East Lansing, MI, USA 
+\textbf{2} BEACON Center for the Study of Evolution in Action, Michigan State University, East Lansing, MI, USA
 \\
 \textbf{3} Ecology, Evolutionary Biology, and Behavior, Michigan State University, East Lansing, MI, USA
 \\
@@ -208,36 +208,17 @@ Charles Ofria\textsuperscript{1,2,3\ddag}
 \section*{Abstract}
 Genetic spaces are often described in terms of fitness landscapes or genotype-to-phenotype maps, where each potential genetic sequence is associated with its phenotypic properties and is linked to other genotypes that are a single mutational step away.  The positions close to a genotype make up its "mutational landscape" and, in aggregate, determine the short-term evolutionary potential of a population.
 % @CAO: The first part of this paragraph is providing terminology.  The rest is, I assume, talking about the contributions of this paper, but we never make that clear (a casual reader might assume that we're still providing background.)  If the impact of more phenotypes in a neighborhood is all well accepted already, ignore this comment.
-Populations with wider ranges of phenotypes in their mutational neighborhood tend to be more evolvable. Likewise, those with fewer phenotypic changes available in their local neighborhoods are more mutationally robust.
-% * <mjwiser@gmail.com> 2016-12-01T20:00:55.643Z:
-%
-% > evolvable
-%
-% Since this is the abstract it may not be necessary here, but I think a few words or even a sentence giving a general sense of what you mean by more evolvable would help with clarity.
-%
-% ^.
-As such, forces that alter the distribution of phenotypes available by mutation can have a profound effect on subsequent evolutionary dynamics.
+Populations with wider ranges of phenotypes in their mutational neighborhood tend to be more evolvable. Likewise, those with fewer phenotypic changes available in their local neighborhoods are more mutationally robust. As such, forces that alter the distribution of phenotypes available by mutation can have a profound effect on subsequent evolutionary dynamics.
 
-% @CAO: How about beginning this paragraph with something like "Environmental change alters a fitness landscape and is believed to create selective pressures for populations to rapidly adapt to those changes.  Indeed, we demonstrate..."
-% @RCK: Done.
 Environmental change alters a fitness landscape and is believed to create selective pressures for populations to rapidly adapt to those changes.  Indeed, we demonstrate that cyclically-changing environments can push populations toward more evolvable mutational landscapes where a wide range of alternate phenotypes are available, though purely deleterious mutations remain suppressed. We further show that populations in environments with drastic changes change phenotypes more readily than those in environments with more benign changes. We trace this effect to repeated population bottlenecks in the harsh environments, which result in shorter coalescence times and keep populations in regions of the mutational landscape where the phenotypic shifts in question are more likely to occur.
-
-
-
-%% Please keep the Author Summary between 150 and 200 words
-%% Use first person. PLOS ONE authors please skip this step. 
-%% Author Summary not valid for PLOS ONE submissions.   
-%\section*{Author summary}
-%Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget porta erat. Morbi consectetur est vel gravida pretium. Suspendisse ut dui eu ante cursus gravida non sed sem. Nullam sapien tellus, commodo id velit id, eleifend volutpat quam. Phasellus mauris velit, dapibus finibus elementum vel, pulvinar non tellus. Nunc pellentesque pretium diam, quis maximus dolor faucibus id. Nunc convallis sodales ante, ut ullamcorper est egestas vitae. Nam sit amet enim ultrices, ultrices elit pulvinar, volutpat risus.
 
 \linenumbers
 
 % Use "Eq" instead of "Equation" for equation citations.
 \section*{Introduction}
+Fitness landscapes are a mathematical tool to map genetic sequences to expected evolutionary fitness. Many studies have examined the important role that different types of fitness landscapes play on evolutionary dynamics and outcomes, both in biological populations \cite{khan_negative_2011,szendro_quantitative_2013,weinreich_darwinian_2006,nahum_tortoisehare_2015} and in evolutionary computation settings \cite{merz_fitness_2000,humeau_paradiseo-mo:_2013,kallel_theoretical_2013}. However, real-world fitness landscapes are far more complex and varied than the limited or idealized models that are used in most of these studies. Neighboring regions of real landscapes can have starkly different properties from each other based on the effects of and interactions among mutations (i.e., the mutational landscape).  
 
-Fitness landscapes are a mathematical tool to map genetic sequences to expected evolutionary fitness. Many studies have examined the important role that different types of fitness landscapes play on evolutionary dynamics and outcomes, both in biological populations \cite{khan_negative_2011,szendro_quantitative_2013,weinreich_darwinian_2006,nahum_tortoisehare_2015} and in evolutionary computation settings \cite{merz_fitness_2000,humeau_paradiseo-mo:_2013,kallel_theoretical_2013}. However, real-world fitness landscapes are far more complex and varied than the limited or idealized models that are used in most of these studies. Neighboring regions of real landscapes can have starkly different properties from each other based on the effects of and interactions among mutations (i.e., the mutational landscape).  Examples of the type of properties that we are interested in include robustness, epistasis, and modularity, all of which are measurements of how information is organized inside of a genome and commonly categorized as components of an organism's ``genetic architecture''.
-
-Isolated pockets in a landscape can often be characteristically different from the landscape as a whole due to the amount and organization of genetic information.  In fact, in most natural fitness landscapes, the vast majority of neighborhoods consist entirely of non-replicating genomes with zero fitness (and thus no genetic information), making life itself appear to be a rare exception \cite{gavrilets_fitness_2004}.
+Examples of the type of properties that we are interested in include robustness, epistasis, and modularity, all of which are measurements of how information is organized inside of a genome and commonly categorized as components of an organism's ``genetic architecture''. Isolated pockets in a landscape can often be characteristically different from the landscape as a whole due to the amount and organization of genetic information.  In fact, in most natural fitness landscapes, the vast majority of neighborhoods consist entirely of non-replicating genomes with zero fitness (and thus no genetic information), making life itself appear to be a rare exception \cite{gavrilets_fitness_2004}.
 
 Evolution on these convoluted landscapes is clearly limited to those regions that have non-zero fitness, with a selective pressure for fitness to increase. Beyond that, however, populations can evolve toward neighborhoods with specific local properties based on the evolutionary forces acting upon the populations.  For example, high mutation rates drive populations toward neighborhoods with a higher fraction of neutral mutations in an effect dubbed “survival of the flattest” \cite{wilke_evolution_2001}. Similarly, sexual populations tend toward regions of the fitness landscape with more modularity \cite{misevic_sexual_2006} and more negative epistasis \cite{misevic_experiments_2010} than otherwise equivalent asexual populations.
 
@@ -249,7 +230,7 @@ Understanding these dynamics is of broad interest.  It is important to evolution
 % ^ <mjwiser@gmail.com> 2017-01-30T18:26:00.719Z:
 %
 % A few suggested citations here, given Charles' agreement:
-% Aita et al 2002.  Surveying a local fitness landscape of a protein with epistatic sites for the study of directed evolution 
+% Aita et al 2002.  Surveying a local fitness landscape of a protein with epistatic sites for the study of directed evolution
 % Bershtein et al 2006 Robustness–epistasis link shapes the fitness landscape of a randomly drifting protein
 % Martin and Lenormand 2006 THE FITNESS EFFECT OF MUTATIONS ACROSS ENVIRONMENTS: A SURVEY IN LIGHT OF FITNESS LANDSCAPE MODELS
 % Kvitek and Sherlock 2009 Reciprocal Sign Epistasis between Frequently Experimentally Evolved Adaptive Mutations Causes a Rugged Fitness Landscape
@@ -262,56 +243,34 @@ Understanding these dynamics is of broad interest.  It is important to evolution
 % @CAO: Good call Mike!
 
 \subsection*{Evolvability and Genetic Architecture}
-Evolvability refers to a series of distinct but overlapping concepts that are generally concerned with adaptation, variation, and/or novelty generation \cite{pigliucci_is_2008}. For the purposes this paper, we will focus on evolvability as the capability of genomes to generate adaptive variation in response to mutation. This kind of evolvability depends primarily on the organization and interrelation of information in the genome; that is, the genetic architecture, and the resulting genotype-to-phenotype map \cite{gunter_p._wagner_perspective:_1996}. An example of evolvable architecture can be found in some bacterial genomes that contain highly mutable genome regions, called contingency loci. Small sets of insertions or deletions to these regions create transcription frameshifts that alter the expression of nearby coding regions, thus allowing populations to easily switch phenotypes via minor mutations. Contingency loci are most often seen in the genomes of pathogens, which are subject to frequent environmental shifts caused by the host immune system \cite{bayliss_simple_2001}. Thus, these populations are able to produce large amounts of heritable variation despite the reduction in population diversity resulting from population bottlenecks.
-% * <mjwiser@gmail.com> 2016-12-01T20:36:39.552Z:
-%
-% > For the purposes this paper, we will focus on evolvability as the capability of genomes to generate adaptive variation in response to mutation.
-%
-% This is the kind of sentence I thought would be useful earlier.
-%
-% ^.
-% * <mjwiser@gmail.com> 2016-12-01T20:40:58.724Z:
-%
-% Do you think it would be worthwhile to include an example of something that is not what we mean by evolvable architecture?  Specifically, I'm thinking here of yeast mating types.  Most haploid yeast carry a non-expressed version of each of the two mating type casettes, and can switch mating type by gene conversion (the Wikipedia article gives a good summary of this).  It is therefore a genetic architecture that has the property of being able to easily change and have that change be inherited.   But this switching back and forth between two defined states doesn't generate a large amount of heritable variation in the way that a contingency locus does, and thus isn't really what we're talking about.
-%
-% ^.
-% @CAO: While I think that his might be useful, I also worry that it would be confusing to the reader unless we take up much more space to put it into context.  I don't think it would be easy to be done well.
-\subsubsection*{Short Term and Long Term Evolvability}
-[\@RCK TODO]
+Evolvability refers to a series of distinct but overlapping concepts that are generally concerned with adaptation, variation, and/or novelty generation \cite{pigliucci_is_2008}. Depending on your perspective, evolvability can describe the response to selection at the population level\cite{fisher_genetical_1930,houle_comparing_1992}, the ability of populations to adapt to changing conditions\cite{belle_code_2002}, larger phenomena such as variability generation\cite{gunter_p._wagner_perspective:_1996}, 
+exploration of neutral spaces and robustness\cite{andreas_wagner_robustness_2005,kitano_biological_2004}, 
+generation of novel features\cite{alberch_genes_1991,brookfield_evolution:_2001}, 
+or even the potential to generate clade-level innovations\cite{kirschner_evolvability_1998} 
+and major transitions\cite{smith_major_1995}. 
+
+For the purposes this paper, we will focus on evolvability as the capability of genomes to generate adaptive variation in response to mutation. In the short-term, this kind of evolvability determines a population's response to selection. This kind of evolvability depends primarily on the organization and interrelation of information in the genome; that is, the genetic architecture, and the resulting genotype-to-phenotype map \cite{gunter_p._wagner_perspective:_1996}. An example of evolvable architecture can be found in some bacterial genomes that contain highly mutable genome regions, called contingency loci. Small sets of insertions or deletions to these regions create transcription frameshifts that alter the expression of nearby coding regions, thus allowing populations to easily switch phenotypes via minor mutations. Contingency loci are most often seen in the genomes of pathogens, which are subject to frequent environmental shifts caused by the host immune system \cite{bayliss_simple_2001}. Thus, these populations are able to produce large amounts of heritable variation despite the reduction in population diversity resulting from population bottlenecks.
+
+For longer timescales, we will shift our focus toward variability generation and exploration of neutral spaces. Populations that exhibit this kind of evolvability would possess genomes with genetic architectures that more easily traverse the mutational landscape along neutral roads and thereby discover new fitness peaks while avoiding crossing fitness valleys. This kind of evolvability would allow populations to more easily colonize new ecological niches and form new clades\cite{kirschner_evolvability_1998,brookfield_evolution:_2001}. However, the connection between short-term evolvability and long-term evolvability is not obvious. The architectural features and evolutionary pressures that might convey short-term evolvability may not be the same as those that confer longer-term evolvability\cite{pigliucci_is_2008}. For example, features that promote rapid adaptation to a harsh fluctuating environment might reduce fitness in constant or benign fluctuating environments as compared to that of wild-type invaders. Alternately, the adaptation to harsh fluctuating environments and the resulting bottlenecks would potentially reduce diversity to the point where large amounts of neutral novelty generation could not occur.
 
 \subsubsection*{Mutational Landscapes}
 Properties of genetic architectures such as evolvability and robustness are determined by the shape of the resulting mutational landscape \cite{andreas_wagner_robustness_2008}. Robust genetic architectures that can tolerate more mutations without altering their phenotype reside in mutational landscapes that connect to more neutral mutants. Similarly, architectures that more easily switch phenotypes in response to mutation without substantial reduction in fitness, reside in more evolvable regions of genotype-space.
 
-It is worth noting that not all regions of the mutational landscape are equally accessible. Some genome regions may be more resistant to mutation than others \cite{lee_rate_2012}, thereby altering [@RCK TODO] the probabilities of mutations occurring that lead into certain regions of the mutational landscape. This kind of differential probability may therefore moderate a population's diffusion through the mutational landscape.
+It is worth noting that not all regions of the mutational landscape are equally accessible. Some genome regions may be more resistant to mutation than others \cite{lee_rate_2012}, thereby altering [\@RCK TODO] the probabilities of mutations occurring that lead into certain regions of the mutational landscape. This kind of differential probability may therefore moderate a population's diffusion through the mutational landscape.
 % @CAO: How would it be altered?  I'm not sure I understand the last couple of sentences here...
 % * <mjwiser@gmail.com> 2017-01-30T18:58:49.934Z:
-% 
+%
 % There are several ways I could interpret this sentence about the Lee paper, so I feel I need to read the paper.  Is it that there are certain regions of a genome that are harder to mutate, either because they are physically constrained or that they are more easily error-checked?  Is it that certain regions of the mutational landscape are more resistant to mutations?  If it's the latter, perhaps a rephrasing along the line of "Some regions of the mutational landscape are more resistant to mutations (preferably with some explanation of how).  As such, regions of the mutational landscape that are bordered by such mutation-resistant regions are less accessible, as the set of genotypes that are mutationally close to them are themselves resistant to mutations."
-% 
+%
 % ^.
 % @RCK: Will look into it and clarify.
 Further, response to selection is likely to be weaker in regions of the landscape where there are fewer available mutations that provide potentially adaptive traits, whereas response to selection will be stronger in regions where there are many adaptive variants available within a few mutational steps \cite{alberch_genes_1991,carter_role_2005}. This differential response to selection therefore constrains the ability of populations to diffuse across a fitness landscape.
 
 %%%%%%%%%%%%%%% NEW SECTION A1 10/4 %%%%%%%%%%%%%%%%%
-\subsubsection*{Landscape Metrics} 
+\subsubsection*{Landscape Metrics}
 Assessing the qualities of the nearby mutational landscape requires measures that can relate phenotypes and their fitness effects with the probabilities that these mutants will arise in the population. In order to assess the relative neutrality of the nearby mutational network, we will measure the \textbf{Genomic Diffusion Rate} $D_g$ \cite{ofria_evolution_2002}. This rate approximates the overall rate at which the population encounters new neutral genotypes.
-% * <mjwiser@gmail.com> 2017-01-30T19:04:10.203Z:
-% 
-% > types of phenotypes
-% This phrase feels quite vague to me.  I don't know what a type of phenotype means in this context.
-% 
-% @RCK ->done<- removed "types of". I really just meant variations in phenotypes, which I think the word by itself captures better.
 
-% @CAO: I moved the equations until AFTER you describe what all of the variables mean.
-% * <mjwiser@gmail.com> 2017-01-30T19:05:26.396Z:
-% 
-% I disagree.  Personally, I find it much easier to get the equation first, and then what all of the terms mean afterwards.  I feel like if all of the terms are given first, I'm supposed to keep in mind what all of them are as I'm told about new ones all the way until I get to the equation(s).
-% 
-% ^.
-
-To calculate the \textbf{Genomic Diffusion Rate} ($D_g$) in the local neighborhood of a genotype, first calculate its \textit{Fidelity} ($F$), or the probability of an offspring sharing this genotype with its parent, by measuring the probability that a single locus is not mutated ($1-\mu)$ and raising it to the power of the genome length ($l$). Next, measure the proportion of 1-step mutants that are neutral or beneficial when compared to the parent ($p_\nu$) as well as those that are detrimental or lethal ($p_d$), which must sum to one ($p_\nu + p_d = 1$).  The \textit{Neutral Fidelity} ($F_\nu$) of a genotype is thus the probability that no harmful mutations occur, assuming no epistasis. Finally, subtracting Fidelity from Neutral Fidelity will yield the overall probability of producing an neutral offspring with a different genotype, yet neutral or better fitness ($D_g$). 
-%@CAO I changed a lot of the language in this paragraph.  In particular the "inverse of X" is 1/X *not* 1-X.  Also, Fidelity is a genome-level measure, and shouldn't be used in a per-site context (so I just called the needed concept p_d for probability of deleterious mutations).  I also changed F_{neut} to F_\nu for consistence with p_\nu, though we could also change both in the other direction as well.
-%@RCK: cool.
+To calculate the \textbf{Genomic Diffusion Rate} ($D_g$) in the local neighborhood of a genotype, first calculate its \textit{Fidelity} ($F$), or the probability of an offspring sharing this genotype with its parent, by measuring the probability that a single locus is not mutated ($1-\mu)$ and raising it to the power of the genome length ($l$). Next, measure the proportion of 1-step mutants that are neutral or beneficial when compared to the parent ($p_\nu$) as well as those that are detrimental or lethal ($p_d$), which must sum to one ($p_\nu + p_d = 1$).  The \textit{Neutral Fidelity} ($F_\nu$) of a genotype is thus the probability that no harmful mutations occur, assuming no epistasis. Finally, subtracting Fidelity from Neutral Fidelity will yield the overall probability of producing an neutral offspring with a different genotype, yet neutral or better fitness ($D_g$).
 
 \begin{eqnarray}
 \label{eq:fidelity}
@@ -326,19 +285,7 @@ To calculate the \textbf{Genomic Diffusion Rate} ($D_g$) in the local neighborho
 	D_g = F_\nu - F
 \end{eqnarray}
 
-
-%\begin{center}
-%$F = (1 - \mu)^l$
-%
-%$F_\nu = (1 - \mu p_d)^l$
-%
-%$D_g = F_\nu - F$
-%\end{center}
-
-Measures of neutral exploration, however, only show part of the picture. While some form of neutrality is necessary for exploring a fitness landscape, new phenotypes must be discovered to achieve higher local evolvability.
-% @CAO: I think I reworded this previous sentence sufficiently that you no longer even need a CITE since its pretty intuitive, but if you have a good one, go ahead and put it in anyway.
-% @RCK: Removed todo.
-In order to assess evolvability more specifically, we introduce a related measure, the \textbf{Phenotypic Diffusion Rate} ($D_p$), which represents the probability that an offspring will be fitness-neutral, but also express a different phenotype than its parent. To do so, we must first measure the proportion of one-step mutants that are \textit{phenotypically} neutral as compared to their parent ($p_{p\nu}$) and follow a similar procedure as above, first calculating the probability that a phenotype-changing mutation will occur ($\mu_{pheno}$), then the phenotypic-level fidelity ($F_{p\nu}$).
+Measures of neutral exploration, however, only show part of the picture. While some form of neutrality is necessary for exploring a fitness landscape, new phenotypes must be discovered to achieve higher local evolvability. In order to assess evolvability more specifically, we introduce a related measure, the \textbf{Phenotypic Diffusion Rate} ($D_p$), which represents the probability that an offspring will be fitness-neutral, but also express a different phenotype than its parent. To do so, we must first measure the proportion of one-step mutants that are \textit{phenotypically} neutral as compared to their parent ($p_{p\nu}$) and follow a similar procedure as above, first calculating the probability that a phenotype-changing mutation will occur ($\mu_{pheno}$), then the phenotypic-level fidelity ($F_{p\nu}$).
 \begin{eqnarray}
 \label{eq:phenotypic_mutation_rate}
 	\mu_{pheno} = \mu (1- p_{p\nu})
@@ -351,77 +298,30 @@ In order to assess evolvability more specifically, we introduce a related measur
 \label{eq:phenotypic_diffusion_rate}
 	D_p = F_\nu - F_{p\nu}
 \end{eqnarray}
-%\begin{center}
-%$\mu_{pheno} = \mu (1- p_{p\nu})$
-%
-%$F_{p\nu} = (1 - \mu_{pheno})^l$
-%
-%$D_p = F_\nu - F_{p\nu}$
-%\end{center}
 The difference between the overall neutral fidelity and the phenotype-preserving neutral fidelity ($F_\nu - F_{p\nu}$) yields the phenotypic diffusion rate.
-%@CAO: I added a couple of sentences here to explain the math, which I think is all we need; I commented out the longer paragraph below since the logic flows the same as above and I think it should be intuitive.
-%Neutrality in all cases is normalized by fitness in all experimental environments. 
 
-
-
-%%%Neutrality is calculated based on an expected fitness, weighted across all experimental environments, given their probability of occurring.
-% @RCK - 6/6/17 - moved expected value paragraph up to here, and commented out above sentence.
-
-
-
-%Normalized neutrality therefore gives the expected fitness value across the changing meta-environment.
-%@CAO: This last part about changing meta-environments is a bit abrupt and confusing.  How do we normalize?  Is the current environment weighted more?  I think we need to either leave this part out (until later) or else spend a whole paragraph explaining what we mean.
-% * <mjwiser@gmail.com> 2017-01-30T19:09:46.216Z:
-% 
-% I agree with Charles.  This sentence either needs to become a paragraph, or be moved to later.
-% 
-% ^.
-%@RCK: There's a paragraph below that talks about this. I'll see if I can figure out how to allude to it without being confusing. TODO 
-
-
-%To calculate the \textbf{Phenotypic Diffusion Rate}, begin by surveying the mutational landscape, and counting the proportion of 1-step mutants that are neutral or beneficial (as in the GDR above), except that also exhibit a different phenotype from the parent ($\nu_p$). Then, take the inverse times the mutation rate ($\mu$) to yield the mutation probability of offspring that are neither neutral, nor have a different phenotype from the parent ($F_cp$). And again, take the inverse, while raising it to the length of the genome ($l$), to yield the Neutral Phenotypic Fidelity ($F_{pheno}$), or the overall probability of producing offspring that are neutral, while also being phenotypically identical to the parent. Finally, subtract Neutral Phenotypic Fidelity from overall Neutral Fidelity ($F_{neut}$) to yield the remainder probability, the \textbf{Phenotypic Diffusion Rate} ($D_p$). That is, the probability of producing an offspring that is fitness neutral (or better), while having a different phenotype from the parent.
-
-%%%%%%%%%%%%%%%% END NEW SECTION A1 %%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%% NEW SECTION A2 - 10/5 %%%%%%%%%%%%%%%
-%% MOVED HERE 6/6/17
 \subsubsection*{Expected Value of Fitness Landscapes}
 In the context of changing environments, the expected fitness value ($E(w)$), and thus the neutrality, of a mutant in the mutational landscape will vary depending on the environmental context. So, in one environment, a mutant may be highly fit, but the same allele may be highly deleterious in a different environment. In order to address this variation, all metrics must be normalized by the probability that a particular environment will occur ($P_i$). That is, the nearby mutational landscape must be evaluated in each possible environment, yielding a traditional fitness landscape. Then, the set of fitnesses of each mutant ($w_i$) in each environment must be aggregated according to the probability of that environment occurring.
-% * <mjwiser@gmail.com> 2016-12-01T20:56:58.657Z:
-%
-% I think this notation for expected fitness is going to be confusing to a biological audience.  We typically use w for fitness.  And if we're talking about expectations of a value, that will typically be E(value).  Then we would have E(w) = sum (i = 1 to m (why m, incidentally?) ) w (sub i) P (sub i)
-%
-% ^.
-
-% @RCK - m was the number of possible environments. Switched it to e for clarity. All else corrected.
-%
-%\begin{center}
-%$E(w) = \displaystyle\sum_{i=1}^{e} w_i P_i$
-%%$F_E = \displaystyle\sum_{e=1}^{m} F_e P_e$
-%\end{center}
-%
 \begin{eqnarray}
 \label{eq:expected_fitness_value}
 	E(w) = \displaystyle\sum_{i=1}^{e} w_i P_i
 \end{eqnarray}
-%%%%%%%%%%%%%% END NEW SECTION A2 %%%%%%%%%%%%%%%%%
 
 \subsection*{Changing environments create more paths to different kinds of phenotypes}
 Sustained directional selection adjusts the composition of phenotypes and genotypes in a population \cite{wright_evolution_1931}, typically moving that population across the mutational landscape to local regions of higher fitness. When populations find a fitness peak, they tend to cluster there, and
 exploration of that region of the landscape slows dramatically.
-%the accumulation of new phenotype-altering mutations decreases \cite{wright_stochastic_1964,kauffman_towards_1987}.
+
 In changing environments, however, the direction of selection is not fixed and peaks are not stable.  Instead, as the environment changes, populations are driven to explore new regions of the mutational landscape \cite{kashtan_varying_2007,connelly_negative_2015}. As they proceed, populations accumulate and carry with the genetic material acquired in prior explorations and adaptations, and use this history as raw material for new adaptation \cite{mcclintock_significance_1993}. Indeed, earlier work has shown that changing environments promote evolvability in many contexts, without compromising robustness \cite{crombach_evolution_2008,wilke_evolution_2001}. Strength of selection is also an important component of this exploration, since the harshness of the environment drives the speed with which organisms adapt to new conditions \cite{goddard_sex_2005}.
 
-In this paper, we show how changing environments not only drive exploration of the mutational landscape, but also select for populations whose genetic architectures are qualitatively different than those from populations evolved in static environmental conditions. In particular, we show that populations evolved under harsh, cyclically-changing environments have many more changes along their phylogenetic histories than those evolved in static or benign changing environments. Organisms evolved in these populations also contain reservoirs of pseudogene-like vestigial loci that were acquired and deactivated through repeated adaptation and fixation cycles. As a result, populations evolved in these harsh cyclically-changing environments are low in standing neutral diversity at the population level, but they still connect locally with many more phenotypically-interesting regions of the mutational landscape than more diverse populations evolved in static or benign environments. 
+In this paper, we show how changing environments not only drive exploration of the mutational landscape, but also select for populations whose genetic architectures are qualitatively different than those from populations evolved in static environmental conditions. In particular, we show that populations evolved under harsh, cyclically-changing environments have many more changes along their phylogenetic histories than those evolved in static or benign changing environments. Organisms evolved in these populations also contain reservoirs of pseudogene-like vestigial loci that were acquired and deactivated through repeated adaptation and fixation cycles. As a result, populations evolved in these harsh cyclically-changing environments are low in standing neutral diversity at the population level, but they still connect locally with many more phenotypically-interesting regions of the mutational landscape than more diverse populations evolved in static or benign environments.
 
 
+
+\section*{Methods}
 
 \subsection*{Digital Evolution}
-%Digital Evolution is a sub-field of Artificial Life that focuses on studying evolutionary dynamics using self-replicating computer programs as model organisms \cite{mckinley_harnessing_2008}.
-% @CAO: Restructured; talking about a subfield of ALife might only confuse this audience.
 Digital Evolution uses self-replicating computer programs as model organisms to study evolutionary dynamics~\cite{mckinley_harnessing_2008}.
-Unlike theoretical simulations, digital organisms have a fully functional genome that direct them to self-replicate, mutate, and compete with their peers for resources and space in which to reproduce. %Because populations of digital organisms have a source of variation, inheritance of genetic material across generations, and are subject to selective pressures, they undergo evolution by natural selection.
-Because digital organisms undergo genetic mutations (i.e., variation) that are passed on to their offspring (inheritance), and their survival is based on the actions they take (differential selection), they undergo evolution by natural selection. % @CAO Cite Dennett?
+Unlike theoretical simulations, digital organisms have a fully functional genome that direct them to self-replicate, mutate, and compete with their peers for resources and space in which to reproduce. Because digital organisms undergo genetic mutations (i.e., variation) that are passed on to their offspring (inheritance), and their survival is based on the actions they take (differential selection), they undergo evolution by natural selection. % @CAO Cite Dennett?
 
 Digital organisms do not suffer from many of the drawbacks of experimentation on natural organisms.  Three of the advantages of digital organisms are particularly relevant for our study.  First, the rates of reproduction in digital systems are much faster than in even the most rapidly-reproducing physical organisms; we can process generations of organisms in seconds, rather than the hours required for the fastest biological organisms under sustained conditions \cite{ryan_evolution_1953,lenski_long-term_1991}, or the weeks to years needed for more complex multicellular organisms \cite{anderson_outcrossing_2010,stearns_experimental_2000}.
 
@@ -429,17 +329,13 @@ Second, using digital organisms allows us to tightly control and verify experime
 
 Finally, we can precisely and perfectly map the mutational landscape around the genome of a digital organism, and identify the role of every site in its genome\cite{ofria_evolution_2002}; such exhaustive techniques are not feasible in even the simplest physical organisms.  All of these factors make digital organisms ideal for studying the effects of changing environments on the mutational landscape.
 
-\section*{Methods}
-
-\subsection*{Avida Digital Evolution Platform}
+\subsubsection*{Avida Digital Evolution Platform}
 We used Avida \cite{lenski_evolutionary_2003} to examine the effects of cyclic changing environments on the genomes of evolved digital organisms. Avida is a software platform for performing evolution experiments with digital organisms in a virtual world.
 
 \begin{figure}[!h]
-%\begin{center}
 \includegraphics[width=0.5\columnwidth]{figures/squishedCPU_extra.png}
 \caption{{\bf An example virtual CPU from Avida}, with a circular genome (blue), three registers (purple), input and output handlers (tan), and an instruction pointer (yellow) indicating the next instruction to be executed.%
 }\label{fig:cpu}
-%\end{center}
 \end{figure}
 
 An Avida organism is composed of a circular genome of assembly-like computer instructions that are executed in a virtual CPU (Fig~\ref{fig:cpu}). Populations of these organisms are placed in a toroidal world in individual cells where they are allowed to execute, reproduce, compete for space, mutate, and evolve.
@@ -454,38 +350,21 @@ Avida is available for download without cost from \url{http://avida.devosoft.org
 
 \subsection*{Experimental Design}
 
-%%%%%%%%%%% NEW SECTION B1 10/29
 In order to examine the dynamics and mechanisms of evolving populations in changing environments (CE), we performed two sets of experiments: one in a cyclically changing environment, and the other in a stochastic changing environment. Further, in order to assess the longer-term evolvability effects of changing environments we introduced CE-adapted populations to a completely new environment where they could adapt to a new set of tasks.
-% @CAO: I had thought we were going to primarily talk about the cyclically changing environment and then only mention the stochastic one in order to illustrate that the general effect -- if not the magnitude -- was still there with randomly changing environments.
-% @CAO: I also realized something important: Since the reason that a stochastically changing environment isn't as effective is because they don't change as much (only half the time does a change actually occur) you should always compare a cyclically changing environment to a stochastic one that checks for a change twice as frequently.  Then you have the same average number of changes per unit time and it becomes a more fair comparison.  I'm betting you can already do this comparison with existing data that you've previously collected.
-% @RCK: Nope, they change the same amount. We talked about this already.
+
 \subsubsection*{Cyclic and Stochastic Changing Environments}
 For the cyclic environment,%%%%%%%%%%% END NEW SECTION B1
-we subjected a total of 150 replicate populations of digital organisms to two different treatments of two-phase cyclically
-% Should this be "cyclical" or "cyclically"?  I think the former is an adjective and the latter is an adverb, so you want the latter.  (probably would need to be fixed throughout if I'm correct.)
-% @RCK: done
-changing environments, plus a static control. The environment cycles between equal-length periods of reward and punishment. Each cycle extends for 1000 updates, or roughly 30 generations. In the static control, there is no cycle. Rather, the rewards remain constant. The complete experiment extends for 200 cycles, or 200,000 updates, approximately 6,000 generations.
+we subjected a total of 150 replicate populations of digital organisms to two different treatments of two-phase cyclically changing environments, plus a static control. The environment cycles between equal-length periods of reward and punishment. Each cycle extends for 1000 updates, or roughly 30 generations. In the static control, there is no cycle. Rather, the rewards remain constant. The complete experiment extends for 200 cycles, or 200,000 updates, approximately 6,000 generations.
 
-%We structured the environment to provide large rewards to organisms for performing two challenging bit-wise logical tasks: XOR and EQU.
 We set up the system to detect organisms that performed XOR or EQU, two challenging bit-wise logical tasks.
-In the static control, % @CAO: otherwise it sounds like these are always rewarded!
-%XOR is rewarded with a substantial CPU speed (and thus fitness) multiple in order to encourage .... while EQU is rewarded with a four-fold greater reward to ensure sufficient --- TODO (replace line below)
-XOR is rewarded with a CPU speed (and thus fitness) multiple of 8, while EQU is rewarded with a CPU speed multiple of 32. % @CAO: I worry that these seem like arbitrary values and warrant some explanation.
-%@RCK - fixing, see above (TODO)
-In the harsh treatment, as the cycle progresses, the XOR reward remains constant, while the EQU reward cycles between a 32-fold bonus and a correspondingly harsh 32-fold penalty (i.e., CPU speed is divided by 32 when EQU is performed in the off cycle). The benign treatment is nearly identical to the harsh treatment, except that the reward merely goes away in the off-cycle as opposed to incurring a severe penalty.
+In the static control, XOR is rewarded with a CPU speed (and thus fitness) multiple of 8, while EQU is rewarded with a CPU speed multiple of 32. In the harsh treatment, as the cycle progresses, the XOR reward remains constant, while the EQU reward cycles between a 32-fold bonus and a correspondingly harsh 32-fold penalty (i.e., CPU speed is divided by 32 when EQU is performed in the off cycle). The benign treatment is nearly identical to the harsh treatment, except that the reward merely goes away in the off-cycle as opposed to incurring a severe penalty.
 
 The stochastic changing environment experiment is similar to the cyclic environment, except that rather than the environment toggling every 500 updates, the environmental switch happens randomly, with a 0.002
 probability of changing on every update. This averages, in the long term, to approximately one switch every 500 updates, but in the short term, the environmental switches are unpredictable.
 
 In both environments, we identify EQU as the \textit{Fluctuating Task}. XOR, because it is rewarded continuously, is the \textit{Backbone Task}, and is used as a background for comparing the separation or intertwining of functional genetic components in the evolution of EQU. Further, the 4-fold difference in reward level between XOR and EQU encourages the evolution and maintenance of EQU when possible.
 
-For all of the experiments described in this section, we held the individual genomes at a fixed length of 121\footnote{As part of
-%the initial exploratory protocol, we hand-wrote an organism with separated sections that performed XOR and EQU. In order to compare the hand-written organism with a sample of evolved organisms, we matched their genome lengths, which were 121 instructions.
-our initial controls, we hand-wrote an organism with separated sections that performed XOR and EQU. This hand-written organism had 121 instructions and as such we used this genome length as a constraint for the evolve organisms as well.
-} instructions, but tested the new genomes for mutations
-% @CAO: Changed to TESTED for mutations rather than MUTATED -- it's an important distinction, though the fact that you included a rate would have helped.
-after each successful replication event at a substitution probability of 0.00075 per site.
-We configured the Avida world to have local interactions on a toroidal grid that is 60-by-60 cells (3600 cells in total), and we seeded the initial populations with an ancestor that was previously evolved to perform XOR and EQU under a static reward.
+For all of the experiments described in this section, we held the individual genomes at a fixed length of 121\footnote{As part of our initial controls, we hand-wrote an organism with separated sections that performed XOR and EQU. This hand-written organism had 121 instructions and as such we used this genome length as a constraint for the evolve organisms as well.} instructions, but tested the new genomes for mutations after each successful replication event at a substitution probability of 0.00075 per site. We configured the Avida world to have local interactions on a toroidal grid that is 60-by-60 cells (3600 cells in total), and we seeded the initial populations with an ancestor that was previously evolved to perform XOR and EQU under a static reward.
 The genetic architecture for performing XOR and EQU is tightly intertwined in this ancestral organism, as it was evolved with no selective pressure for modularity.
 
 \subsubsection*{Long-Term Evolvability}
@@ -507,22 +386,18 @@ Evolution in the harsh changing environment resulted in populations with substan
 
 \caption{{\bf Phylogenetic depth over time of a representative sample population} evolved in each of the three treatments. White horizontal lines mark the depth of the most recent common ancestor, and discontinuities in this line indicate that the most recent common ancestor has changed, and thus that a sweep occurred. The control treatments had a mean of 18 sweeps (STD=9.05), the benign treatments had a mean of 21 (STD=19.05), and the harsh treatments had a mean of 88 sweeps (STD=23.37). Note the difference in scales between y-axes: the control-evolved population has a maximum depth of 400 mutational steps from ancestor, while the harsh-evolved has upward of 1100. %
 }\label{fig:flamegraph}
-%\end{center}
 \end{figure}
 
-The populations that evolved in the control and benign environments displayed more genetic diversity as compared to those evolved in the harsh cyclic environment, which underwent what was effectively 
-% @CAO: Do we need to say "what was effectively"?  Mike, what's the official definition of a bottleneck?  I think a rapid fixing of a genotype counts, no?
-a bottleneck at each cycle shift. Because a selective sweep reduces current diversity within a population, the smaller number of sweeps
+The populations that evolved in the control and benign environments displayed more genetic diversity as compared to those evolved in the harsh cyclic environment, which underwent a bottleneck at each cycle shift. Because a selective sweep reduces current diversity within a population, the smaller number of sweeps
 % @CAO it looks like it wasn't just a smaller number of sweeps, but that the sweeps took MUCH longer to occur, to the point where it's hard to even dub them sweeps at all...  more fixation events?  Mike should weigh in here too.
 in the benign and control treatments led populations in them to have higher standing diversity for most of their evolutionary history than those populations from the harsh changing environment.  Despite this higher standing diversity in the benign and control treatments, regions of low diversity are still evident in the genomes of these populations, implying purifying selection on the traits encoded at these sites (see Fig~\ref{fig:entropy}).
 % * <mjwiser@gmail.com> 2017-01-30T19:39:00.542Z:
-% 
+%
 % I feel like this figure would be easier to talk about if you split it into three panels, and mention that each panel has both an upper and a lower part.  It would also probably be easier to read if the axes on the left were on the top panel, rather than the middle one; since you have two graphs in each panel, it doesn't make sense to just have a single axis label off to the side.  However, you probably *can* have only a single x axis label, since the axes are the same for all the panels, and for both graphs within a panel.
-% 
+%
 % ^.
 %@RCK - TODO fix figure below.
 \begin{figure}[!h]
-%\begin{center}
 \includegraphics[trim={-0.85cm 0 0.1cm 0.2cm},clip,width=1\columnwidth]{figures/control__entropy}
 \includegraphics[trim={0.25cm 0 0.1cm 0},clip,width=1\columnwidth]{figures/benign__entropy}
 \includegraphics[trim={-0.85cm 0 0.1cm 0},clip,width=1\columnwidth]{figures/harsh__entropy}
@@ -530,45 +405,30 @@ in the benign and control treatments led populations in them to have higher stan
 a single
 population at each update, both by genetic locus (upper), and overall population mean (lower). Hotter colors (red/orange/yellow) indicate greater diversity at this locus, while cooler colors (blues) indicate the a locus is more consistent across the population. Mean population entropy indicates the relative diversity of the population at any given time, while the per-site entropy shows where in the genomes the population diversity is located.   %@CAO: I'm agreeing with Mike that we might want to make this two graphs.  I added a bit in the description about the cooler colors just to lead the reader by the hand as much as possible.
 }\label{fig:entropy}
-%\end{center}
 \end{figure}
+
 
 \subsubsection*{Genetic Architecture}
 The selective shifts in both benign and harsh changing environments result in qualitatively different architectural styles from the static control environment. The task arrangements evolved under both experimental treatments are much more scattered throughout the genome than in the control. Specifically, the bulk of the sites responsible for performing the fluctuating task (EQU) did not overlap with the backbone task (XOR), except for a core region, which represents portions of the tasks that are shared between XOR and EQU. (Fig~\ref{fig:lineage})
 % @CAO: I'm not positive I understand this description for how things are laid out.  It might be worth putting a bit more detail here, and highlighting also that there is a lot more separation in the harsh environment (or so it seems).  Should we talk more here about why all of this is the case (highlighting that we are speculating) or will that come later?
 
 \begin{figure}[!h]
-%\begin{center}
 \setlength{\fboxsep}{0pt}%
 \setlength{\fboxrule}{0pt}%
 \fbox{\includegraphics[width=0.75\columnwidth,trim={-0.82cm 0 5.5cm 0.25cm},clip]{figures/control__whole_taskmap.png}}\fbox{\includegraphics[width=0.25\columnwidth,trim={9.1cm 0.15cm 1.3cm 0},clip]{figures/legend__whole_taskmap.png}}
 \fbox{\includegraphics[width=1\columnwidth,trim={0.2cm 0 2.3cm 0},clip]{figures/benign__whole_taskmap.png}}
 \fbox{\includegraphics[width=1\columnwidth,trim={-0.82cm 0 5.2cm 0},clip]{figures/harsh__whole_taskmap.png}}
-\caption{{\bf Varying genetic architecture of XOR and EQU over time} for the final dominant genotype in a randomly selected replicate.
-% @CAO: Perhaps "...in a typical replicate"?  Randomly selected makes it seem like it might be atypical...  so, is this typical?
-% @RCK: This is typical. They all look like this, so I just grabbed the first one on the pile.
-Proceeding from the left of each figure, each vertical slice
-%along the X-axis represents an ancestor of
-represents an organism along the line-of-descent to
-the final dominant.
-Positions along
-the Y-axis represent each genome locus; loci in an organism are colored based on the tasks that they code for. Sites in \textbf{red} are active sites that code for the XOR task only, sites in \textbf{blue} are active sites for the EQU task only, and \textbf{purple} sites code for both XOR and EQU. Knockouts to the sites in black are lethal to the organism. Sites in the lighter colors (tan, light blue, lavender) represent vestigial sites for XOR only, EQU only, or both tasks, respectively.
-% @CAO: Probably don't need this last line below?
-As we proceed from left to right, we can see the evolutionary history of the final dominant genotype.
-% @RCK: I think we do. I've gotten questions about it before. :P
-}\label{fig:lineage}
-%\end{center}
+\caption{{\bf Varying genetic architecture of XOR and EQU over time} for the final dominant genotype in a randomly selected replicate. Proceeding from the left of each figure, each vertical slice represents an organism along the line-of-descent to the final dominant.
+Positions along the Y-axis represent each genome locus; loci in an organism are colored based on the tasks that they code for. Sites in \textbf{red} are active sites that code for the XOR task only, sites in \textbf{blue} are active sites for the EQU task only, and \textbf{purple} sites code for both XOR and EQU. Knockouts to the sites in black are lethal to the organism. Sites in the lighter colors (tan, light blue, lavender) represent vestigial sites for XOR only, EQU only, or both tasks, respectively. As we proceed from left to right, we can see the evolutionary history of the final dominant genotype.}
+\label{fig:lineage}
 \end{figure}
 
-In contrast, the architecture of XOR and EQU remain tightly intertwined in the control, and site positions do not change substantially %@CAO: Should this be "substantially"?  Otherwise, we should technically provide stats.\
-%@RCK: Fixed.
-over the course of the experiment. In the benign treatment, many more regions that perform the fluctuating task (XOR) are scattered throughout the genome, but site positions remain relatively fixed throughout the run after an initial adaptive phase. In the harsh treatment, not only are the active sites scattered, but the positions of active sites change and proliferate wildly over time.
+In contrast, the architecture of XOR and EQU remain tightly intertwined in the control, and site positions do not change substantially over the course of the experiment. In the benign treatment, many more regions that perform the fluctuating task (XOR) are scattered throughout the genome, but site positions remain relatively fixed throughout the run after an initial adaptive phase. In the harsh treatment, not only are the active sites scattered, but the positions of active sites change and proliferate wildly over time.
 
-Interestingly, populations evolved in both the benign and harsh treatments also show development of a large reservoir of formerly functional, now vestigial, sites; that is, sites that remain unchanged from when they were previously active in performing a task, but were disabled by a mutation elsewhere and are thus now neutral. 
-%However, 
+Interestingly, populations evolved in both the benign and harsh treatments also show development of a large reservoir of formerly functional, now vestigial, sites; that is, sites that remain unchanged from when they were previously active in performing a task, but were disabled by a mutation elsewhere and are thus now neutral.
+
 These vestigial pseudogene-like sites appear to be important for allowing the organisms to quickly re-adapt as the fluctuations in the environment restore the previously-rewarded functions. (Fig~\ref{fig:CCE_func_vestigial})
 \begin{figure}[!h]
-%\begin{center}
 \includegraphics[trim={0 0 0 0}, clip, width=1\columnwidth]{figures/CCE_func_vest__box.png}
 %% TODO - generate the stats
 \caption{{\bf Number of functional and vestigial sites by treatment}. The harsh environment has a significantly larger number of vestigial sites for the fluctuating (EQU) task compared to the benign treatment or control, while having a comparable number of functional sites (One-Way ANOVA F(X,YYY) = ZZ.ZZ, p $<<$ 0.000QQ).%
@@ -576,15 +436,11 @@ These vestigial pseudogene-like sites appear to be important for allowing the or
 % @CAO: Just a reminder to do the stats!
 }
 \label{fig:CCE_func_vestigial} %% FIGURE 5
-%\end{center}
 \end{figure}
+
 \subsubsection*{Nearby mutational landscape}
 
-In order to identify the role that these pseudogene-like structures play, we performed a survey of the single-step mutational landscape surrounding the most abundant genotype at the end of the experiment for
-each replicate population. This landscape contained 3,025 distinct mutants (121 loci with 25 possible mutations per locus) in each of the 50 replicates per treatment, for a total of nearly 450,000 mutants surveyed.We found that the availability of reservoirs of vestigial sites shifted the change-evolved organisms'% Maybe cut "treatment-" ?  We claim that its the reservoirs doing it, and "treatment-evolved" just seems like an odd compound adjective to me.
-position in the mutational neighborhood, such that % @CAO: "mutational neighborhood" might be clearer?
-%@RCK - fixed both.
-a task that was lost due to mutation remains more accessible via one or two mutational steps.
+In order to identify the role that these pseudogene-like structures play, we performed a survey of the single-step mutational landscape surrounding the most abundant genotype at the end of the experiment for each replicate population. This landscape contained 3,025 distinct mutants (121 loci with 25 possible mutations per locus) in each of the 50 replicates per treatment, for a total of nearly 450,000 mutants surveyed.We found that the availability of reservoirs of vestigial sites shifted the change-evolved organisms' position in the mutational neighborhood, such that a task that was lost due to mutation remains more accessible via one or two mutational steps.
 % nearby via many more short mutational paths.
 %that are one or two mutational steps away as compared to mutants in the static control.
 %@RCK - TODO FIX WORDING ABOVE
@@ -594,11 +450,9 @@ a task that was lost due to mutation remains more accessible via one or two muta
 
 %Further, while the proportion of mutants in the nearby landscape that had expected fitness values equal to or greater than the ancestor
 % @CAO: Can this previous phrasing be just "Further, while the proportion of non-deleterious mutations in the local landscape...".  I feel like "non-deleterious" gets at our point clearly, while "fitness values equal or greater" is both awkward AND makes it seem like we particularly care about "greater" for some reason, which we don't, we just care that they are not harmful.
-We also measured the proportion of mutants in the nearby fitness landscape that had expected fitness values greater than or equal to that of the un-mutated ancestor. We found that between all treatments, this proportion 
+We also measured the proportion of mutants in the nearby fitness landscape that had expected fitness values greater than or equal to that of the un-mutated ancestor. We found that between all treatments, this proportion
 remained approximately the same. However, we found that the proportion of these mutants with different (potentially adaptive) phenotypes increased in the changing environments.
-% @CAO: Why do we say "adaptive" in parentheses, since usually it will still be harmful to change to another phenotype.  I assume it would be more accurate to say "potentially adaptive" there?
-% @RCK fixed
-%%%%%%%%%%% END NEW SECTION C 10/29 %%%%%%%%%%
+
 In this way, the treatment organisms
 % @CAO: For some reason the phrasing "treatment organisms" bugs me.  Maybe I just need to get over it, but I think that "organisms from the changing environment treatments" is much clearer, if longer.
 have an advantage over organisms from the control runs in terms of the short-term evolvability of the fluctuating task. (Fig~\ref{fig:CCE_single_step},~\ref{fig:CCE_two_step}, and ~\ref{fig:CCE_diffusion_rate})
@@ -614,105 +468,137 @@ have an advantage over organisms from the control runs in terms of the short-ter
 \caption{{\bf A survey of the single-step mutational neighborhood} around organisms that performed the fluctuating task. Note that in both the benign and harsh treatments, there were significantly more mutants that lost the EQU task as compared to the control (Wilcoxon Rank Sum Test: Z = X.XX and Y.YY respectively, p $<<$ 0.000ZZ). This result indicates that it was easier for the organisms in both treatments to turn off the EQU task in response to one mutation. %
 % old -- (Wilcoxon Rank Sum Test: Z = -6.59 and -6.70 respectively, p $<<$ 0.0001)
 }\label{fig:CCE_single_step}
-%\end{center}
+
 \end{figure}
 \begin{figure}[!h] %% FIGURE 7
-%\begin{center}
+
 \includegraphics[trim={0.2cm 0 0.4cm 0.25cm},clip,width=1\columnwidth]{figures/CCE_frac_2step__box.png}
 %TODO - stats
 \caption{{\bf A survey of the two-step mutational neighborhood} of the organisms that lost EQU function in the one-step survey. We found that in both the harsh and benign treatments, there were significantly more organisms that regained function in response to mutation than the control. (Wilcoxon Rank Sum Test: Z = X.XX and Y.YY respectively, p $<<$ 0.000Z). This result indicates that it was easier for the organisms in both fluctuating environments to regain the task in response to one additional mutation.
 %(Wilcoxon Rank Sum Test: Z = -6.11 and -7.38 respectively, p $<<$ 0.0001)
 }\label{fig:CCE_two_step}
-%\end{center}
+
 \end{figure}
 \begin{figure}[!h] %% FIGURE 8
-%\begin{center}
+
 \includegraphics[trim={0.2cm 0 0.4cm 0.25cm},clip,width=1\columnwidth]{figures/CCE_D_g_D_p__box.png}
 % TODO -- stats
-\caption{{\bf Genomic and Phenotypic Diffusion Rates}, showing the probabilities of producing offspring that are genotypically ($D_g$) or phenotypically ($D_p$) distinct from the parent, while 
-%remaining fitness neutral or better.
-not reducing fitness.
+\caption{{\bf Genomic and Phenotypic Diffusion Rates}, showing the probabilities of producing offspring that are genotypically ($D_g$) or phenotypically ($D_p$) distinct from the parent, while not reducing fitness.
 Note that while overall neutral exploration capacity remains relatively stable between treatments, phenotypic exploration capacity is increased in both treatments, but especially in the Harsh treatment. (Wilcoxon Rank Sum Test: Z = XX and XX respectively, p $<<$ 0.0001). This result indicates that changing environments promote the phenotypic evolvability of populations in particular.
 }\label{fig:CCE_diffusion_rate}
-%\end{center}
+
 \end{figure}
-%%%%%%% NEW SECTION D 10/29 %%%%%%%%%
 \subsubsection*{Stochastic Changing Environments}
 
-%Interestingly, against
-Contrary to our expectations, stochastic changing environments were less effective at promoting evolvability than cyclically changing environments. In all measures, the harsh stochastic environmental treatment under-performed as compared to the harsh cyclically changing environment. Both the Genomic and Phenotypic Diffusion Rates, key measures for predicting evolvability, saw significant reductions as compared to the cyclic treatment. Finally, there was a slight (TODO STATS significant?) reduction in the number of second-step mutants that regained EQU in the harsh stochastically changing environment. We hypothesize that this effect was driven by the inconsistent time spans between the population experiencing a given environmental condition in the stochastic treatments. Especially long time spans without a reward for a task, even if rare, could allow vestigial sites to drift away, thus pushing subsequent evolution closer to the control treatment.  
+Contrary to our expectations, stochastic changing environments were less effective at promoting evolvability than cyclically changing environments. In all measures, the harsh stochastic environmental treatment under-performed as compared to the harsh cyclically changing environment. Both the Genomic and Phenotypic Diffusion Rates, key measures for predicting evolvability, saw significant reductions as compared to the cyclic treatment. Finally, there was a slight (TODO STATS significant?) reduction in the number of second-step mutants that regained EQU in the harsh stochastically changing environment. We hypothesize that this effect was driven by the inconsistent time spans between the population experiencing a given environmental condition in the stochastic treatments. Especially long time spans without a reward for a task, even if rare, could allow vestigial sites to drift away, thus pushing subsequent evolution closer to the control treatment.
 
-While the vestigial site counts in the stochastic environment were, overall, relatively similar to those in the cyclic environment, the pattern was different for the functional sites. In the stochastic harsh treatment in particular, there was a small, but significant reduction in the number of XOR+EQU overlapping functional sites as compared to the cyclic treatment. This feature may provide a clue, indicating that architectural features that would promote the retention of EQU were less prevalent in the harsh stochastic environmental treatment. 
+While the vestigial site counts in the stochastic environment were, overall, relatively similar to those in the cyclic environment, the pattern was different for the functional sites. In the stochastic harsh treatment in particular, there was a small, but significant reduction in the number of XOR+EQU overlapping functional sites as compared to the cyclic treatment. This feature may provide a clue, indicating that architectural features that would promote the retention of EQU were less prevalent in the harsh stochastic environmental treatment.
 %MORE HERE
 
-%One feature that stands out is that the mean number of XOR-only functional task sites was greatly increased as compared to the cyclic environments, matched with a great decrease in the number of overlapping sites. On the surface, this pattern would seem to indicate greater modularity and separation of tasks, however, in reality, the effect can be largely accounted for by a generalized reduction in the number of times the EQU task was retained. In other words, the EQU task was lost much more often in the stochastic environments, indicating that the stochastic environment was in general more hostile to the retention of EQU.  
 (Fig~\ref{fig:CSE_func_vestigial})
 
 \begin{figure}[!h]
-%\begin{center}
 \includegraphics[trim={0 0 0 0}, clip, width=1\columnwidth]{figures/CSE_func_vest__filtered__box.png}
 % TODO - stats
 \caption{{\bf Number of functional and vestigial sites by treatment} in a stochastic changing environment. The vestigial site counts remain comparable to the cyclic environment (TODO STATS), however, there was a reduction in functional site counts for XOR+EQU overlapping sites in the stochastic harsh environment as compared to the cyclic harsh environment (TODO STATS).%
 %-old (One-Way ANOVA F(2,132) = 54.35, p $<<$ 0.0001).
 }
 \label{fig:CSE_func_vestigial} %% FIGURE 9
-%\end{center}
 \end{figure}
 
-Similarly, both the overall fraction of 1-step mutants that lost EQU, and the fraction of 2nd-step regaining of EQU, were slightly reduced in comparison to the cyclic treatments. 
-This result indicates that stochastic harsh environment was slightly less effective at promoting evolution toward areas of the mutational landscape where such mutations were common. %present. 
+Similarly, both the overall fraction of 1-step mutants that lost EQU, and the fraction of 2nd-step regaining of EQU, were slightly reduced in comparison to the cyclic treatments.
+This result indicates that stochastic harsh environment was slightly less effective at promoting evolution toward areas of the mutational landscape where such mutations were common.
 (Fig~\ref{fig:CSE_single_step},~\ref{fig:CSE_two_step})
 
 \begin{figure}[!h] %% FIGURE 10
-%\begin{center}
+
 \includegraphics[trim={0.2cm 0 0 0.2cm},clip,width=1\columnwidth]{figures/CSE_frac_1step__filtered__box.png}
 % TODO - stats
 \caption{{\bf A survey of the single-step mutational neighborhood} in the stochastic changing environment around organisms that performed the fluctuating task. Again, in the static and benign treatments, values are comparable to the cyclic changing environment (TODO STATS). However, in the harsh treatment, the means for both loss of the fluctuating task (EQU) and loss of both task were slight reduced. (TODO STATS). This result indicates that in the context of a harsh treatment, stochastic environmental change is less effective at moving organisms to areas of the fitness landscape where they can more easily switch task expression. %
 }\label{fig:CSE_single_step}
-%\end{center}
+
 \end{figure}
 \begin{figure}[!h] %% FIGURE 11
-%\begin{center}
+
 \includegraphics[trim={0.2cm 0 0.4cm 0.25cm},clip,width=1\columnwidth]{figures/CSE_frac_2step__box.png}
 \caption{{\bf A survey of the two-step mutational neighborhood} in the stochastic changing environment of the organisms that lost EQU function in the one-step survey. Similarly to the result in Fig~\ref{fig:CSE_single_step}, we found that the fraction of organisms regaining the fluctuating task from a single additional mutation in the harsh treatment were reduced compared to the cyclic harsh treatment. (TODO STATS). This result confirms that the harsh stochastic environment is less effective than the cyclic harsh at promoting evolvability.
 }\label{fig:CSE_two_step}
-%\end{center}
+
 \end{figure}
 
-Finally, $D_P$ showed much larger variances, but settled on a lower mean in the stochastic harsh treatment as compared to the cyclic harsh, indicating a much lower probability of the population producing offspring that would switch phenotypes neutrally. (Fig~\ref{fig:CSE_diffusion_rate}) 
+Finally, $D_P$ showed much larger variances, but settled on a lower mean in the stochastic harsh treatment as compared to the cyclic harsh, indicating a much lower probability of the population producing offspring that would switch phenotypes neutrally. (Fig~\ref{fig:CSE_diffusion_rate})
 
 \begin{figure}[!h] %% FIGURE 12
-%\begin{center}
+
 \includegraphics[trim={0.2cm 0 0.4cm 0.25cm},clip,width=1\columnwidth]{figures/CSE_D_g_D_p__box.png}
 \caption{{\bf Genomic and Phenotypic Diffusion Rates} in stochastic changing environments, showing the probabilities of producing offspring that are genotypically and phenotypically different from the parent, while remaining fitness neutral or better. As in the cyclic environment $D_g$ remains stable, at comparable levels (TODO STATS), however, the mean is significantly lower (TODO STATS). This result shows that stochastic environments are not as effective as cyclic environments at increasing the probability that organisms will produce phenotypically different, yet neutral offspring.
 }\label{fig:CSE_diffusion_rate}
-%\end{center}
+
 \end{figure}
 %
 Together, from these measures, we conclude that stochastic environments exert less evolutionary pressure to move toward regions of the mutational landscape that are more congenial to neutral phenotypic exploration and evolvability. We hypothesize that this dynamic may be due to the randomly-occurring environmental changes may either occur too rapidly for a response to selection, or too slowly, such that drift may cause the information contained in vestigial sites to mutate away. While the environment, on average, experiences as many changes as in the cyclic experiment, the distribution of the length of those environment periods will be vastly different. Thus, we can conclude that our stochastic changing environment is not more effective than a cyclic changing environment, and under harsh conditions, may actually be slightly worse for promoting the evolution of evolvability.
-%@CAO Given the fact that this is an interesting result in that the stochastic changes are less effective, but we don't have an exciting conclusion for WHY (just a strong hypothesis), presenting all of these data about the stochastic environment feels like a bit of a waste of space in the paper. I'm tempted to move all of it to the supplementary material, leaving only a single paragraph (and maybe one key graph?) in the body.
-%@RCK I'm not 100% opposed, but ... let's discuss it.
+\subsubsection*{Stochastic Changing Environments}
 
-%%%%%%%%% END NEW SECTION D %%%%%%%%%%%
+Contrary to our expectations, stochastic changing environments were less effective at promoting evolvability than cyclically changing environments. In all measures, the harsh stochastic environmental treatment under-performed as compared to the harsh cyclically changing environment. Both the Genomic and Phenotypic Diffusion Rates, key measures for predicting evolvability, saw significant reductions as compared to the cyclic treatment. Finally, there was a slight (TODO STATS significant?) reduction in the number of second-step mutants that regained EQU in the harsh stochastically changing environment. We hypothesize that this effect was driven by the inconsistent time spans between the population experiencing a given environmental condition in the stochastic treatments. Especially long time spans without a reward for a task, even if rare, could allow vestigial sites to drift away, thus pushing subsequent evolution closer to the control treatment.
+
+While the vestigial site counts in the stochastic environment were, overall, relatively similar to those in the cyclic environment, the pattern was different for the functional sites. In the stochastic harsh treatment in particular, there was a small, but significant reduction in the number of XOR+EQU overlapping functional sites as compared to the cyclic treatment. This feature may provide a clue, indicating that architectural features that would promote the retention of EQU were less prevalent in the harsh stochastic environmental treatment.
+%MORE HERE
+
+(Fig~\ref{fig:CSE_func_vestigial})
+
+\begin{figure}[!h]
+\includegraphics[trim={0 0 0 0}, clip, width=1\columnwidth]{figures/CSE_func_vest__filtered__box.png}
+% TODO - stats
+\caption{{\bf Number of functional and vestigial sites by treatment} in a stochastic changing environment. The vestigial site counts remain comparable to the cyclic environment (TODO STATS), however, there was a reduction in functional site counts for XOR+EQU overlapping sites in the stochastic harsh environment as compared to the cyclic harsh environment (TODO STATS).%
+%-old (One-Way ANOVA F(2,132) = 54.35, p $<<$ 0.0001).
+}
+\label{fig:CSE_func_vestigial} %% FIGURE 9
+\end{figure}
+
+Similarly, both the overall fraction of 1-step mutants that lost EQU, and the fraction of 2nd-step regaining of EQU, were slightly reduced in comparison to the cyclic treatments.
+This result indicates that stochastic harsh environment was slightly less effective at promoting evolution toward areas of the mutational landscape where such mutations were common.
+(Fig~\ref{fig:CSE_single_step},~\ref{fig:CSE_two_step})
+
+\begin{figure}[!h] %% FIGURE 10
+
+\includegraphics[trim={0.2cm 0 0 0.2cm},clip,width=1\columnwidth]{figures/CSE_frac_1step__filtered__box.png}
+% TODO - stats
+\caption{{\bf A survey of the single-step mutational neighborhood} in the stochastic changing environment around organisms that performed the fluctuating task. Again, in the static and benign treatments, values are comparable to the cyclic changing environment (TODO STATS). However, in the harsh treatment, the means for both loss of the fluctuating task (EQU) and loss of both task were slight reduced. (TODO STATS). This result indicates that in the context of a harsh treatment, stochastic environmental change is less effective at moving organisms to areas of the fitness landscape where they can more easily switch task expression. %
+}\label{fig:CSE_single_step}
+
+\end{figure}
+\begin{figure}[!h] %% FIGURE 11
+
+\includegraphics[trim={0.2cm 0 0.4cm 0.25cm},clip,width=1\columnwidth]{figures/CSE_frac_2step__box.png}
+\caption{{\bf A survey of the two-step mutational neighborhood} in the stochastic changing environment of the organisms that lost EQU function in the one-step survey. Similarly to the result in Fig~\ref{fig:CSE_single_step}, we found that the fraction of organisms regaining the fluctuating task from a single additional mutation in the harsh treatment were reduced compared to the cyclic harsh treatment. (TODO STATS). This result confirms that the harsh stochastic environment is less effective than the cyclic harsh at promoting evolvability.
+}\label{fig:CSE_two_step}
+
+\end{figure}
+
+Finally, $D_P$ showed much larger variances, but settled on a lower mean in the stochastic harsh treatment as compared to the cyclic harsh, indicating a much lower probability of the population producing offspring that would switch phenotypes neutrally. (Fig~\ref{fig:CSE_diffusion_rate})
+
+\begin{figure}[!h] %% FIGURE 12
+
+\includegraphics[trim={0.2cm 0 0.4cm 0.25cm},clip,width=1\columnwidth]{figures/CSE_D_g_D_p__box.png}
+\caption{{\bf Genomic and Phenotypic Diffusion Rates} in stochastic changing environments, showing the probabilities of producing offspring that are genotypically and phenotypically different from the parent, while remaining fitness neutral or better. As in the cyclic environment $D_g$ remains stable, at comparable levels (TODO STATS), however, the mean is significantly lower (TODO STATS). This result shows that stochastic environments are not as effective as cyclic environments at increasing the probability that organisms will produce phenotypically different, yet neutral offspring.
+}\label{fig:CSE_diffusion_rate}
+
+\end{figure}
+%
+Together, from these measures, we conclude that stochastic environments exert less evolutionary pressure to move toward regions of the mutational landscape that are more congenial to neutral phenotypic exploration and evolvability. We hypothesize that this dynamic may be due to the randomly-occurring environmental changes may either occur too rapidly for a response to selection, or too slowly, such that drift may cause the information contained in vestigial sites to mutate away. While the environment, on average, experiences as many changes as in the cyclic experiment, the distribution of the length of those environment periods will be vastly different. Thus, we can conclude that our stochastic changing environment is not more effective than a cyclic changing environment, and under harsh conditions, may actually be slightly worse for promoting the evolution of evolvability.
+
 \section*{Conclusion}
-In cyclic changing environments, the direction of selection shifts frequently, and periodically drives populations to not only explore new regions of the genetic landscape, but also to carry with them vestigial genetic information about previous environmental conditions. Thus, the resulting populations are not only adapted to the current environment, but also to the meta-environment of cyclic change. Because of their evolutionary history, the genomes contain vestigial fragments of genetic material that were adapted to prior environments.
-% @CAO: Doesn't this previous sentence merely repeat the info from the sentence before?
-As this exploration proceeds, mutations accumulate in the population, each creating a link to a new region of the mutational landscape.
-% @CAO: How are these "links" to new regions?  I think we need to explain this part a bit clearer...
-As these links accumulate, they form a reservoir of mobility for the population to quickly shift to new phenotypes as dictated by current selective conditions. In this way, the accumulation of vestigial or pseudogene-like regions acts as an adaptation to the larger pattern of changing selective forces.
+In cyclic changing environments, the direction of selection shifts frequently, and periodically drives populations to not only explore new regions of the genetic landscape, but also to carry with them vestigial genetic information about previous environmental conditions. Thus, the resulting populations are not only adapted to the current environment, but also to the meta-environment of cyclic change. Because of their evolutionary history, the genomes contain vestigial fragments of genetic material that were adapted to prior environments. As this exploration proceeds, mutations accumulate in the population, each creating a link to a new region of the mutational landscape. As these links accumulate, they form a reservoir of mobility for the population to quickly shift to new phenotypes as dictated by current selective conditions. In this way, the accumulation of vestigial or pseudogene-like regions acts as an adaptation to the larger pattern of changing selective forces.
 
 By contrast, in static (non-changing) environments, the majority of neutral mutations do not connect to as many phenotypically-interesting regions of genotype-space. There are far fewer pseudogene-like regions available that could regain functionality should conditions change. Thus, populations evolved in static environments are less evolvable in the short-term.
 
-%%%%%%%% NEW SECTION E 10/29 %%%%%%%%%%
 Surprisingly, stochastically changing environments were slightly less effective at exploration
 % @CAO: Are they really?  We've shown that they produce new phenotypes less often, but that's a very limited definition of exploration.  However, it's the one that we need to stick to.
 % @CAO: That said (and this argument goes to static environments too), if we claim that stochastic environments produce new phenotypes less frequently we can argue WHY we hypothesize that they'll be less effective at exploration.  In thinking about it, it feels like we should use these as ancestors for an entirely new environmental shift.  If we show that the organisms previously experiencing a cyclically changing environment do better with the new environment THEN we have strong evidence that stochastically changing environments are less effective at exploration.
 than cyclic changing environments, even if, on average, the amount of time spent in each environment was equal. We hypothesize this is because of more opportunity for drift to destroy the information contained in vestigial regions, as well as potentially fewer opportunities for populations to respond to selection.
-%%%%%%%% END NEW SECTION E %%%%%%%%%%
 
 \subsection*{Limitations of Changing Environments}
-Changing environments produce a set of selective pressures that speed up exploration of genotype space, while also building %useful
-reservoirs of partial functionality that may be co-opted in the evolution of more complex structures. These features make changing environments useful for both their explanatory power in natural evolution, and as practical tools in the Artificial Life toolkit. 
+Changing environments produce a set of selective pressures that speed up exploration of genotype space, while also building reservoirs of partial functionality that may be co-opted in the evolution of more complex structures. These features make changing environments useful for both their explanatory power in natural evolution, and as practical tools in the Artificial Life toolkit.
 Ultimately, however, cyclic changing environments only re-tread existing phenotypic ground, and though genotypic exploration is faster than under purely directional or stabilizing selection, the space explored remains constrained by the type of phenotypes that are selected.
 
 Even so, there must exist methods of exploring genotype space that do not suffer from these limitations.
@@ -720,18 +606,15 @@ For example, perhaps repeated bottlenecking of populations could promote faster 
 More ambitiously, perhaps these kinds of environments could be coupled with dynamically increasing open-ended complexity goals.
 
 %% TODO Tweak below?
-Understanding the mechanisms by which select environmental conditions alter fitness landscapes is vital to understanding the forces that promote evolvability and increase complexity.
-%%%%%%%% NEW SECTION F 10/29 %%%%%%%%
-In particular, understanding the role of vestigial sites may help us untangle how robustness can promote evolvability.
-Are these vestigial sites inactive remnants, reservoirs of function, or are they part of a complex compensatory framework supporting and buffering the expression of the phenotype? Or both?
-%%%%%%%% END NEW SECTION F %%%%%%%%%%
-Changing environments provide one view into these dynamics, but we must explore further to find other mechanisms for exploring and exploiting genotype space.
+Understanding the mechanisms by which select environmental conditions alter fitness landscapes is vital to understanding the forces that promote evolvability and increase complexity. In particular, understanding the role of vestigial sites may help us untangle how robustness can promote evolvability. Are these vestigial sites inactive remnants, reservoirs of function, or are they part of a complex compensatory framework supporting and buffering the expression of the phenotype? Or both? Changing environments provide one view into these dynamics, but we must explore further to find other mechanisms for exploring and exploiting genotype space.
 
 \section*{Acknowledgments}
 We would like to thank Alex Lalejini for helpful discussions and comments about the relationship between phenotypic plasticity and contingency loci, Josh Nahum for discussions of experiments in changing environments, and Emily Dolson, Brian Goldman, and Anya Vostinar for their comments on early manuscript drafts.
 This material is based in part upon work supported by the National Science Foundation under Cooperative Agreement No. DBI-0939454 to CO and a Graduate Research Fellowship to RCK. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.
 
-\bibliographystyle{apalike}
+%\bibliographystyle{apalike}
 \bibliography{changing_env}
+
+
 
 \end{document}
