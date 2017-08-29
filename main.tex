@@ -626,24 +626,29 @@ Together, from these measures, we conclude that stochastic environments exert sl
 \subsection*{Long-Term Evolvability}
 
 \section*{Conclusion}
+%=direction of selection drives exploration and gathers history
 In cyclic changing environments, the direction of selection shifts frequently, and periodically drives populations to not only explore new regions of the genetic landscape, but also to carry with them vestigial genetic information about previous environmental conditions. Thus, the resulting populations are not only adapted to the current environment, but also to the meta-environment of cyclic change. Because of their evolutionary history, the genomes contain vestigial fragments of genetic material that were adapted to prior environments. As this exploration proceeds, mutations accumulate in the population, each creating a link to a new region of the mutational landscape. As these links accumulate, they form a reservoir of mobility for the population to quickly shift to new phenotypes as dictated by current selective conditions. In this way, the accumulation of vestigial or pseudogene-like regions acts as an adaptation to the larger pattern of changing selective forces.
 
+%=by constrast static environments don't
 By contrast, in static (non-changing) environments, the majority of neutral mutations do not connect to as many phenotypically-interesting regions of genotype-space. There are far fewer pseudogene-like regions available that could regain functionality should conditions change. Thus, populations evolved in static environments are less evolvable in the short-term.
 
-Surprisingly, stochastically changing environments were slightly less effective at exploration
+%=SCE not more effective
+Surprisingly, stochastically changing environments slightly less effective at exploration
 % @CAO: Are they really?  We've shown that they produce new phenotypes less often, but that's a very limited definition of exploration.  However, it's the one that we need to stick to.
 % @CAO: That said (and this argument goes to static environments too), if we claim that stochastic environments produce new phenotypes less frequently we can argue WHY we hypothesize that they'll be less effective at exploration.  In thinking about it, it feels like we should use these as ancestors for an entirely new environmental shift.  If we show that the organisms previously experiencing a cyclically changing environment do better with the new environment THEN we have strong evidence that stochastically changing environments are less effective at exploration.
 than cyclic changing environments, even if, on average, the amount of time spent in each environment was equal. We hypothesize this is because of more opportunity for drift to destroy the information contained in vestigial regions, as well as potentially fewer opportunities for populations to respond to selection.
 
 \subsection*{Limitations of Changing Environments}
+%=CE can be a re-tread 
 Changing environments produce a set of selective pressures that speed up exploration of genotype space, while also building reservoirs of partial functionality that may be co-opted in the evolution of more complex structures. These features make changing environments useful for both their explanatory power in natural evolution, and as practical tools in the Artificial Life toolkit.
 Ultimately, however, cyclic changing environments only re-tread existing phenotypic ground, and though genotypic exploration is faster than under purely directional or stabilizing selection, the space explored remains constrained by the type of phenotypes that are selected.
 
+%=better/different methods
 Even so, there must exist methods of exploring genotype space that do not suffer from these limitations.
 For example, perhaps repeated bottlenecking of populations could promote faster traversal of the fitness landscape in quasi-random directions.
 More ambitiously, perhaps these kinds of environments could be coupled with dynamically increasing open-ended complexity goals.
 
-%% TODO Tweak below?
+%=TODO Tweak below?
 Understanding the mechanisms by which select environmental conditions alter fitness landscapes is vital to understanding the forces that promote evolvability and increase complexity. In particular, understanding the role of vestigial sites may help us untangle how robustness can promote evolvability. Are these vestigial sites inactive remnants, reservoirs of function, or are they part of a complex compensatory framework supporting and buffering the expression of the phenotype? Or both? Changing environments provide one view into these dynamics, but we must explore further to find other mechanisms for exploring and exploiting genotype space.
 
 \section*{Acknowledgments}
