@@ -165,9 +165,9 @@
 \lfoot{\sf PLOS}
 
 %% END MACROS SECTION
-
-
-
+\usepackage{makecell}
+\usepackage{multirow}
+\usepackage{booktabs}
 
 
 
@@ -374,45 +374,104 @@ Avida worlds can be space- or resource-constrained. Avida allows the experimente
 Avida is available for download without cost from \url{http://avida.devosoft.org/}, and specific versions along with data-files to reproduce the experiments described in this paper may be found at \url{https://github.com/voidptr/avida} and \url{https://github.com/voidptr/ce_evolvability}.
 
 \subsection*{Experimental Design}
-%=design for experimental environment
-In order to examine the dynamics and mechanisms of evolving populations in changing environments (CE), we performed two sets of experiments: one in a cyclically changing environment, and the other in a stochastic changing environment. Further, in order to assess the longer-term evolvability effects of changing environments we introduced CE-adapted populations to a completely new environment where they could adapt to a new set of tasks.
+%=design for experimental environment (CCE vs SCE, and short vs long)
+In order to examine the dynamics and mechanisms of evolving populations in changing environments, we performed two sets of experiments (cyclic vs stochastic changing environments), each divided into two phases (short-term evolvability vs. long-term evolvability). The cyclic environments are designed to simulate predictable cycles of change, such as day/night or seasonal cycles, whereas the stochastic environments represents less predictable oscillations in environmental states, such as random weather patterns, or climactic changes. The first phase of each set of experiments allows organisms to adapt to a predictable set of environments, whereas the second phase introduces the change-evolved populations to a completely new environment. Thus, the first phase explores short-term evolvability dynamics, and the second phase addresses the relationship between short-term and long-term evolvability. See Table~\ref{treatments}
+
+%\begin{table}[!ht]
+%\begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
+%\centering
+%\caption{
+%{\bf Experimental Treatments}}
+%\begin{tabular}{|l+l|l|l|l|l|l|}
+%\hline
+%{\bf Treatment} & {\bf Change Type} & {\bf Harshness} & {\bf Phase 2}\\ \thickline
+%\multicolumn{1}{|l|}{\bf Treatment} & \multicolumn{3}{|l|}{\bf Phase 1} & \multicolumn{2}{|l|}{\bf Phase 2}	\\ \hline
+%			& {\bf Cycle} 	& {\bf Harshness} & {\bf Tasks Rewarded} 							&	 	& 	\\ \hline
+%Control		&n/a			&n/a		& XOR and EQU (constant) 								&No CE 	& XOR, EQU, Logic-77 (constant) \\ \hline
+%CCE-Benign	&Cyclic			&Benign 	& \makecell{XOR (constant) \\ EQU (fluctuating 0/+)}	&No CE 	& XOR, EQU, Logic-77 (constant) \\
+%			&				&			& 														&CE		\\ \hline
+%CCE-Harsh	&				&Harsh		& \makecell{XOR (constant) \\ EQU (fluctuating -/+)}	&No CE	\\
+%			&				&			& 														&CE		\\ \hline
+%SCE-Benign	&Stochastic		&Benign		& \makecell{XOR (constant) \\ EQU (fluctuating 0/+)}	&No CE	\\
+%			&				&			& 														&CE		\\ \hline
+%SCE-Harsh	&				&Harsh		& \makecell{XOR (constant) \\ EQU (fluctuating -/+)}	&No CE	\\
+%			&				&			& 														&CE		\\ \hline
+%\end{tabular}
+%\begin{flushleft} Experimental treatments. Four types of cyclic changing environment. Each is split into two treatments for phase two, one continuing with the changing environment, and one without. [\@RCK TODO - Tidy up this table]
+%\end{flushleft}
+%\label{treatments}
+%\end{adjustwidth}
+%\end{table}
+
+\begin{table}[]
+\centering
+\caption{{\bf Experimental Treatments}}
+\label{my-label}
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+\multicolumn{2}{|c|}{\multirow{2}{*}{\textbf{\begin{tabular}[c]{@{}c@{}}Treatment\\ Name\end{tabular}}}} & \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{Cycle}}}                     & \multicolumn{1}{c|}{\textbf{Phase 1}}                                                     & \multicolumn{2}{c|}{\textbf{Phase 2}}                                                                                                 \\ \cline{4-6} 
+\multicolumn{2}{|c|}{}                                                                                   & \multicolumn{1}{c|}{}                                                    & \multicolumn{1}{c|}{\textbf{Tasks}}                                                       & \multicolumn{1}{c|}{\textbf{Tasks}}                                                            & \multicolumn{1}{c|}{\textbf{Cycle?}} \\ \hline
+%row1
+\multicolumn{2}{|l|}{Control}                                                                          & \multicolumn{1}{l|}{n/a}                                                                      & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}XOR and EQU \\ (constant)\end{tabular}}                         & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}XOR and EQU \\ (constant)\end{tabular}}                              & \multicolumn{1}{l|}{N}               \\ \midrule
+%row2
+\multirow{2}{*}{CCE-Benign}                                      & A                                     & \multirow{2}{*}{\begin{tabular}[c]{@{}l@{}}Cyclic\\ Benign\end{tabular}} & \multirow{2}{*}{\begin{tabular}[c]{@{}l@{}}XOR (constant)\\ EQU (fluct 0/+)\end{tabular}} & \begin{tabular}[c]{@{}l@{}}XOR (constant)\\ EQU (fluct 0/+)\\ Logic 77 (constant)\end{tabular} & Y                                    \\ \cline{2-2} \cline{5-6} 
+                                                                 & B                                     &                                                                          &                                                                                           & \begin{tabular}[c]{@{}l@{}}XOR (constant)\\ EQU (constant)\\ Logic-77 (constant)\end{tabular}  & N                                    \\ \hline
+%row3
+\multirow{2}{*}{CCE-Harsh}                                      & A                                     & \multirow{2}{*}{\begin{tabular}[c]{@{}l@{}}Cyclic\\ Harsh\end{tabular}} & \multirow{2}{*}{\begin{tabular}[c]{@{}l@{}}XOR (constant)\\ EQU (fluct -/+)\end{tabular}} & \begin{tabular}[c]{@{}l@{}}XOR (constant)\\ EQU (fluct -/+)\\ Logic 77 (constant)\end{tabular} & Y                                    \\ \cline{2-2} \cline{5-6} 
+                                                                 & B                                     &                                                                          &                                                                                           & \begin{tabular}[c]{@{}l@{}}XOR (constant)\\ EQU (constant)\\ Logic-77 (constant)\end{tabular}  & N                                    \\ \hline
+%row4
+\multirow{2}{*}{SCE-Benign}                                      & A                                     & \multirow{2}{*}{\begin{tabular}[c]{@{}l@{}}Stochastic\\ Benign\end{tabular}} & \multirow{2}{*}{\begin{tabular}[c]{@{}l@{}}XOR (constant)\\ EQU (fluct 0/+)\end{tabular}} & \begin{tabular}[c]{@{}l@{}}XOR (constant)\\ EQU (fluct 0/+)\\ Logic 77 (constant)\end{tabular} & Y                                    \\ \cline{2-2} \cline{5-6} 
+                                                                 & B                                     &                                                                          &                                                                                           & \begin{tabular}[c]{@{}l@{}}XOR (constant)\\ EQU (constant)\\ Logic-77 (constant)\end{tabular}  & N                                    \\ \hline
+%row5
+\multirow{2}{*}{SCE-Harsh}                                      & A                                     & \multirow{2}{*}{\begin{tabular}[c]{@{}l@{}}Stochastic\\ Harsh\end{tabular}} & \multirow{2}{*}{\begin{tabular}[c]{@{}l@{}}XOR (constant)\\ EQU (fluct -/+)\end{tabular}} & \begin{tabular}[c]{@{}l@{}}XOR (constant)\\ EQU (fluct -/+)\\ Logic 77 (constant)\end{tabular} & Y                                    \\ \cline{2-2} \cline{5-6} 
+                                                                 & B                                     &                                                                          &                                                                                           & \begin{tabular}[c]{@{}l@{}}XOR (constant)\\ EQU (constant)\\ Logic-77 (constant)\end{tabular}  & N                                    \\ \hline
+                                                                 
+\end{tabular}
+\begin{flushleft} Experimental treatments. Four types of cyclic changing environment. Each is split into two treatments for phase two, one continuing with the changing environment, and one without. [\@RCK TODO - Tidy up this table]
+\end{flushleft}
+\label{treatments}
+\end{table}
+
 
 \subsubsection*{Cyclic and Stochastic Changing Environments}
-For the cyclic environment,%%%%%%%%%%% END NEW SECTION B1
-we subjected a total of 150 replicate populations of digital organisms to two different treatments of two-phase cyclically changing environments, plus a static control. The environment cycles between equal-length periods of reward and punishment. Each cycle extends for 1000 updates, or roughly 30 generations. In the static control, there is no cycle. Rather, the rewards remain constant. The complete experiment extends for 200 cycles, or 200,000 updates, approximately 6,000 generations.
+%=explanation of the changing environment treatments - cyclic
+For the cyclic environment, we subjected a total of 150 replicate populations of digital organisms to two different treatments of two-phase cyclically changing environments, plus a static control. The environment cycles between equal-length periods of reward and punishment. Each cycle extends for 1000 updates, or roughly 30 generations. In the static control, there is no cycle. Rather, the rewards remain constant. The first phase of the experiment extends for 200 cycles, or 200,000 updates, approximately 6,000 generations.
 
-We set up the system to detect organisms that performed XOR or EQU, two challenging bit-wise logical tasks.
-In the static control, XOR is rewarded with a CPU speed (and thus fitness) multiple of 8, while EQU is rewarded with a CPU speed multiple of 32. In the harsh treatment, as the cycle progresses, the XOR reward remains constant, while the EQU reward cycles between a 32-fold bonus and a correspondingly harsh 32-fold penalty (i.e., CPU speed is divided by 32 when EQU is performed in the off cycle). The benign treatment is nearly identical to the harsh treatment, except that the reward merely goes away in the off-cycle as opposed to incurring a severe penalty.
+%=stochastic
+The stochastic changing environment experiment is similar to the cyclic environment, except that rather than the environment toggling every 500 updates, the environmental switch happens randomly, with a 0.002 probability of changing on every update. This averages, in the long term, to approximately one switch every 500 updates, but in the short term, the environmental switches are unpredictable.
 
-The stochastic changing environment experiment is similar to the cyclic environment, except that rather than the environment toggling every 500 updates, the environmental switch happens randomly, with a 0.002
-probability of changing on every update. This averages, in the long term, to approximately one switch every 500 updates, but in the short term, the environmental switches are unpredictable.
+%=tasks
+In phase 1, we set up the system to detect organisms that performed XOR or EQU, two challenging bit-wise logical tasks. In the static control, XOR is rewarded with a CPU speed (and thus fitness) multiple of 8, while EQU is rewarded with a CPU speed multiple of 32. In the harsh treatment, as the cycle progresses, the XOR reward remains constant, while the EQU reward cycles between a 32-fold bonus and a correspondingly harsh 32-fold penalty (i.e., CPU speed is divided by 32 when EQU is performed in the off cycle). The benign treatment is nearly identical to the harsh treatment, except that the reward merely goes away in the off-cycle as opposed to incurring a severe penalty.
 
+%=differences between tasks
 In both environments, we identify EQU as the \textit{Fluctuating Task}. XOR, because it is rewarded continuously, is the \textit{Backbone Task}, and is used as a background for comparing the separation or intertwining of functional genetic components in the evolution of EQU. Further, the 4-fold difference in reward level between XOR and EQU encourages the evolution and maintenance of EQU when possible.
 
-For all of the experiments described in this section, we held the individual genomes at a fixed length of 121\footnote{As part of our initial controls, we hand-wrote an organism with separated sections that performed XOR and EQU. This hand-written organism had 121 instructions and as such we used this genome length as a constraint for the evolve organisms as well.} instructions, but tested the new genomes for mutations after each successful replication event at a substitution probability of 0.00075 per site. We configured the Avida world to have local interactions on a toroidal grid that is 60-by-60 cells (3600 cells in total), and we seeded the initial populations with an ancestor that was previously evolved to perform XOR and EQU under a static reward.
-The genetic architecture for performing XOR and EQU is tightly intertwined in this ancestral organism, as it was evolved with no selective pressure for modularity.
+%=long term evolvability - new task
+The second phase of the experiment continues the evolution of these populations, but introduces them to an entirely new set of rewarded bit-wise logical tasks: the Logic-77 environment. These new tasks use three bit-wise inputs rather than two, and are each rewarded with a constant 1.2-fold bonus to execution. This provides a mild selective pressure to evolve these task, but the benefits to performing them do not overwhelm the existing selective pressure to continue performing XOR or EQU.
 
-\subsubsection*{Long-Term Evolvability}
-[\@RCK TODO]
+%=the organisms
+For all of the experiments described in this section, we held the individual genomes at a fixed length of 121\footnote{As part of our initial controls, we hand-wrote an organism with separated sections that performed XOR and EQU. This hand-written organism had 121 instructions and as such we used this genome length as a constraint for the evolve organisms as well.} instructions, but tested the new genomes for mutations after each successful replication event at a substitution probability of 0.00075 per site. We configured the Avida world to have local interactions on a toroidal grid that is 60-by-60 cells (3600 cells in total), and we seeded the initial populations with an ancestor that was previously evolved to perform XOR and EQU under a static reward. The genetic architecture for performing XOR and EQU is tightly intertwined in this ancestral organism, as it was evolved with no selective pressure for modularity.
+
 
 \section*{Results and Discussion}
-
+%=summary - we found that CE evolved populations are genetically distinct. Stochastic pretty similar to CCE
 Our experiments demonstrate that digital organisms that were evolved in changing environments differ substantially from those evolved in static environments in a number of ways. These differences include the number of mutations that fix in the lineage from the ancestor (the ``phylogenetic depth"), key metrics of their genetic architecture, and the presence of reservoirs of pseudogenes that change the nearby mutational landscape. These features represent adaptation to the larger regime of repeated environmental switching. We also show that while populations evolved in cyclic environments are slightly better adapted to change than those evolved in stochastic environments, in most measures of adaptation and short-term evolvability, these differences are generally not significant. This indicates that while regular periodicity may offer a slight advantage for adaptation, stochastic environments perform similarly in most respects.
 
-\subsubsection*{Evolutionary History and Population Structure}
-
+\subsection*{Evolutionary History and Population Structure}
+%=more phylogenetic depth
 Evolution in the harsh changing environment resulted in populations with substantially higher phylogenetic depth as compared to those evolved in static or benign environments. At each environmental shift, adaptive mutations rapidly swept and fixed in the populations. (Fig~\ref{fig:flamegraph})
 
+%=[FIGURE - flamegraph]
 \begin{figure}[!h]
 %\begin{center}
 \includegraphics[trim={-0.88cm 0 0.25cm 0},clip,width=1\columnwidth]{figures/control__phylodepth_with_coalescense.png}
 \includegraphics[trim={0.2cm 0 0.25cm 0},clip,width=1\columnwidth]{figures/benign__phylodepth_with_coalescense.png}
 \includegraphics[trim={-0.63cm 0 0.25cm 0},clip,width=1\columnwidth]{figures/harsh__phylodepth_with_coalescense.png}
-
 \caption{{\bf Phylogenetic depth over time of a representative sample population} evolved in each of the three treatments. White horizontal lines mark the depth of the most recent common ancestor, and discontinuities in this line indicate that the most recent common ancestor has changed, and thus that a sweep occurred. The control treatments had a mean of 18 sweeps (STD=9.05), the benign treatments had a mean of 21 (STD=19.05), and the harsh treatments had a mean of 88 sweeps (STD=23.37). Note the difference in scales between y-axes: the control-evolved population has a maximum depth of 400 mutational steps from ancestor, while the harsh-evolved has upward of 1100. %
 }\label{fig:flamegraph}
 \end{figure}
 
+%=more genetic diversity
 The populations that evolved in the control and benign environments displayed more genetic diversity as compared to those evolved in the harsh cyclic environment, which underwent a bottleneck at each cycle shift. Because a selective sweep reduces current diversity within a population, the smaller number of sweeps
 % @CAO it looks like it wasn't just a smaller number of sweeps, but that the sweeps took MUCH longer to occur, to the point where it's hard to even dub them sweeps at all...  more fixation events?  Mike should weigh in here too.
 in the benign and control treatments led populations in them to have higher standing diversity for most of their evolutionary history than those populations from the harsh changing environment.  Despite this higher standing diversity in the benign and control treatments, regions of low diversity are still evident in the genomes of these populations, implying purifying selection on the traits encoded at these sites (see Fig~\ref{fig:entropy}).
@@ -422,13 +481,13 @@ in the benign and control treatments led populations in them to have higher stan
 %
 % ^.
 %@RCK - TODO fix figure below.
+
+%=[FIGURE - entropy][TODO - tidy up this figure]
 \begin{figure}[!h]
 \includegraphics[trim={-0.85cm 0 0.1cm 0.2cm},clip,width=1\columnwidth]{figures/control__entropy}
 \includegraphics[trim={0.25cm 0 0.1cm 0},clip,width=1\columnwidth]{figures/benign__entropy}
 \includegraphics[trim={-0.85cm 0 0.1cm 0},clip,width=1\columnwidth]{figures/harsh__entropy}
-\caption{{\bf Population Per-site Entropy over time.} Each vertical slice represents the per-site entropy of %the
-a single
-population at each update, both by genetic locus (upper), and overall population mean (lower). Hotter colors (red/orange/yellow) indicate greater diversity at this locus, while cooler colors (blues) indicate the a locus is more consistent across the population. Mean population entropy indicates the relative diversity of the population at any given time, while the per-site entropy shows where in the genomes the population diversity is located.   %@CAO: I'm agreeing with Mike that we might want to make this two graphs.  I added a bit in the description about the cooler colors just to lead the reader by the hand as much as possible.
+\caption{{\bf Population Per-site Entropy over time} of a representative sample population. Each vertical slice represents the per-site entropy of the population at each update, both by genetic locus (upper), and overall population mean (lower). Hotter colors (red/orange/yellow) indicate greater diversity at this locus, while cooler colors (blues) indicate the a locus is more consistent across the population. Mean population entropy indicates the relative diversity of the population at any given time, while the per-site entropy shows where in the genomes the population diversity is located.   %@CAO: I'm agreeing with Mike that we might want to make this two graphs.  I added a bit in the description about the cooler colors just to lead the reader by the hand as much as possible.
 }\label{fig:entropy}
 \end{figure}
 
