@@ -24,3 +24,4 @@
 *.synctex.gz
 *.fls
 *.fdb_latexmk
+PLOS*pdf
