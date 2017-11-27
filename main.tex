@@ -460,7 +460,8 @@ The second stage takes these change-evolved populations and introduces them to a
 
 % Thus, the first set of experiments examines short-term evolutionary dynamics, and the second set explores the relationship between short-term adaptation to changing environments and long-term evolvability.
 
-\subsubsection*{Short-Term Evolvability - Cyclic Changing Environments}
+\subsubsection*{Short-Term Evolvability - Stage 1% - Cyclic Changing Environments
+}
 
 %=[TABLE - experimental treatments]
 \begin{table}[]
@@ -501,30 +502,12 @@ In both environments, we identify \texttt{EQU} as the \textit{Fluctuating Task}.
 
 \subsubsection*{Long-Term Evolvability - Stage 2}
 %=long term evolvability - new task
-The second stage of the experiment continues the evolution of these populations, but introduces them to a completely new environment, with an expanded set of rewarded bitwise tasks to perform: Logic-77. We refer to those tasks which were selected for in stage 1 as the \textbf{basic task set}. The Logic-77 task set is a super-set of the basic task set, and includes all bitwise tasks for which there are up to 3 inputs, including those that were initially rewarded in stage 1. We refer to the additional tasks from Logic-77 - those which are not part of the basic tasks set, and that we reward only in stage 2 - as the \textbf{expanded task set}. The total Logic-77 task set is a combination of both the basic and expanded task sets.  
-
-These new tasks use up to three bit-wise inputs rather than two, and are each rewarded with a constant 1.2-fold bonus to execution. This provides a mild selective pressure to evolve these tasks, but the benefits to performing them do not overwhelm the existing selective pressure to continue performing \texttt{XOR} or \texttt{EQU}.
-
-In order to differentiate between the effects of architectural features and direct effects of alternating selection, we duplicated the populations in each the benign and harsh treatments into two treatments each. Both treatments introduce the rewards of the \textbf{expanded task set}, but one treatment continues the changing environment of the first stage, while the other treatment stops the cycle, and instead rewards the \textbf{basic task set} at a constant rate.
-
-\begin{itemize}
-%@CAO: For each item in the list below it might be useful to start with a short sentence indicating WHY we did this treatment.
-%@RCK: added
-	\item \textbf{Static (Control)}: This treatment is a baseline for comparing adaptation to the \textbf{expanded task set}. For the first 200k updates (stage 1), we reward populations for performing  \texttt{XOR} and \texttt{EQU} (Table~\ref{cel-treatments-simple}). For the second 200k updates (stage 2), we add constant rewards for the \textbf{expanded task set}. Each new task is rewarded at a 1.2-fold bonus to task execution.
-
-	\item \textbf{Benign Changing Environment}: This treatment shows the effects of a continuing benign changing environment on adaptation to the \textbf{expanded task set}. For the first 200k updates (stage 1), we alternate rewarding and not rewarding populations for performing the \texttt{EQU} task (Table~\ref{cel-treatments-simple}). For the second stage of the experiment, starting at 200k updates, we add constant rewards for each of the new tasks in the \textbf{expanded task set}, at a 1.2-fold bonus to task execution. The environmental fluctuation from the first stage continues through the end of the experiment.
-
-	\item \textbf{Benign Quiescent Changing Environment}: In contrast to the benign changing environment treatment, this treatment tests the abilities of populations initially evolved in a benign changing environment to adapt to the \textbf{expanded task set}, but without active environmental fluctuation during the adaptation. For the first 200k updates (stage 1), we alternate rewarding and not rewarding populations, as in the Benign Changing Environment above. For the second stage of the experiment, starting at 200k updates, we add constant rewards for each of the new tasks in the \textbf{expanded task set}, at a 1.2-fold bonus to task execution. The environmental fluctuation from the first phase stops at 200k updates, and we instead reward the tasks of the first phase (the basic task-set) as we did in the static treatment (all constant reward).
-
-	\item \textbf{Harsh Changing Environment}: This treatment shows the effects of a continuing harsh changing environment on adaptation to the \textbf{expanded task set}. For the first 200k updates (stage 1), we alternate rewarding and \textbf{punishing} populations for performing the \texttt{EQU} task (Table~\ref{cel-treatments-simple}). For the second stage of the experiment, starting at 200k updates, we add constant rewards for each of the new tasks of the \textbf{expanded task set}, at a 1.2-fold bonus to task execution. The environmental fluctuation from the first phase continues through the end of the experiment.
-
-	\item \textbf{Harsh Quiescent Changing Environment}: In contrast to the harsh changing environment treatment, this treatment tests the abilities of populations initially evolved in a harsh changing environment to adapt to the \textbf{expanded task set}, but without active environmental fluctuation during the adaptation. For the first 200k updates (stage 1), we alternate rewarding and \textbf{punishing} populations, as in the Harsh Changing Environment above. For the second stage of the experiment, starting at 200k updates, we add constant rewards for each of the new tasks in the \textbf{expanded task set}, at a 1.2-fold bonus to task execution. The environmental fluctuation from the first stage stops at 200k updates, and we instead reward the basic tasks of the first phase as we did in the static treatment (all constant reward).
-\end{itemize}
+The second stage of the experiment continues the evolution of these populations, but introduces them to a completely new environment, with an expanded set of rewarded bitwise tasks to perform: Logic-77 (Table~\ref{cel-treatments-simple}). We refer to those tasks which were selected for in stage 1 as the \textbf{basic task set}. The Logic-77 task set is a super-set of the basic task set, and includes all bitwise tasks for which there are up to 3 inputs, including those that were initially rewarded in stage 1. We refer to the additional tasks from Logic-77 - those which are not part of the basic tasks set, and that we reward only in stage 2 - as the \textbf{expanded task set}. The total Logic-77 task set is a combination of both the basic and expanded task sets.  
 
 	%=[TABLE - experimental treatments]
 	\begin{table}[]
 	\centering
-	\caption{\textbf{Experimental Treatments - Long Term Evolution}}
+	\caption{\textbf{Experimental Treatments - Stage 2 - Long Term Evolution}}
 	\label{cel-treatments-simple-h}
 
 	\begin{tabular}{|c|c||c|c||c|c|c|}
@@ -545,6 +528,26 @@ In order to differentiate between the effects of architectural features and dire
 	\end{flushleft}
 	\label{cel-treatments-simple}
 	\end{table}
+
+These new tasks use up to three bit-wise inputs rather than two, and are each rewarded with a constant 1.2-fold bonus to execution. This provides a mild selective pressure to evolve these tasks, but the benefits to performing them do not overwhelm the existing selective pressure to continue performing \texttt{XOR} or \texttt{EQU}.
+
+In order to differentiate between the effects of architectural features and direct effects of alternating selection, we duplicated the populations in each the benign and harsh treatments at the end of stage 1 into two treatments each. Each treatment introduces the rewards of the \textbf{expanded task set}, but one treatment in each pair continues the changing environment of the first stage, while the other treatment stops the cycle, and instead rewards the \textbf{basic task set} at a constant rate.
+
+\begin{itemize}
+%@CAO: For each item in the list below it might be useful to start with a short sentence indicating WHY we did this treatment.
+%@RCK: added
+	\item \textbf{Static (Control)}: This treatment is a baseline for comparing adaptation to the \textbf{expanded task set}. For the first 200k updates (stage 1), we reward populations for performing  \texttt{XOR} and \texttt{EQU} (Table~\ref{cel-treatments-simple}). For the second 200k updates (stage 2), we add constant rewards for the \textbf{expanded task set}. Each new task is rewarded at a 1.2-fold bonus to task execution.
+
+	\item \textbf{Benign Changing Environment}: This treatment shows the effects of a continuing benign changing environment on adaptation to the \textbf{expanded task set}. For the first 200k updates (stage 1), we alternate rewarding and not rewarding populations for performing the \texttt{EQU} task (Table~\ref{cel-treatments-simple}). For the second stage of the experiment, starting at 200k updates, we add constant rewards for each of the new tasks in the \textbf{expanded task set}, at a 1.2-fold bonus to task execution. The environmental fluctuation from the first stage continues through the end of the experiment.
+
+	\item \textbf{Benign Quiescent Changing Environment}: In contrast to the benign changing environment treatment, this treatment tests the abilities of populations initially evolved in a benign changing environment to adapt to the \textbf{expanded task set}, but without active environmental fluctuation during the adaptation. For the first 200k updates (stage 1), we alternate rewarding and not rewarding populations, as in the Benign Changing Environment above. For the second stage of the experiment, starting at 200k updates, we add constant rewards for each of the new tasks in the \textbf{expanded task set}, at a 1.2-fold bonus to task execution. The environmental fluctuation from the first phase stops at 200k updates, and we instead reward the tasks of the first phase (the basic task-set) as we did in the static treatment (all constant reward).
+
+	\item \textbf{Harsh Changing Environment}: This treatment shows the effects of a continuing harsh changing environment on adaptation to the \textbf{expanded task set}. For the first 200k updates (stage 1), we alternate rewarding and \textbf{punishing} populations for performing the \texttt{EQU} task (Table~\ref{cel-treatments-simple}). For the second stage of the experiment, starting at 200k updates, we add constant rewards for each of the new tasks of the \textbf{expanded task set}, at a 1.2-fold bonus to task execution. The environmental fluctuation from the first phase continues through the end of the experiment.
+
+	\item \textbf{Harsh Quiescent Changing Environment}: In contrast to the harsh changing environment treatment, this treatment tests the abilities of populations initially evolved in a harsh changing environment to adapt to the \textbf{expanded task set}, but without active environmental fluctuation during the adaptation. For the first 200k updates (stage 1), we alternate rewarding and \textbf{punishing} populations, as in the Harsh Changing Environment above. For the second stage of the experiment, starting at 200k updates, we add constant rewards for each of the new tasks in the \textbf{expanded task set}, at a 1.2-fold bonus to task execution. The environmental fluctuation from the first stage stops at 200k updates, and we instead reward the basic tasks of the first phase as we did in the static treatment (all constant reward).
+\end{itemize}
+
+
 
 
 \subsection*{Measuring Task Discovery and Task Performance}
@@ -568,13 +571,13 @@ In addition to counting the number of unique task discovered, we also measure ta
 %RCK: No, it's the number of discovered tasks that the population has retained and is performing. Reworded for clarity.
 
 %=the organisms
-\subsubsection*{Model Organisms}
-\todo[inline]{fix the title to be about the details of the system}
-For all of the experiments described in this paper, we held the individual genomes at a fixed length of 121\footnote{As part of our initial controls, we hand-wrote an organism with separated sections that performed \texttt{XOR} and \texttt{EQU}. This hand-written organism had 121 instructions and as such we used this genome length as a constraint for the evolve organisms as well.} instructions, but tested the new genomes for mutations after each successful replication event at a substitution probability of 0.00075 per site. 
+\subsubsection*{Experimental System}
+%\todo[inline]{fix the title to be about the details of the system}
+For all of the experiments described in this paper, we held the individual genomes at a fixed length of 121\footnote{As part of our initial controls, we hand-wrote an organism with separated sections that performed \texttt{XOR} and \texttt{EQU}. This hand-written organism had 121 instructions and as such we used this genome length as a constraint for the evolved organisms as well.} instructions, but tested the new genomes for mutations after each successful replication event at a substitution probability of 0.00075 per site. 
 
 We configured the Avida world to have local interactions on a toroidal grid that is 60-by-60 cells (3600 cells in total), and we seeded the initial populations with an ancestor that was previously evolved to perform \texttt{XOR} and \texttt{EQU} under a static reward. The genetic architecture for performing \texttt{XOR} and \texttt{EQU} is tightly intertwined in this ancestral organism, as it was evolved with no selective pressure for modularity.
 
-\section{Statistical Methods}
+\subsection*{Statistical Methods}
 Most of the statistical techniques used in this paper are non-parametric, and focused on differentiating between sample distributions. In general, we applied Wilcoxon Rank-Sum tests~\cite{wilcoxon_individual_1945} to distinguish between pairs of distributions, as well as Kruskal-Wallis~\cite{kruskal_use_1952} for identifying whether we could reject the null hypothesis of sameness between several different distributions. We assume all distributions are independent, and that compared distributions have similar shapes. In all situations where there were multiple comparisons of a given distributions, we applied Bonferonni corrections~\cite{rice_analyzing_1989} before assessing statistical significance. 
 
 In certain cases, we report mean and median values of distributions. In these cases, we also report the standard deviation or 95\% confidence intervals.
@@ -582,11 +585,13 @@ In certain cases, we report mean and median values of distributions. In these ca
 In specific cases, we also apply Spearman's rank-order correlation coefficient $\rho$ (or $r_{s}$)~\cite{spearman_proof_1904} to measure correlations between data sets. In all cases, data points are matched from within a replicate.
 
 \section*{Results and Discussion}
-\todo[inline]{note about long-term evo stuff}
+%\todo[inline]{note about long-term evo stuff}
 %=summary - we found that CE evolved populations are genetically distinct. Stochastic pretty similar to CCE
-Our experiments demonstrate that digital organisms that were evolved in changing environments differ substantially from those that evolved in static environments in a number of ways. These differences include the number of mutations that fix in the lineage from the ancestor (the ``phylogenetic depth"), key metrics of their genetic architecture, and the presence of reservoirs of pseudogenes that change the nearby mutational landscape. These features represent adaptation to the larger regime of repeated environmental switching. 
+Our experiments (detailed below) demonstrate that digital organisms that were evolved in changing environments differ substantially from those that evolved in static environments in a number of ways. These differences include the number of mutations that fix in the lineage from the ancestor (the ``phylogenetic depth"), key metrics of their genetic architecture, and the presence of reservoirs of pseudogenes that change the nearby mutational landscape. These features represent adaptation to the larger regime of repeated environmental switching. 
 %We also show that while populations evolved in cyclic environments are slightly better adapted to change than those that evolved in stochastic environments, in most measures of adaptation and short-term evolvability, these differences are generally not significant. This result indicates that while regular periodicity may offer a slight advantage for adaptation, stochastic environments perform similarly in most respects. 
-\todo[inline]{look for un-anchored "this"s}
+%\todo[inline]{look for un-anchored "this"s}
+
+We also show that while harsh changing environments are better at promoting short-term adaptation to changing environments, benign environments produce populations that adapt more rapidly to entirely new sets of tasks. This suggests that the selective pressures that promote short-term adaptation are not necessarily the same as those that promote long-term evolvability.
 
 \subsection*{Stage 1 - Cyclic Changing Environments}
 We will begin by examining the characteristics of populations evolved in cyclic changing environments.
@@ -883,7 +888,7 @@ We found that once we began rewarding the \textbf{expanded task set}, population
 %=[FIGURE - postreward task discovery]
 	\begin{figure}[!h]
 	\includegraphics[width=0.95\columnwidth]{figures/LTE/lte-simple-post_reward_task_discovery.png}
-	\caption{\textbf{Number of new Logic-77 tasks discovered in post-reward in the minimal environments}. The left plot shows a time-series of the number of non-ephemeral tasks discovered by populations by each treatment. The right plot shows the number of tasks discovered at the end of the experiments. While the individual values overlap their neigbors, the top and bottom-most treatments (Benign and Harsh) are significantly different from each other (Wilcoxon Rank Sum Test: Z = 2.75, p $<$ 0.01). %
+	\caption{\textbf{Number of new Logic-77 tasks discovered post-reward}. The left plot shows a time-series of the number of non-ephemeral tasks discovered by populations by each treatment. The right plot shows the number of tasks discovered at the end of the experiments. While the individual values overlap their neigbors, the top and bottom-most treatments (Benign and Harsh) are significantly different from each other (Wilcoxon Rank Sum Test: Z = 2.75, p $<$ 0.01). %
 	}
 	\label{fig:postreward_task_discovery}
 	\end{figure} 
@@ -910,28 +915,28 @@ Indeed, we found that the the HarshQuiescent treatment has a much higher task di
 % MJW: This is a really key finding of this chapter. I feel you could highlight this more. One writing strategy that Rich employs a lot that I find particularly effective is to structure something along the lines of "Here is a fact (either from our observation or from the literature). What could account for this?  Possible explanation 1 would predict X. Possible explanation 2 would predict Y. Possible explanation 3 would predict Z. We find N, which is inconsistent with X, and is more likely to be a result of Y than of Z, so we conclude that possible explanation 1 is not driving our results/this observation, and that possible explanation 2 is more likely than possible explanation 3". Not saying you have three possible explanations here, just a general sort of approach to that way of writing a combined results and discussion section.
 %@RCK: Added more exposition along those lines.
 
-%\subsubsection*{BenignCE treatment outperforms BenignQuiescent treatment in task discovery.}
-%=disentangling direct effects from architectural byproducts
-Also of interest
-% MJW: Careful. It's one thing to call a result interesting; it's another to make a claim about how relatively interesting different findings are as if that is objectively measurable, rather than a personal decision.
-%@RCK: removed comparison
-is the difference in task discovery rates between the benign environment populations BenignCE and BenignQuiescent. Once the expanded task rewards are introduced, the BenignCE populations continue to be subject to a benign changing environment, whereas the BenignQuiescent populations are only subject to directional selection toward the evolution of the original and expanded tasks. In both environment types, the task discovery rate for the BenignCE populations (Minimal: Mdn = 37.0, CI 95\% [36.0, 38.0]; Rich: Mdn = 29.0, CI 95\% [26.0, 31.0]) are slightly higher than for BenignQuiescent (Minimal: Mdn = 36.0, CI 95\% [34.0, 38.0]; Rich: Mdn = 24.0, CI 95\% [22.0, 27.0]), but the effect is not statistically significant in the minimal environment (Rich: Wilcoxon Rank Sum Test: Z = 3.15, p $<$ 0.01; Minimal: Wilcoxon Rank Sum Test: Z = 1.39, p = 0.16). Both, however, still perform better than the control treatment (Minimal: Mdn = 34.5, CI 95\% [32.0, 38.0]; Rich: Mdn = 22.0, CI 95\% [21.0, 25.0]), though this effect is only statistically significant between the BenignCE and Control treatments in the rich environment (Wilcoxon Rank Sum Test: Z = -4.33, p $<$ 0.001). What could account for this reversal of the pattern observed between HarshCE and HarshQuiescent?
+% %\subsubsection*{BenignCE treatment outperforms BenignQuiescent treatment in task discovery.}
+% %=disentangling direct effects from architectural byproducts
+% Also of interest
+% % MJW: Careful. It's one thing to call a result interesting; it's another to make a claim about how relatively interesting different findings are as if that is objectively measurable, rather than a personal decision.
+% %@RCK: removed comparison
+% is a small difference in task discovery rates between the benign environment populations BenignCE and BenignQuiescent. Once the expanded task rewards are introduced, the BenignCE populations continue to be subject to a benign changing environment, whereas the BenignQuiescent populations are only subject to directional selection toward the evolution of the original and expanded tasks. The task discovery rate for the BenignCE populations (Mdn = 37.0, CI 95\% [36.0, 38.0]) are slightly higher than for BenignQuiescent (Mdn = 36.0, CI 95\% [34.0, 38.0]), but the effect is not statistically significant (Wilcoxon Rank Sum Test: Z = 1.39, p = 0.16). This treatment, however, still performs better than the control treatment (Mdn = 34.5, CI 95\% [32.0, 38.0]), though, again, this effect is not statistically significant. What could account for this reversal of the pattern observed between HarshCE and HarshQuiescent?
 
-%One possibility is that the difference in selective pressures is sufficient to create a reversal. In this case, we would predict 
+% %One possibility is that the difference in selective pressures is sufficient to create a reversal. In this case, we would predict 
 
-One possibility is that some population-level diversity advantage is being conveyed by the activity of the benign changing environment. In this case, we would expect the BenignQuiescent task discovery rates to initially closely track that of the BenignCE treatments, and then as diversity equalized, to drop down to rates comparable to the control.
+% One possibility is that some population-level diversity advantage is being conveyed by the activity of the benign changing environment. In this case, we would expect the BenignQuiescent task discovery rates to initially closely track that of the BenignCE treatments, and then as diversity equalized, to drop down to rates comparable to the control.
 
-Another possibility is that the benign changing environment is directly promoting task exploration. In this case, we would expect to see a significant difference in task discovery rates between the BenignCE and BenignQuiescent treatments.
+% Another possibility is that the benign changing environment is directly promoting task exploration. In this case, we would expect to see a significant difference in task discovery rates between the BenignCE and BenignQuiescent treatments.
 
-We observe that following the introduction of the \textbf{expanded task set}, the BenignQuiescent treatment task rates quickly depart from the BenignCE task discovery rates. This result is inconsistent with the hypothesis of a population diversity advantage. If anything, task discovery levels lag behind the control treatment. Thus, we find that it is most likely that the benign changing environment is directly promoting task discovery, though the mechanism of this promotion remains unclear.  
+% We observe that following the introduction of the \textbf{expanded task set}, the BenignQuiescent treatment task rates quickly depart from the BenignCE task discovery rates. This result is inconsistent with the hypothesis of a population diversity advantage. If anything, task discovery levels lag behind the control treatment. Thus, we find that it is most likely that the benign changing environment is directly promoting task discovery, though the mechanism of this promotion remains unclear.  
 
 %Thus, this result suggests that there may be architectural features conferred by evolution in the changing environment that are helpful for long-term evolvability, even after the environmental changes have stopped, and that this effect is distinct from the direct effects of the changing direction of selection. %Further research is needed to fully untangle these effects.
-\todo[inline]{convert the Mdn and WRST stuff into a goddamned table ffs}
+%\todo[inline]{convert the Mdn and WRST stuff into a goddamned table ffs}
 \subsubsection*{Harsh changing environments drive populations across the mutational landscape}
 %=[FIGURE - overall task discovery]
 	\begin{figure}[!h]
 	\includegraphics[width=0.95\columnwidth]{figures/LTE/lte-simple-overall_task_discovery.png}
-	\caption{\textbf{Number of new Logic-77 tasks discovered in minimal environments, over the whole experiment}. The left plot shows a time-series of all new tasks discovered over the course of the entire run, including non-rewarded Logic-77 tasks. The right-hand plot shows the final count at the end of the run. Before we introduce rewards for performing Logic-77 tasks, the harsh changing environment discovers far more new tasks (Mdn = 28.0, CI 95\% [27.0, 30.0]) than either of the other treatments (Mdn = 22.0, CI 95\% [22.0, 23.0]) (Wilcoxon Rank Sum Test: Z = 8.61, p $<<$ 0.001). This occurs despite no reward being given for performing the Logic-77 tasks in the first part of the experiment. %
+	\caption{\textbf{Number of new Logic-77 tasks discovered over the whole experiment}. The left plot shows a time-series of all new tasks discovered over the course of the entire run, including non-rewarded Logic-77 tasks. The right-hand plot shows the final count at the end of the run. Before we introduce rewards for performing Logic-77 tasks, the harsh changing environment discovers far more new tasks (Mdn = 28.0, CI 95\% [27.0, 30.0]) than either of the other treatments (Mdn = 22.0, CI 95\% [22.0, 23.0]) (Wilcoxon Rank Sum Test: Z = 8.61, p $<<$ 0.001). This occurs despite no reward being given for performing the Logic-77 tasks in the first part of the experiment. %
 	}
 	\label{fig:simple-overall_task_discovery}
 	\end{figure}
@@ -958,7 +963,7 @@ In addition to task discovery, task performance is another important measure of 
 	%=[FIGURE - postreward task performance]
 	\begin{figure}[!h]
 	\includegraphics[width=0.95\columnwidth]{figures/LTE/lte-simple-task_performance.png}
-	\caption{\textbf{Number of distinct tasks performed in minimal environments}. The left plot shows a time-series of the number of distinct tasks performed by the treatment populations over time. The right-had plot shows the number of tasks performed at the end of the experiments. The harsh changing environment treatment performs substantially and significantly fewer tasks than any of the benign or control treatments (Wilcoxon Rank Sum Test: Z = -11.22 and -11.15 respectively, p $<<$ 0.001). The benign treatments perform best, but the differences are not statistically significant from the control (Kruskal-Wallis: H(2) = 2.76, p = 0.25). %
+	\caption{\textbf{Number of distinct tasks performed}. The left plot shows a time-series of the number of distinct tasks performed by the treatment populations over time. The right-had plot shows the number of tasks performed at the end of the experiments. The harsh changing environment treatment performs substantially and significantly fewer tasks than any of the benign or control treatments (Wilcoxon Rank Sum Test: Z = -11.22 and -11.15 respectively, p $<<$ 0.001). The benign treatments perform best, but the differences are not statistically significant from the control (Kruskal-Wallis: H(2) = 2.76, p = 0.25). %
 	}
 	\label{fig:lte-simple-task_performance}
 	\end{figure}  
