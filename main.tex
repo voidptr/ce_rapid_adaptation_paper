@@ -189,8 +189,10 @@
 % Title must be 250 characters or less.
 \begin{flushleft}
 {\Large
-\textbf\newline{Short-term and long-term evolutionary dynamics in cyclic changing environments} % Please use "sentence case" for title and headings (capitalize only the first word in a title (or heading), the first word in a subtitle (or subheading), and any proper nouns).
+\textbf\newline{Fluctuating environments promote evolution to more phenotypically volatile regions of genotype space}
+%\textbf\newline{Short-term and long-term evolutionary dynamics in cyclic changing environments} % Please use "sentence case" for title and headings (capitalize only the first word in a title (or heading), the first word in a subtitle (or subheading), and any proper nouns).
 %@CAO: Can we shift the title to focus more on a contribution/result?  Right now, the title is pretty vague.  Perhaps "Fluctuating environments promote evolution to more phenotypically volitile regions of genotype space" or something along those lines.
+%@RCK: Changed as suggested, but I'm going to let it percolate to see if we can come up with something better.
 }
 \newline
 \\
@@ -219,10 +221,12 @@ Charles Ofria\textsuperscript{1,2,3}%\ddag}
 \section*{Abstract}
 Genetic spaces are often described in terms of fitness landscapes or genotype-to-phenotype maps, where each genetic sequence is associated with phenotypic properties and linked to other genotypes that are a single mutational step away.  The positions close to a genotype make up its "mutational landscape" and, in aggregate, determine the short-term evolutionary potential of a population.
 % @CAO: The first part of this paragraph is providing terminology.  The rest is, I assume, talking about the contributions of this paper, but we never make that clear (a casual reader might assume that we're still providing background.)  If the impact of more phenotypes in a neighborhood is all well accepted already and you're just summarizing other's work here, ignore this comment.
+%@RCK: I think it is well accepted already. See pretty much any of Andreas Wagner's work, plus a ton of not super recent robustness stuff. Because it's an abstract, I can't really cite. :/
 Populations with wider ranges of phenotypes in their mutational neighborhood tend to be more evolvable. Likewise, those with fewer phenotypic changes available in their local neighborhoods are more mutationally robust. As such, forces that alter the distribution of phenotypes available by mutation can have a profound effect on subsequent evolutionary dynamics.
 
-Environmental change alters a fitness landscape and may create selective pressures for populations to adapt to those changes more rapidly.  Indeed, we us digital organiss to demonstrate that cyclically-changing environments can push populations toward more evolvable mutational landscapes where a wide range of alternate phenotypes are available, though purely deleterious mutations remain suppressed.
+Environmental change alters a fitness landscape and may create selective pressures for populations to adapt to those changes more rapidly.  Indeed, we use digital organisms to demonstrate that cyclically-changing environments can push populations toward more evolvable mutational landscapes where a wide range of alternate phenotypes are available, though purely deleterious mutations remain suppressed.
 %@CAO: I added "in digital  organisms", since otherwise we never make clear that the experiments are computational.
+%@RCK: cool
 We further show that populations in environments with drastic changes switch phenotypes more readily than those in environments with more benign changes. We trace this effect to repeated population bottlenecks in the harsh environments, which result in shorter coalescence times and keep populations in regions of the mutational landscape where the phenotypic shifts in question are more likely to occur.
 
 \linenumbers
@@ -268,13 +272,16 @@ Evolvability refers to a series of distinct but overlapping concepts that are ge
 exploration of neutral spaces and robustness~\cite{andreas_wagner_robustness_2005,kitano_biological_2004}, 
 generation of novel features~\cite{alberch_genes_1991,brookfield_evolution:_2001}, 
 or even the potential to generate clade-level innovations~\cite{kirschner_evolvability_1998} 
-and major transitions~\cite{smith_major_1995}. For the purposes this chapter, we will focus on evolvability as the capacity for mutations to generate adaptive variation in a genome. 
+and major transitions~\cite{smith_major_1995}. Here, we will focus on evolvability as the capacity for mutations to generate adaptive variation in a genome. 
 % @CAO: Make sure to fix the word "chapter" in the paragraph above and throughout.  You can probably change all of "For the purposes this chapter" to simply "Here".
+%@RCK: No other references to "chapter" heh
 
 %=how it affects short term evo
-In the short-term, this kind of evolvability determines a population's response to selection.
+In the short-term, this kind of evolvability determines a population's response to selection%.
 % @CAO: Both thr previous sentence and the next refer to "This kind of evolvability".
-This kind of evolvability depends primarily on the organization and interrelation of information in the genome; that is, the genetic architecture, and the resulting genotype-to-phenotype map~\cite{gunter_p._wagner_perspective:_1996}. An example of evolvable architecture can be found in some bacterial genomes that contain highly mutable genome regions, called contingency loci. Small sets of insertions or deletions to these regions create transcription frameshifts that alter the expression of nearby coding regions, thus allowing populations to easily switch phenotypes via minor mutations. Contingency loci are most often seen in the genomes of pathogens, which are subject to frequent environmental shifts caused by the host immune system~\cite{bayliss_simple_2001}. Thus, these populations are able to produce large amounts of heritable variation despite their reduction in diversity resulting from population bottlenecks.
+% @RCK: fixed
+%This kind of evolvability 
+, and depends primarily on the organization and interrelation of information in the genome; that is, the genetic architecture, and the resulting genotype-to-phenotype map~\cite{gunter_p._wagner_perspective:_1996}. An example of evolvable architecture can be found in some bacterial genomes that contain highly mutable genome regions, called contingency loci. Small sets of insertions or deletions to these regions create transcription frameshifts that alter the expression of nearby coding regions, thus allowing populations to easily switch phenotypes via minor mutations. Contingency loci are most often seen in the genomes of pathogens, which are subject to frequent environmental shifts caused by the host immune system~\cite{bayliss_simple_2001}. Thus, these populations are able to produce large amounts of heritable variation despite their reduction in diversity resulting from population bottlenecks.
 
 
 \subsubsection*{Mutational Landscapes}
@@ -282,11 +289,13 @@ This kind of evolvability depends primarily on the organization and interrelatio
 Properties of genetic architectures such as evolvability and robustness are determined by the shape of the resulting mutational landscape (local fitness landscape around a genotype, accessible in a single mutation)~\cite{andreas_wagner_robustness_2008}. Robust genetic architectures that can tolerate more mutations without altering their phenotype reside in mutational landscapes that connect to more neutral mutants. Similarly, architectures where mutations are more likely to cause phenotype switching without substantial reductions in fitness, reside in more evolvable regions of genotype-space.
 
 %=not all regions equally accessible
-It is worth noting that not all regions of the mutational landscape may be equally accessible. Some genome regions may be more resistant to mutation than others.
+It is worth noting that not all neighborhoods of the mutational landscape may be equally accessible. Some genome regions may be more robust to mutation than others.
 % @CAO: I'm confused -- first we're talking about regions of the mutational landscape, and then genome regions, almost interchangably. The two certinaly interrelate, but we need to be careful.  Perhaps focus on "neighborhoods" for the landscape, but "regions" for the genome?  Also I think "resistant" to mutation might be confusing -- would "robust" be more accurate?
+% @RCK: fixed both
 For example, in E. coli, the mismatch repair (MMR) pathway has been shown to preferentially repair coding regions over non-coding regions~\cite{lee_rate_2012}. Alternately, some kinds of mutations may be more likely to occur than others. A mutation accumulation (MA) study of S. typhimurium found a strong bias toward GC-to-TA transversions rather than GC-to-AT transitions~\cite{lind_whole-genome_2008}.
 % @CAO: is it supposed to be "TA" the first time, and "AT" the second?
-These kinds of effects thereby skew the probabilities of some kinds mutations occurring that might lead into certain regions of the mutational landscape. These kinds of differential probabilities may therefore moderate a population's diffusion through the mutational landscape.
+% @RCK: Yes. The mutations involve pairs of nucleotides (G-C) mutating to adifferent pair. GC converting to TA is much more likely than GC converting to AT. (see note below)
+These kinds of effects thereby skew the probabilities of some kinds mutations occurring that might lead into certain neighborhoods of the mutational landscape. These kinds of differential probabilities may therefore moderate a population's diffusion through the mutational landscape.
 % @CAO: How would it be altered?  I'm not sure I understand the last couple of sentences here...
 % * <mjwiser@gmail.com> 2017-01-30T18:58:49.934Z:
 %
