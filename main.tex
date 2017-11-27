@@ -421,11 +421,11 @@ Finally, we can precisely and perfectly map the mutational landscape around the 
 
 \subsubsection*{Avida Digital Evolution Platform}
 %=Avida for doing these experiments
-We used Avida \cite{lenski_evolutionary_2003} to examine the effects of cyclic changing environments on the genomes of evolved digital organisms. Avida is a software platform for performing evolution experiments with digital organisms in a virtual world.
+We used Avida~\cite{lenski_evolutionary_2003} to examine the effects of cyclic changing environments on the genomes of evolved digital organisms. Avida is a software platform for performing evolution experiments with digital organisms in a virtual world.
 
 %=[FIGURE - Avida CPU]
 \begin{figure}[!h]
-\includegraphics[width=0.5\columnwidth]{figures/methods/squishedCPU_extra.png}
+\includegraphics[width=0.65\columnwidth]{figures/methods/squishedCPU_extra.png}
 \caption{{\bf An example virtual CPU from Avida}, with a circular genome (blue), three registers (purple), input and output handlers (tan), and an instruction pointer (yellow) indicating the next instruction to be executed~\cite{canino-koning_evolution_2016}.%
 }\label{fig:cpu}
 \end{figure}
@@ -733,7 +733,7 @@ In order to identify the role that these longer task footprints and pseudogene-l
 
 We found that in both the benign and harsh treatments, there were many more mutations that resulted in loss of the fluctuating task as compared to the control (Wilcoxon Rank Sum Test: Z = -5.46 and -7.80 respectively, p $<<$ 0.001). An increase in task loss in the harsh treatment is to be expected, but why would the benign treatment lose \texttt{EQU} nearly as easily as the harsh treatment? One possibility is selective pressure to lose the task. There is no explicit pressure for task loss, merely an absence of reward. Even so, there is certainly an implicit penalty for performing a complex task for which there is no reward. Another possibility is drift. Indeed, in Figure~\ref{fig:CCE_equ_execution}, we observe a steady downward trend in execution of \texttt{EQU} when rewards are withdrawn. Then, as the reward returns, new mutations are applied that reactivate the task, and overall performance recovers quickly. This pattern of loss and regain would, over time tend, to increase the length of the task. Indeed, as noted in Figure~\ref{fig:lineage-harsh}, there is a rapid increase in task length as \texttt{EQU} is cyclically lost and regained. 
 
-\todo[inline]{make this a linear model, not just a correlation}
+%\todo[inline]{make this a linear model, not just a correlation}
 However, is increased task length enough to account for increased task vulnerability to mutation? In order to begin to address this question, we calculated the correlation between task length and the fraction of mutants that lost each of the tasks. We discovered a strong correlation between the number of functional sites and the number of task-losing mutants for the \texttt{EQU} task, both alone, and overlapping with \texttt{XOR} (Spearman's Rho: $r_s$ = 8.72 and 6.45, respectively, p = $<<$ 0.001) (Fig~\ref{fig:CCE_func_vs_single_step}). We also found a weaker, but still significant correlation between the number of \texttt{XOR}-only functional sites and loss of the \texttt{XOR} task (Spearman's Rho: $r_s$ = 3.85, p $<<$ 0.001). This result confirms our intuition that the longer the task, the more targets there are for mutation to disable the task.
 
 %=[FIGURE - Frac 1-step vs task length]
