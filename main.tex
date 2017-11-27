@@ -579,7 +579,6 @@ In addition to counting the number of unique task discovered, we also measure ta
 
 %=the organisms
 \subsubsection*{Experimental System}
-%\todo[inline]{fix the title to be about the details of the system}
 For all of the experiments described in this paper, we held the individual genomes at a fixed length of 121\footnote{As part of our initial controls, we hand-wrote an organism with separated sections that performed \texttt{XOR} and \texttt{EQU}. This hand-written organism had 121 instructions and, as such, we used this genome length as a constraint for the evolved organisms as well.} instructions, but tested the new genomes for mutations after each successful replication event at a substitution probability of 0.00075 per site. 
 
 We configured the Avida world to have local interactions on a toroidal grid that is 60-by-60 cells (3600 cells in total), and we seeded the initial populations with an ancestor that was previously evolved to perform \texttt{XOR} and \texttt{EQU} under a static reward. The genetic architecture for performing \texttt{XOR} and \texttt{EQU} is tightly intertwined in this ancestral organism, as it was evolved with no selective pressure for modularity.
@@ -594,7 +593,6 @@ In specific cases, we also apply Spearman's rank-order correlation coefficient $
 % MJW: I recommend a line here with a reference to what you used to physically compute the stats: R, Python, whatever.
 
 \section*{Results and Discussion}
-%\todo[inline]{note about long-term evo stuff}
 %=summary - we found that CE evolved populations are genetically distinct. Stochastic pretty similar to CCE
 Our experiments (detailed below) demonstrate that digital organisms that were evolved in changing environments differ substantially from those that evolved in static environments in a number of ways. These differences include the number of mutations that fix in the lineage from the ancestor (the ``phylogenetic depth"), key metrics of their genetic architecture, and the presence of reservoirs of pseudogenes that change the nearby mutational landscape. These features represent adaptation to the larger regime of repeated environmental switching. 
 %We also show that while populations evolved in cyclic environments are slightly better adapted to change than those that evolved in stochastic environments, in most measures of adaptation and short-term evolvability, these differences are generally not significant. This result indicates that while regular periodicity may offer a slight advantage for adaptation, stochastic environments perform similarly in most respects. 
@@ -608,7 +606,6 @@ We begin by examining the characteristics of populations evolved in cyclic chang
 \subsubsection*{Performance of \texttt{EQU}}
 Each population was seeded with organisms that performed both the \texttt{EQU} fluctuating task, and the \texttt{XOR} backbone task. We measured the execution of the \texttt{EQU} task, and observed that in the static control treatment, \texttt{EQU} is fixed in the population and remains so throughout the run. In contrast, we observed a periodic dip in the execution of \texttt{EQU} in the benign changing environment during the non-rewarded phase of the cycle, followed by a rapid recovery when rewards are reinstated. Finally, in the harsh treatment, we observed abrupt disappearance of \texttt{EQU} performance, followed by rapid recoveries, coinciding with phases of reward and punishment. As expected, these results suggest that the populations are responding to the selective pressures to perform \texttt{EQU} when it is rewarded, and to lose functionality when it is not rewarded or when it is punished.
 
-%\todo[inline]{Show figure of early vs late adaptation}
 %=[FIGURE - functional vs vestigial sites]
 	\begin{figure}[!h]
 	\includegraphics[width=0.95\columnwidth]{figures/CE/CCE_equ_execution.png}
@@ -739,7 +736,7 @@ In order to identify the role that these longer task footprints and pseudogene-l
 
 We found that in both the benign and harsh treatments, there were many more mutations that resulted in loss of the fluctuating task as compared to the control (Wilcoxon Rank Sum Test: Z = -5.46 and -7.80 respectively, p $<<$ 0.001). An increase in task loss in the harsh treatment is to be expected, but why would the benign treatment lose \texttt{EQU} nearly as easily as the harsh treatment? One possibility is selective pressure to lose the task. There is no explicit pressure for task loss, merely an absence of reward. Even so, there is certainly an implicit penalty for performing a complex task for which there is no reward. Another possibility is drift. Indeed, in Figure~\ref{fig:CCE_equ_execution}, we observe a steady downward trend in execution of \texttt{EQU} when rewards are withdrawn. Then, as the reward returns, new mutations are applied that reactivate the task, and overall performance recovers quickly. This pattern of loss and regain would, over time tend, to increase the length of the task. Indeed, as noted in Figure~\ref{fig:lineage-harsh}, there is a rapid increase in task length as \texttt{EQU} is cyclically lost and regained. 
 
-%\todo[inline]{make this a linear model, not just a correlation}
+\todo[inline]{make this a linear model, not just a correlation}
 However, is increased task length enough to account for increased task vulnerability to mutation? In order to begin to address this question, we calculated the correlation between task length and the fraction of mutants that lost each of the tasks. We discovered a strong correlation between the number of functional sites and the number of task-losing mutants for the \texttt{EQU} task, both alone, and overlapping with \texttt{XOR} (Spearman's Rho: $r_s$ = 8.72 and 6.45, respectively, p = $<<$ 0.001) (Fig~\ref{fig:CCE_func_vs_single_step}). We also found a weaker, but still significant correlation between the number of \texttt{XOR}-only functional sites and loss of the \texttt{XOR} task (Spearman's Rho: $r_s$ = 3.85, p $<<$ 0.001). This result confirms our intuition that the longer the task, the more targets there are for mutation to disable the task.
 
 %=[FIGURE - Frac 1-step vs task length]
