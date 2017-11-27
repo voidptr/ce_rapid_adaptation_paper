@@ -361,9 +361,10 @@ In the context of changing environments, the expected fitness value ($E(w)$), an
 \subsection*{Changing environments create more paths to different kinds of phenotypes}
 %=sustained directional selection for adaptation
 Sustained directional selection adjusts the composition of phenotypes and genotypes in a population \cite{wright_evolution_1931}, typically moving that population across the mutational landscape to local regions of higher fitness. When populations find a fitness peak, they tend to cluster there, and exploration of that region of the landscape slows dramatically.
+% MJW: Flagging this point as where I brought up the issue of whether they explore this region or a different region more slowly.
 
 %=CE promotes exploration
-In changing environments, however, the direction of selection is not fixed and peaks are not stable.  Instead, as the environment changes, populations are driven to explore new regions of the mutational landscape \cite{kashtan_varying_2007,connelly_negative_2015}. As they proceed, populations accumulate and carry with the genetic material acquired in prior explorations and adaptations, and use this history as raw material for new adaptation \cite{mcclintock_significance_1993}. Indeed, earlier work has shown that changing environments promote evolvability in many contexts, without compromising robustness \cite{crombach_evolution_2008,wilke_evolution_2001}. Strength of selection is also an important component of this exploration, since the harshness of the environment drives the speed with which organisms adapt to new conditions \cite{goddard_sex_2005}.
+In changing environments, however, the direction of selection is not fixed and peaks are not stable.  Instead, as the environment changes, populations are driven to explore new regions of the mutational landscape \cite{kashtan_varying_2007,connelly_negative_2015}. As they proceed, populations accumulate and carry with them the genetic material acquired in prior explorations and adaptations, and use this history as raw material for new adaptation \cite{mcclintock_significance_1993}. Indeed, earlier work has shown that changing environments promote evolvability in many contexts, without compromising robustness \cite{crombach_evolution_2008,wilke_evolution_2001}. Strength of selection is also an important component of this exploration, since the harshness of the environment drives the speed with which organisms adapt to new conditions \cite{goddard_sex_2005}.
 
 
 %=how it affects long-term evo
@@ -435,7 +436,7 @@ An Avida organism is composed of a circular genome of assembly-like computer ins
 
 % @CAO: I feel like a lot of this paragraph repeats information from the last section that was more generically about digital evolution.  We should probably tighten it up here.
 %=Avida are self-replicating, but without perfect fidelity
-Organisms in Avida are self-replicating, and experience mutation. The genome in the initial default organism contains all of the instructions necessary for reproduction. However, the instructions are not copied into an offspring with perfect fidelity. By default, the reproductive copy instruction is faulty, meaning that it will probabilistically introduce errors (mutations) into the offspring genomes. These offspring organisms execute their own genomes even when different from their parent, and in turn pass on their inherited mutations, along with new mutations, to their own offspring (i.e., variation in the systems is heritable).
+Organisms in Avida are self-replicating, and experience mutation. The genome in the initial default organism contains all of the instructions necessary for reproduction. However, the instructions are not copied into an offspring perfectly. By default, the reproductive copy instruction is faulty, meaning that it will probabilistically introduce errors (mutations) into the offspring genomes. These offspring organisms execute their own genomes even when different from their parent, and in turn pass on their inherited mutations, along with new mutations, to their own offspring (i.e., variation in the systems is heritable).
 
 %=Avida worlds are constrained and thus competition
 Avida worlds can be space- or resource-constrained. Avida allows the experimenter to configure many aspects of the environment, thus subjecting the organisms to various kinds of selective pressures.  In many cases, these environments will include resources that can be metabolized by performing specific functions or activities, resulting in a boost to execution speed that gives the organisms a competitive advantage. However, even without explicit external pressures, organisms still experience an implicit pressure to execute more quickly and efficiently. The organisms that run fastest are typically able to also reproduce fastest, and thus out-compete their peers for space.
@@ -495,6 +496,7 @@ We subjected a total of 150 replicate populations of digital organisms to two di
 
 %=static env
 In the static control, there is no cycle. Rather, the rewards remain constant. This stage of the experiment extends for 200 cycles, or 200,000 updates, approximately 6,000 generations.
+% MJW: You just said this in the previous paragraph.  Why are you repeating this information?
 
 % %=stochastic
 % The stochastic changing environment experiment is similar to the cyclic environment, except that rather than the environment toggling every 500 updates, the environmental switch happens randomly, with a 0.002 probability of changing on every update. This averages, in the long term, to approximately one switch every 500 updates, but in the short term, the environmental switches are unpredictable.
@@ -571,14 +573,14 @@ Task discovery can range anywhere from a minimum of zero tasks discovered, to a 
 %@RCK: reworded to be clearer
 
 \subsubsection*{Task Performance}
-In addition to counting the number of unique task discovered, we also measure task performance. We measure task performance by counting the total number of unique, non-ephemeral tasks that a population is performing at each sampling point. This measure represents the level of exploitation of the fitness landscape. This measure can range from 0 to a maximum of 77 task being performed by the population. This value will always be either equal to, or smaller than the number of tasks discovered, since you can't perform a task you haven't discovered yet.   
+In addition to counting the number of unique task discovered, we also measure task performance. We measure task performance by counting the total number of unique, non-ephemeral tasks that a population is performing at each sampling point. This measure represents the level of exploitation of the fitness landscape. This measure can range from 0 to a maximum of 77 task being performed by the population. This value will always be either equal to, or smaller than the number of tasks discovered, since a population can't perform a task it hasn't discovered yet.   
 % MJW: I think this is confusingly phrased. To the best of my understanding, you're saying that each task can only be performed once per organism. Therefore, for any given task, the maximum number of times it could be performed in a given update (which I'm guessing is your sampling?) is 3,600 (because I'm assuming that if a specific organism gives birth during the update and then somehow has enough cycles to perform that task again, it's still only counted as having happened once?). You therefore set a threshold at which tasks are only considered to be performed ephemerally, at 1 out of 100 organisms performing that task in the sampling. Anything performed more often than that is not ephemeral; you count the unique non-ephemeral tasks from the population as your measure of task performance. Introducing the term non-ephemeral several sentences before you define it is a bit confusing, and I'm still not entirely clear if you count whether organisms that are sampled *can* perform the task, or *do* perform the task at the point being sampled.
 %RCK: No, it's the number of discovered tasks that the population has retained and is performing. Reworded for clarity.
 
 %=the organisms
 \subsubsection*{Experimental System}
 %\todo[inline]{fix the title to be about the details of the system}
-For all of the experiments described in this paper, we held the individual genomes at a fixed length of 121\footnote{As part of our initial controls, we hand-wrote an organism with separated sections that performed \texttt{XOR} and \texttt{EQU}. This hand-written organism had 121 instructions and as such we used this genome length as a constraint for the evolved organisms as well.} instructions, but tested the new genomes for mutations after each successful replication event at a substitution probability of 0.00075 per site. 
+For all of the experiments described in this paper, we held the individual genomes at a fixed length of 121\footnote{As part of our initial controls, we hand-wrote an organism with separated sections that performed \texttt{XOR} and \texttt{EQU}. This hand-written organism had 121 instructions and, as such, we used this genome length as a constraint for the evolved organisms as well.} instructions, but tested the new genomes for mutations after each successful replication event at a substitution probability of 0.00075 per site. 
 
 We configured the Avida world to have local interactions on a toroidal grid that is 60-by-60 cells (3600 cells in total), and we seeded the initial populations with an ancestor that was previously evolved to perform \texttt{XOR} and \texttt{EQU} under a static reward. The genetic architecture for performing \texttt{XOR} and \texttt{EQU} is tightly intertwined in this ancestral organism, as it was evolved with no selective pressure for modularity.
 
@@ -588,6 +590,8 @@ Most of the statistical techniques used in this paper are non-parametric, and fo
 In certain cases, we report mean and median values of distributions. In these cases, we also report the standard deviation or 95\% confidence intervals.
 
 In specific cases, we also apply Spearman's rank-order correlation coefficient $\rho$ (or $r_{s}$)~\cite{spearman_proof_1904} to measure correlations between data sets. In all cases, data points are matched from within a replicate.
+
+% MJW: I recommend a line here with a reference to what you used to physically compute the stats: R, Python, whatever.
 
 \section*{Results and Discussion}
 %\todo[inline]{note about long-term evo stuff}
@@ -599,7 +603,7 @@ Our experiments (detailed below) demonstrate that digital organisms that were ev
 We also show that while harsh changing environments are better at promoting short-term adaptation to changing environments, benign environments produce populations that adapt more rapidly to entirely new sets of tasks. This suggests that the selective pressures that promote short-term adaptation are not necessarily the same as those that promote long-term evolvability.
 
 \subsection*{Stage 1 - Cyclic Changing Environments}
-We will begin by examining the characteristics of populations evolved in cyclic changing environments.
+We begin by examining the characteristics of populations evolved in cyclic changing environments.
 
 \subsubsection*{Performance of \texttt{EQU}}
 Each population was seeded with organisms that performed both the \texttt{EQU} fluctuating task, and the \texttt{XOR} backbone task. We measured the execution of the \texttt{EQU} task, and observed that in the static control treatment, \texttt{EQU} is fixed in the population and remains so throughout the run. In contrast, we observed a periodic dip in the execution of \texttt{EQU} in the benign changing environment during the non-rewarded phase of the cycle, followed by a rapid recovery when rewards are reinstated. Finally, in the harsh treatment, we observed abrupt disappearance of \texttt{EQU} performance, followed by rapid recoveries, coinciding with phases of reward and punishment. As expected, these results suggest that the populations are responding to the selective pressures to perform \texttt{EQU} when it is rewarded, and to lose functionality when it is not rewarded or when it is punished.
@@ -631,6 +635,7 @@ We then surveyed the evolutionary history and population structure of the evolvi
 %=more genetic diversity
 The populations that evolved in the control and benign environments displayed more genetic diversity as compared to those evolved in the harsh cyclic environment, which underwent a bottleneck at each cycle shift (see Fig~\ref{fig:population-entropy}). Because a selective sweep reduces current diversity within a population, the smaller number of sweeps
 % @CAO it looks like it wasn't just a smaller number of sweeps, but that the sweeps took MUCH longer to occur, to the point where it's hard to even dub them sweeps at all... more fixation events?  Mike should weigh in here too.
+% MJW: Responding to Charles: why would they not be sweeps if they take longer?  Selective sweeps can be either a reduction or elimination of diversity in regions linked to an allele that goes to or near fixation.  Even when the same phenotype is reached through multiple clades, such that no one background becomes extremely common, gets referred to as a form of a sweep.  Regardless, I don't see why whether or not it's a sweep matters in this particular case.  It is undoubtedly true that there are fewer selection sweeps in the benign and control treatments than in the harsh one; the debate on terms seems to be whether there are *any* in the benign and control treatments.
 in the benign and control treatments led populations in them to have higher standing diversity for most of their evolutionary history than those populations from the harsh changing environment. Despite this higher standing diversity in the benign and control treatments, regions of low diversity are still evident in the genomes of these populations, implying purifying selection on the traits encoded at these sites (see Fig~\ref{fig:by-site-entropy}).
 % * <mjwiser@gmail.com> 2017-01-30T19:39:00.542Z:
 %
@@ -703,6 +708,7 @@ The alternating selection in both benign and harsh changing environments results
 
 %=arch of control, scattered XOR
 In terms of site placement over time, functional task site locations in the control treatment did not change substantially over the course of the experiment. In the benign treatment, many more regions that performed the fluctuating task (XOR) were scattered throughout the genome, but site positions remained relatively fixed throughout the run after an initial adaptive phase. In the harsh treatment, however, not only are the active sites scattered, but the positions of active sites change and proliferate wildly over time.
+% MJW Verb tense flagging.  You go from past to present in this paragraph.
 
 %=site length
 In addition to the variation in site placement, populations in the benign and harsh changing environment treatments had significantly more functional sites devoted to performing just the \texttt{EQU} task (Wilcoxon Rank Sum Test: Z = -5.57 and -6.96, respectively, p $<<$ 0.001).
