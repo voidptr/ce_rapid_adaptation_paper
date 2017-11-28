@@ -755,8 +755,7 @@ Further, the lower correlation between length and task loss for the \texttt{XOR}
 
 We then measured the proportion of second step mutants that regained \texttt{EQU} after having lost it in the single-step survey. We found that 
 %the availability of reservoirs of vestigial sites 
-changing environments shifted
-shifted the populations' position in the mutational landscape, such that when a task that was lost due to mutation, that task could be regained via one or two additional mutations elsewhere. That is, once a mutation caused the loss of a task, a different mutation could reactivate the task. (Fig~\ref{fig:CCE_two_step}). 
+changing environments shifted the populations' position in the mutational landscape, such that when a task that was lost due to mutation, that task could be regained via one or two additional mutations elsewhere. That is, once a mutation caused the loss of a task, a different mutation could reactivate the task. (Fig~\ref{fig:CCE_two_step}). 
 % @CAO: This last part doesn't make a lot of sense -- CLEARLY if a single mutation causes a task loss, the corresponding reverse mutation would cause that task to be regained. As such, do you mean that there a MORE paths back to the task in the changing-environment treatments as compared to the static control?
 % @RCK: Yes, that's what this means. "More often, above". I can clarify. 
 %@RCK: Clarified
@@ -788,7 +787,7 @@ As an overall measure of neutral exploration, we also measured the proportion of
 	}\label{fig:CCE_diffusion_rate}
 	\end{figure}
 
-What might account for this adaptation? Similar to the relationship between the number of functional sites of a task, and the number of single-step mutants that lost that task (See Fig~\ref{fig:CCE_func_vs_single_step}), we hypothesize that the reacquisition of tasks in the 2nd-step survey may be mediated by the amount of useful task material present in the genome. We performed a multiple linear regression, predicting the mean fraction of mutants that regained \texttt{EQU}, by the number of functional and vestigial sites contained in the original genome (See Table~\ref{ce-olsregression-2ndstep} and Fig~\ref{fig:CCE_2step_vs_func_vest_sites}).
+What might account for this adaptation? Similar to the relationship between the number of functional sites of a task, and the number of single-step mutants that lost that task (see Fig~\ref{fig:CCE_func_vs_single_step}), we hypothesize that the reacquisition of tasks in the 2nd-step survey may be mediated by the amount of useful task material present in the genome. We performed a multiple linear regression, predicting the mean fraction of mutants that regained \texttt{EQU}, by the number of functional and vestigial sites contained in the original genome (see Table~\ref{ce-olsregression-2ndstep} and Fig~\ref{fig:CCE_2step_vs_func_vest_sites}).
 
 	%=[FIGURE 2nd-Step ~ Func + Vest]
 	\begin{figure}[!h] %% FIGURE 8
@@ -904,6 +903,7 @@ We found that once we began rewarding the \textbf{expanded task set}, population
 % MJW: I am having a hard time tracking what the "relative differences" are here. The plurality implies that there are multiple, but the sentence structure seems to indicate you're comparing strength of selection in the harsh changing environment and the directional selection toward Logic-77 tasks (by which I am assuming you are referring to the selective pressure towards acquiring tasks that are always rewarded, but conceptually it's hard to compare the strength of selection [essentially a measure of s in population genetics] to directional selection [a class of selective pressure]).
 %@RCK: added more detail below
 In the harsh changing environments, the selective pressure to gain or lose the fluctuating tasks represents up to a $2 * 2^5$-fold bonus over the course of a single cycle, whereas the \textbf{expanded task set} can individually only offer a 1.2-fold bonus to execution speed. Thus, those organisms that promptly gain or lose a fluctuating task are more likely to survive, regardless of whether or not they have gained one of the new Logic-77 tasks. Thus pressures to gain and lose the fluctuating tasks are much stronger than the pressure to acquire new Logic-77 tasks, thereby depressing the rate at which they are found.
+% MJW: This is a place for the new expanded task set terminology, right?
 % MJW: I know that stats are TODO throughout this chapter, but this sentence in particular absolutely needs them, and it's the sort that would be easy to overlook so I'm flagging it. Though, to be fair, you don't necessarily need the stats if you just lay out the raw numbers -- the selective benefit towards either gaining \texttt{EQU} when it starts being rewarded or lose it when it starts being punished is X, the benefit of acquiring a Logic-77 task is Y.
 %@RCK: added something to expand on the reasoning
 
@@ -971,7 +971,7 @@ In addition to task discovery, task performance is another important measure of 
 	%=[FIGURE - postreward task performance]
 	\begin{figure}[!h]
 	\includegraphics[width=0.95\columnwidth]{figures/LTE/lte-simple-task_performance.png}
-	\caption{\textbf{Number of distinct tasks performed}. The left plot shows a time-series of the number of distinct tasks performed by the treatment populations over time. The right-had plot shows the number of tasks performed at the end of the experiments. The harsh changing environment treatment performs substantially and significantly fewer tasks than any of the benign or control treatments (Wilcoxon Rank Sum Test: Z = -11.22 and -11.15 respectively, p $<<$ 0.001). The benign treatments perform best, but the differences are not statistically significant from the control (Kruskal-Wallis: H(2) = 2.76, p = 0.25). %
+	\caption{\textbf{Number of distinct tasks performed}. The left plot shows a time-series of the number of distinct tasks performed by the treatment populations over time. The right-had plot shows the number of tasks performed at the end of the experiments. The harsh changing environment treatment performs substantially and significantly fewer tasks than any of the benign or control treatments (Wilcoxon Rank Sum Test: Z = -11.22 and -11.15 respectively, p $<<$ 0.001). The benign treatments perform best, but the differences are not statistically significantly different than the control (Kruskal-Wallis: H(2) = 2.76, p = 0.25). %
 	}
 	\label{fig:lte-simple-task_performance}
 	\end{figure}  
@@ -1025,7 +1025,7 @@ These results suggest, therefore, that architectural features that help with sho
 
 
 \subsection*{Long-Term Evolvability}
-The relationship between short and long term evolvability is non-obvious. Architectural features and selective pressures that promote repeated re-adaptation to a known set of environments may not be beneficial for the acquisition of entirely new adaptive traits. For example, harsh changing environments act to depress both fitness and population diversity, which might make these populations less effective at adaptation when introduced into a new environment.
+The relationship between short- and long-term evolvability is non-obvious. Architectural features and selective pressures that promote repeated re-adaptation to a known set of environments may not be beneficial for the acquisition of entirely new adaptive traits. For example, harsh changing environments act to depress both fitness and population diversity, which might make these populations less effective at adaptation when introduced into a new environment.
 
 Indeed, our experiments show that harsh changing environments, with their strong selective pressures, suppress the ability of populations to acquire new, weakly-selected traits. However, benign changing environments, with their milder set of selective pressures, are able to leverage their accumulated heritage of dormant vestigial sites to rapidly respond to selection, and acquire new tasks at a faster rate than either harsh or non-change-evolved populations. However, despite the direct negative effects of harsh changing environments, populations initially evolved in these environments are able to rapidly acquire new tasks if alternating selection is removed. This result suggests that there are important architectural features conveyed by these environments that are beneficial for new task acquisition.
 
@@ -1045,6 +1045,7 @@ Understanding the mechanisms by which select environmental conditions alter fitn
 \section*{Acknowledgments}
 We would like to thank Alex Lalejini for helpful discussions and comments about the relationship between phenotypic plasticity and contingency loci, Joshua Nahum for discussions of experiments in changing environments, and Emily Dolson, Brian Goldman, and Anya Vostinar for their comments on early manuscript drafts.
 This material is based in part upon work supported by the National Science Foundation under Cooperative Agreement No. DBI-0939454 to CO and a Graduate Research Fellowship to RCK. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.
+% MJW: Flagging Josh v Joshua issue
 
 %\bibliographystyle{apalike}
 \bibliography{changing_env}
