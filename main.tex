@@ -685,20 +685,20 @@ The alternating selection in both benign and harsh changing environments results
 % 	\end{figure}
 
 	\begin{figure}[!h]
-	\includegraphics[width=0.75\columnwidth]{figures/CE/control__whole_taskmap.png}
+	\includegraphics[width=0.95\columnwidth]{figures/CE/control__whole_taskmap.png}
 	\caption{\textbf{Genetic architecture of \texttt{XOR} and \texttt{EQU} over time in static environment} for the final dominant genotype in a randomly selected replicate. Proceeding from the left of each figure, each vertical slice represents an organism along the line-of-descent to the final dominant.
 	Positions along the Y-axis represent each genome locus; loci in an organism are colored based on the tasks that they code for. Sites in \textbf{red} are active sites that code for the \texttt{XOR} task only, sites in \textbf{blue} are active sites for the \texttt{EQU} task only, and \textbf{purple} sites code for both \texttt{XOR} and \texttt{EQU}. Knockouts to the sites in black are lethal to the organism. Sites in the lighter colors (tan, light blue, lavender) represent vestigial sites for \texttt{XOR} only, \texttt{EQU} only, or both tasks, respectively. As we proceed from left to right, we can see the evolutionary history of the final dominant genotype. \texttt{XOR} and \texttt{EQU} overlap almost completely throughout the run.}
 	\label{fig:lineage-control}
 	\end{figure}
 
 	\begin{figure}[!h]
-	\includegraphics[width=0.75\columnwidth]{figures/CE/benign__whole_taskmap.png}
+	\includegraphics[width=0.95\columnwidth]{figures/CE/benign__whole_taskmap.png}
 	\caption{\textbf{Genetic architecture of \texttt{XOR} and \texttt{EQU} over time in benign environment} for the final dominant genotype in a randomly selected replicate. Proceeding from the left of each figure, each vertical slice represents an organism along the line-of-descent to the final dominant, and as in Figure~\ref{fig:lineage-control}, colors represent tasks performed by each genome locus. In this genome, \texttt{XOR} and \texttt{EQU} evolve to overlap much less than in the control.}
 	\label{fig:lineage-benign}
 	\end{figure}
 
 	\begin{figure}[!h]
-	\includegraphics[width=0.75\columnwidth]{figures/CE/harsh__whole_taskmap.png}
+	\includegraphics[width=0.95\columnwidth]{figures/CE/harsh__whole_taskmap.png}
 	\caption{\textbf{Genetic architecture of \texttt{XOR} and \texttt{EQU} over time in harsh environment} for the final dominant genotype in a randomly selected replicate. Proceeding from the left of each figure, each vertical slice represents an organism along the line-of-descent to the final dominant, and as in Figures~\ref{fig:lineage-control} and \ref{fig:lineage-benign}, colors represent tasks performed by each genome locus. In this genome, \texttt{XOR} and \texttt{EQU} evolve to overlap even less than in the control and benign treatments, with the \texttt{EQU}-only task sites becoming increasingly scattered throughout the genome.}
 	\label{fig:lineage-harsh}
 	\end{figure}
@@ -714,7 +714,7 @@ Interestingly, populations evolved in both the benign and harsh treatments also 
 
 %=[FIGURE - functional vs vestigial sites]
 	\begin{figure}[!h]
-	\includegraphics[trim={0 0 0 0}, clip, width=0.75\columnwidth]{figures/CE/CCE_func_vest__box.png}
+	\includegraphics[width=0.95\columnwidth]{figures/CE/CCE_func_vest__box.png}
 	\caption{\textbf{Number of functional and vestigial sites by treatment}. Both the benign and harsh changing environments had significantly more sites devoted to performing only the \texttt{EQU} function (Wilcoxon Rank Sum Test: Z = -5.57 and -6.96, respectively, p $<<$ 0.001). The harsh environment has a significantly larger number of vestigial sites for the fluctuating (EQU) task compared to the benign treatment or control (Wilcoxon Rank-Sum Z = -6.57 and -8.33, p $<<$ 0.0001).
 	}
 	\label{fig:CCE_func_vestigial} %% FIGURE 5
@@ -728,7 +728,7 @@ In order to identify the role that these longer task footprints and pseudogene-l
 
 %=[FIGURE - Frac 1-step]
 	\begin{figure}[!h] %% FIGURE 6
-	\includegraphics[trim={0.2cm 0 0 0.2cm},clip,width=0.75\columnwidth]{figures/CE/CCE_frac_1step__box.png}
+	\includegraphics[width=0.95\columnwidth]{figures/CE/CCE_frac_1step__box.png}
 	\caption{\textbf{A survey of the single-step mutational neighborhood} around organisms that performed the fluctuating task. Note that in both the benign and harsh treatments, there were significantly more mutants that lost the \texttt{EQU} task as compared to the control (Wilcoxon Rank Sum Test: Z = -5.46 and -7.80 respectively, p $<<$ 0.001). This result indicates that it was easier for the organisms in both treatments to turn off the \texttt{EQU} task in response to one mutation. 
 	}\label{fig:CCE_single_step}
 	\end{figure}
@@ -741,7 +741,7 @@ However, is increased task length enough to account for increased task vulnerabi
 
 %=[FIGURE - Frac 1-step vs task length]
 	\begin{figure}[!h] %% FIGURE 6
-	\includegraphics[trim={0.2cm 0 0 0.2cm},clip,width=0.95\columnwidth]{figures/CE/CCE_frac_1step_vs_func_sites.png}
+	\includegraphics[width=0.95\columnwidth]{figures/CE/CCE_frac_1step_vs_func_sites.png}
 	\caption{\textbf{Correlation between task length and mutational task loss} in the 1-step neighborhood across all treatments. Note the strong correlation between the length of the \texttt{EQU} task and the fraction of mutants that lost \texttt{EQU} (Spearman's Rho: $r_s$ = 8.72, p $<<$ 0.001). Further, consider the weaker correlation between \texttt{XOR} task length, and fraction of mutants that lost \texttt{XOR}. This suggests that \texttt{EQU} is even less robust to mutation compared to \texttt{XOR} than can be accounted for by task length alone.  
 	}\label{fig:CCE_func_vs_single_step}
 	\end{figure}	
@@ -765,7 +765,7 @@ shifted the populations' position in the mutational landscape, such that when a 
 %@CAO - I wonder if it would be interesting to list the number of ways that this happened to be clear that we're not just talking about undoing the changes that caused the loss in the first place.
 %@RCK: just clarified that we're not talking about reversions. More explanation provided above.
 	\begin{figure}[!h] %% FIGURE 7
-	\includegraphics[width=0.75\columnwidth]{figures/CE/CCE_frac_2step__box.png}
+	\includegraphics[width=0.95\columnwidth]{figures/CE/CCE_frac_2step__box.png}
 	\caption{\textbf{A survey of the two-step mutational neighborhood} of the organisms that lost \texttt{EQU} function in the one-step survey. We found that in both the harsh and benign treatments, there were significantly more organisms that regained function in response to mutation than the control. (Wilcoxon Rank Sum Test: Z = -47.9 and -57.82 respectively, p $<<$ 0.0001). This result indicates that it was easier for the organisms in both fluctuating environments to regain the task in response to one additional, non-reversion mutation.   
 	}\label{fig:CCE_two_step}
 	\end{figure}
@@ -782,7 +782,7 @@ As an overall measure of neutral exploration, we also measured the proportion of
 
 %=[FIGURE D_g D_p]
 	\begin{figure}[!h] %% FIGURE 8
-	\includegraphics[width=0.75\columnwidth]{figures/CE/CCE_D_g_D_p__box.png}
+	\includegraphics[width=0.95\columnwidth]{figures/CE/CCE_D_g_D_p__box.png}
 	\caption{\textbf{Genomic and phenotypic diffusion rates}, showing the probabilities of producing offspring that are genotypically ($D_g$) or phenotypically ($D_p$) distinct from the parent, while not reducing fitness.
 	Note that while overall neutral exploration capacity remains relatively stable between treatments (Kruskal-Wallis: H(2) = 1.44, p = 0.49), phenotypic exploration capacity is increased in both treatments, but especially in the Harsh treatment. (Wilcoxon Rank Sum Test: Z = -8.02, -8.39, respectively, p $<<$ 0.001). This result is consistent with changing environments promoting the phenotypic evolvability of populations.
 	}\label{fig:CCE_diffusion_rate}
@@ -792,7 +792,7 @@ What might account for this adaptation? Similar to the relationship between the 
 
 	%=[FIGURE 2nd-Step ~ Func + Vest]
 	\begin{figure}[!h] %% FIGURE 8
-	\includegraphics[width=0.75\columnwidth]{figures/CE/CCE_2step_vs_func_vest_sites.png}
+	\includegraphics[width=0.95\columnwidth]{figures/CE/CCE_2step_vs_func_vest_sites.png}
 	\caption{\textbf{Multiple linear regression predicting mean fraction of second-step mutants} from the number of functional and vestigial sites in the original organism. See Table~\ref{ce-olsregression-2ndstep}.
 	}\label{fig:CCE_2step_vs_func_vest_sites}
 	\end{figure}
