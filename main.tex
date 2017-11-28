@@ -297,6 +297,7 @@ For example, in \textit{E. coli}, the methyl-directed mismatch repair (MMR) path
 % @CAO: is it supposed to be "TA" the first time, and "AT" the second?
 % @RCK: Yes. The mutations involve pairs of nucleotides (G-C) mutating to adifferent pair. GC converting to TA is much more likely than GC converting to AT. (see note below)
 % MJW: I think this is confusingly worded.  Transitions are changes between C and T, or between G and A.  Transversions are all other substitutions.  (So, for example, G->A is transition; G->T and G->C are transversions).  My guess from the way you've worded this is that the paper showed among mutations that move the genomic state from (a G or C) into (a T or A), there is a bias towards transversions?  How does the paper you're citing word things?
+% @RCK: Worded exactly as I said it.
 These kinds of effects thereby skew the probabilities of some kinds mutations occurring that might lead into certain neighborhoods of the mutational landscape. These kinds of differential probabilities may therefore moderate a population's diffusion through the mutational landscape.
 % @CAO: How would it be altered?  I'm not sure I understand the last couple of sentences here...
 % * <mjwiser@gmail.com> 2017-01-30T18:58:49.934Z:
@@ -315,6 +316,7 @@ Assessing the qualities of the nearby mutational landscape requires measures tha
 %=how to calculate D_g
 To calculate the \textbf{Genomic Diffusion Rate} ($D_g$) in the local neighborhood of a genotype, first calculate its \textit{Fidelity} ($F$), or the probability of an offspring sharing this genotype with its parent.  Given a uniform mutation rate, Fidelity
 % MJW: You switch from capitalizing Fidelity to not doing so.  I think you need to be consistent.
+%@RCK: fixed
 can be calculated by measuring the probability that a single locus is not mutated ($1-\mu)$ and raising it to the power of the genome length ($l$). Next, measure the proportion of one-step mutants that are neutral or beneficial when compared to the parent ($p_\nu$) as well as those that are detrimental or lethal ($p_d$), which must sum to one ($p_\nu + p_d = 1$).  The \textit{Neutral Fidelity} ($F_\nu$) of a genotype is thus the probability that no harmful mutations occur, assuming no epistasis. Finally, subtracting Fidelity from Neutral Fidelity will yield the overall probability of producing an offspring with a different genotype, yet neutral or better fitness ($D_g$).
 % MJW: Is Neutral Fidelity a term from the literature?  If it is, go ahead an use that.  If it's not, I don't think it's the best term, since it both incorporates neutral and beneficial changes.  Though you define it clearly here, people who are skimming are going to miss that.
 
@@ -332,7 +334,7 @@ can be calculated by measuring the probability that a single locus is not mutate
 	\end{eqnarray}
 
 %=measuring more than neutral exploration. Calculating D_p
-Measures of neutral exploration, however, only show part of the picture. While some form of neutrality is necessary for exploring a fitness landscape, new phenotypes must be discovered to achieve higher local evolvability. In order to assess evolvability more specifically, we introduce a related measure, the \textbf{Phenotypic Diffusion Rate} ($D_p$), which represents the probability that an offspring will be fitness-neutral (or better), but also express a different phenotype than its parent. To do so, we must first measure the proportion of one-step mutants that are \textit{phenotypically} neutral as compared to their parent ($p_{p\nu}$) and follow a similar procedure as above, first calculating the probability that a phenotype-changing mutation will occur ($\mu_{pheno}$), then the phenotypic-level fidelity ($F_{p\nu}$).
+Measures of neutral exploration, however, only show part of the picture. While some form of neutrality is necessary for exploring a fitness landscape, new phenotypes must be discovered to achieve higher local evolvability. In order to assess evolvability more specifically, we introduce a related measure, the \textbf{Phenotypic Diffusion Rate} ($D_p$), which represents the probability that an offspring will be fitness-neutral (or better), but also express a different phenotype than its parent. To do so, we must first measure the proportion of one-step mutants that are \textit{phenotypically} neutral as compared to their parent ($p_{p\nu}$) and follow a similar procedure as above, first calculating the probability that a phenotype-changing mutation will occur ($\mu_{pheno}$), then the phenotypic-level Fidelity ($F_{p\nu}$).
 
 	\begin{eqnarray}
 	\label{eq:phenotypic_mutation_rate}
@@ -347,7 +349,7 @@ Measures of neutral exploration, however, only show part of the picture. While s
 		D_p = F_\nu - F_{p\nu}
 	\end{eqnarray}
 
-The difference between the overall neutral fidelity and the phenotype-preserving neutral fidelity ($F_\nu - F_{p\nu}$) yields the phenotypic diffusion rate.
+The difference between the overall Neutral Fidelity and the phenotype-preserving Neutral Fidelity ($F_\nu - F_{p\nu}$) yields the phenotypic diffusion rate.
 
 \subsubsection*{Expected Value of Fitness Landscapes}
 %=addressing expected fitness in fluctuating environments
@@ -360,8 +362,9 @@ In the context of changing environments, the expected fitness value ($E(w)$), an
 
 \subsection*{Changing environments create more paths to different kinds of phenotypes}
 %=sustained directional selection for adaptation
-Sustained directional selection adjusts the composition of phenotypes and genotypes in a population \cite{wright_evolution_1931}, typically moving that population across the mutational landscape to local regions of higher fitness. When populations find a fitness peak, they tend to cluster there, and exploration of that region of the landscape slows dramatically.
+Sustained directional selection adjusts the composition of phenotypes and genotypes in a population \cite{wright_evolution_1931}, typically moving that population across the mutational landscape to local regions of higher fitness. When populations find a fitness peak, they tend to cluster there, and exploration of regions further away slows dramatically.
 % MJW: Flagging this point as where I brought up the issue of whether they explore this region or a different region more slowly.
+%@RCK: Fixed
 
 %=CE promotes exploration
 In changing environments, however, the direction of selection is not fixed and peaks are not stable.  Instead, as the environment changes, populations are driven to explore new regions of the mutational landscape \cite{kashtan_varying_2007,connelly_negative_2015}. As they proceed, populations accumulate and carry with them the genetic material acquired in prior explorations and adaptations, and use this history as raw material for new adaptation \cite{mcclintock_significance_1993}. Indeed, earlier work has shown that changing environments promote evolvability in many contexts, without compromising robustness \cite{crombach_evolution_2008,wilke_evolution_2001}. Strength of selection is also an important component of this exploration, since the harshness of the environment drives the speed with which organisms adapt to new conditions \cite{goddard_sex_2005}.
@@ -389,7 +392,7 @@ Despite some common features, the relationship between short-term and long-term 
 %\todo[color=magenta,inline]{ch5 - background - fill this in about the prior research done in this area}
 % MJW: Are you looking to me for what prior research has shown, or is this more of a note to yourself?
 %@RCK: note to myself
-Finally, there is some evidence that the types of selection regimes typically used in experiments with changing environments and evolvability might preferentially favor individual evolvability (the probability of an individual's offspring accessing novel phenotypes) over population-level evolvability (the probability of the population at large accessing novel phenotypes)~\cite{wilder_reconciling_2015,lehman_critical_2016}. Adaptive selection, that is, selection toward a particular goal, has been shown to depress population diversity even while it increases individual evolvability in changing environment regimes. In contrast, divergent selection, such as frequency-dependent selection, increases standing diversity, and thus evolvability at the population level~\cite{wilder_reconciling_2015}. Therefore, it is not clear that the kinds of selective pressures that promote short-term adaptation in changing environments would, in turn, promote exploration and exploitation of novel environments.
+Finally, there is some evidence that the types of selection regimes typically used in experiments with changing environments and evolvability might preferentially favor individual evolvability (the probability of an individual's offspring accessing novel phenotypes) over population-level evolvability (the probability of the population at large accessing novel phenotypes)~\cite{wilder_reconciling_2015,lehman_critical_2016}. Adaptive selection, that is, selection toward a particular goal, has been shown to depress population diversity even while it increases individual evolvability in changing environment regimes. In contrast, divergent (diversity-promoting) selection, such as frequency-dependent selection, increases standing diversity, and thus evolvability at the population level~\cite{wilder_reconciling_2015}. Therefore, it is not clear that the kinds of selective pressures that promote short-term adaptation in changing environments would, in turn, promote exploration and exploitation of novel environments.
 %@RCK: Note to self, look at doing some quick experiments comparing individual vs population level evolvability using D_p and D_g.
 
 %In this chapter, we examine how two different kinds of changing environments affect long-term evolutionary potential. We introduce change-evolved populations from prior experiments, to an entirely new environment, where we can assess long-term variability generation in the form of new task discovery and exploration.
@@ -495,8 +498,9 @@ Control & \makecell{None \\ (static)} & \makecell{constant \\ $2^3$} & \makecell
 We subjected a total of 150 replicate populations of digital organisms to two different treatments of two-phase cyclically changing environments, plus a static control. The environment cycles between equal-length periods of reward and punishment. Each cycle extends for 1000 updates, or roughly 30 generations. In the static control, there is no cycle. Rather, the rewards remain constant. This stage of the experiment extends for 200 cycles, or 200,000 updates, approximately 6,000 generations.
 
 %=static env
-In the static control, there is no cycle. Rather, the rewards remain constant. This stage of the experiment extends for 200 cycles, or 200,000 updates, approximately 6,000 generations.
+%In the static control, there is no cycle. Rather, the rewards remain constant. This stage of the experiment extends for 200 cycles, or 200,000 updates, approximately 6,000 generations.
 % MJW: You just said this in the previous paragraph.  Why are you repeating this information?
+%@RCK: Whoops!
 
 % %=stochastic
 % The stochastic changing environment experiment is similar to the cyclic environment, except that rather than the environment toggling every 500 updates, the environmental switch happens randomly, with a 0.002 probability of changing on every update. This averages, in the long term, to approximately one switch every 500 updates, but in the short term, the environmental switches are unpredictable.
@@ -567,7 +571,7 @@ Task discovery represents the level of exploration of the fitness landscape. We 
 %That is, at least 3.6 individuals (rounded up to 4) are performing the task at the time of sampling. 
 Therefore, in order for a new task to be marked as discovered, it must be performed by at least 4 individuals at the time of sampling.
 
-Once a task is discovered, it may not be un-discovered; task discovery counts will always increase monotonically. We measure \textbf{overall} task discovery by beginning to collect unique tasks starting at the beginning of the experiment. For the overall measurement, we count all possible tasks - the entire Logic-77 task set - even though not all tasks are rewarded in the first stage of the experiment. We also measure \textbf{post-reward} task discovery, where we begin counting new tasks from the beginning of the second stage of the experiment, once we have begun rewarding execution of the \textbf{expanded task set}. 
+Once a task is discovered, it may not be un-discovered; task discovery counts will always increase monotonically. We measure \textbf{overall} task discovery by beginning to collect unique tasks starting at the beginning of the experiment. For the overall measurement, we count all possible tasks - the \textbf{expanded task-set} - even though not all tasks are rewarded in the first stage of the experiment. We also measure \textbf{post-reward} task discovery, where we begin counting new tasks from the beginning of the second stage of the experiment, once we have begun rewarding execution of the \textbf{expanded task set}. 
 Task discovery can range anywhere from a minimum of zero tasks discovered, to a maximum of 77.
 % MJW: I'd rephrase this to "rewards for the Logic-77 tasks". The way it is, it sounds like Logic-77 is not just an environment but also a specific reward scheme.
 %@RCK: reworded to be clearer
@@ -590,6 +594,7 @@ In certain cases, we report mean and median values of distributions. In these ca
 
 In specific cases, we also apply Spearman's rank-order correlation coefficient $\rho$ (or $r_{s}$)~\cite{spearman_proof_1904} to measure correlations between data sets. In all cases, data points are matched from within a replicate.
 
+All statistics were calculated using the SciPy~\cite{jones_scipy:_2014} and Pandas~\cite{mckinney_data_2010} packages, in Python~\cite{vanrossum_python_2010}.
 % MJW: I recommend a line here with a reference to what you used to physically compute the stats: R, Python, whatever.
 
 \section*{Results and Discussion}
@@ -885,7 +890,6 @@ We can predict approximately 47\% of the variation in mean number of second step
 % %@RCK - One of my appendices recounts the runs we did to arrive at the 1000 update cycle time, so that wouldn't be a bad foundation for a comparison.
 
 \subsection*{Stage 2 - Long-Term Evolvability}
-\todo[inline]{Redo figures to not say "Simple Environment"}
 \subsection*{Task Discovery}
 Task discovery is an important measure of long-term evolvability in that it quantifies the ability of populations to explore and adapt to entirely new environments. We measured task discovery in each of the changing environment treatments.
 
@@ -895,14 +899,14 @@ We found that once we began rewarding the \textbf{expanded task set}, population
 %=[FIGURE - postreward task discovery]
 	\begin{figure}[!h]
 	\includegraphics[width=0.95\columnwidth]{figures/LTE/lte-simple-post_reward_task_discovery.png}
-	\caption{\textbf{Number of new Logic-77 tasks discovered post-reward}. The left plot shows a time-series of the number of non-ephemeral tasks discovered by populations by each treatment. The right plot shows the number of tasks discovered at the end of the experiments. While the individual values overlap their neigbors, the top and bottom-most treatments (Benign and Harsh) are significantly different from each other (Wilcoxon Rank Sum Test: Z = 2.75, p $<$ 0.01). %
+	\caption{\textbf{Number of new expanded task set tasks discovered post-reward}. The left plot shows a time-series of the number of non-ephemeral tasks discovered by populations by each treatment. The right plot shows the number of tasks discovered at the end of the experiments. While the individual values overlap their neigbors, the top and bottom-most treatments (Benign and Harsh) are significantly different from each other (Wilcoxon Rank Sum Test: Z = 2.75, p $<$ 0.01). %
 	}
 	\label{fig:postreward_task_discovery}
 	\end{figure} 
 
 % MJW: I am having a hard time tracking what the "relative differences" are here. The plurality implies that there are multiple, but the sentence structure seems to indicate you're comparing strength of selection in the harsh changing environment and the directional selection toward Logic-77 tasks (by which I am assuming you are referring to the selective pressure towards acquiring tasks that are always rewarded, but conceptually it's hard to compare the strength of selection [essentially a measure of s in population genetics] to directional selection [a class of selective pressure]).
 %@RCK: added more detail below
-In the harsh changing environments, the selective pressure to gain or lose the fluctuating tasks represents up to a $2 * 2^5$-fold bonus over the course of a single cycle, whereas the \textbf{expanded task set} can individually only offer a 1.2-fold bonus to execution speed. Thus, those organisms that promptly gain or lose a fluctuating task are more likely to survive, regardless of whether or not they have gained one of the new Logic-77 tasks. Thus pressures to gain and lose the fluctuating tasks are much stronger than the pressure to acquire new Logic-77 tasks, thereby depressing the rate at which they are found.
+In the harsh changing environments, the selective pressure to gain or lose the fluctuating tasks represents up to a $2 * 2^5$-fold bonus over the course of a single cycle, whereas the \textbf{expanded task set} can individually only offer a 1.2-fold bonus to execution speed. Thus, those organisms that promptly gain or lose a fluctuating task are more likely to survive, regardless of whether or not they have gained one of the new \textbf{expanded task-set} tasks. Thus pressures to gain and lose the fluctuating tasks are much stronger than the pressure to acquire new \textbf{expanded task-set} tasks, thereby depressing the rate at which they are found.
 % MJW: This is a place for the new expanded task set terminology, right?
 % MJW: I know that stats are TODO throughout this chapter, but this sentence in particular absolutely needs them, and it's the sort that would be easy to overlook so I'm flagging it. Though, to be fair, you don't necessarily need the stats if you just lay out the raw numbers -- the selective benefit towards either gaining \texttt{EQU} when it starts being rewarded or lose it when it starts being punished is X, the benefit of acquiring a Logic-77 task is Y.
 %@RCK: added something to expand on the reasoning
@@ -944,13 +948,13 @@ Indeed, we found that the the HarshQuiescent treatment has a much higher task di
 %=[FIGURE - overall task discovery]
 	\begin{figure}[!h]
 	\includegraphics[width=0.95\columnwidth]{figures/LTE/lte-simple-overall_task_discovery.png}
-	\caption{\textbf{Number of new Logic-77 tasks discovered over the whole experiment}. The left plot shows a time-series of all new tasks discovered over the course of the entire run, including non-rewarded Logic-77 tasks. The right-hand plot shows the final count at the end of the run. Before we introduce rewards for performing Logic-77 tasks, the harsh changing environment discovers far more new tasks (Mdn = 28.0, CI 95\% [27.0, 30.0]) than either of the other treatments (Mdn = 22.0, CI 95\% [22.0, 23.0]) (Wilcoxon Rank Sum Test: Z = 8.61, p $<<$ 0.001). This occurs despite no reward being given for performing the Logic-77 tasks in the first part of the experiment. %
+	\caption{\textbf{Number of new expanded task set tasks discovered over the whole experiment}. The left plot shows a time-series of all new tasks discovered over the course of the entire run, including non-rewarded \textbf{expanded task-set} tasks. The right-hand plot shows the final count at the end of the run. Before we introduce rewards for performing the \textbf{expanded task-set} tasks, the harsh changing environment discovers far more new tasks (Mdn = 28.0, CI 95\% [27.0, 30.0]) than either of the other treatments (Mdn = 22.0, CI 95\% [22.0, 23.0]) (Wilcoxon Rank Sum Test: Z = 8.61, p $<<$ 0.001). This occurs despite no reward being given for performing the \textbf{expanded task-set} tasks in the first part of the experiment. %
 	}
 	\label{fig:simple-overall_task_discovery}
 	\end{figure}
 
 %=choice of CE has dramatic effects - forced march
-In the first part of the experiments, despite the \textbf{expanded task set} not being rewarded, both changing-environment treatments (BenignCE and HarshCE) discovered more new tasks than the control (Wilcoxon Rank Sum Test: Z = -5.75 and -11.15 respectively, p $<<$ 0.001). The harsh treatment in particular discovered substantially and significantly more \textbf{expanded task set} tasks than either the benign treatment (Wilcoxon Rank Sum Test: Z = -8.0, p $<<$ 0.001) or the control, despite these tasks not being rewarded (Fig~\ref{fig:simple-overall_task_discovery}). We speculate that this effect may be due to the large phylogenetic depth of the harsh-evolved populations, where the repeated bottlenecks drive the populations along a kind of forced march across the mutational landscape. However, as the experiment proceeds, and Logic-77 task rewards are introduced, this effect disappears, and task discovery rates converge (Kruskal-Wallis: H(2) = 6.97, p = 0.03).
+In the first part of the experiments, despite the \textbf{expanded task set} not being rewarded, both changing-environment treatments (BenignCE and HarshCE) discovered more new tasks than the control (Wilcoxon Rank Sum Test: Z = -5.75 and -11.15 respectively, p $<<$ 0.001). The harsh treatment in particular discovered substantially and significantly more \textbf{expanded task set} tasks than either the benign treatment (Wilcoxon Rank Sum Test: Z = -8.0, p $<<$ 0.001) or the control, despite these tasks not being rewarded (Fig~\ref{fig:simple-overall_task_discovery}). We speculate that this effect may be due to the large phylogenetic depth of the harsh-evolved populations, where the repeated bottlenecks drive the populations along a kind of forced march across the mutational landscape. However, as the experiment proceeds, and \textbf{expanded task-set} task rewards are introduced, this effect disappears, and task discovery rates converge (Kruskal-Wallis: H(2) = 6.97, p = 0.03).
 
 
 %=post-reward exploration - strength of selection differences
