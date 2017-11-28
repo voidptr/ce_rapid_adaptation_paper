@@ -596,6 +596,7 @@ In specific cases, we also apply Spearman's rank-order correlation coefficient $
 
 All statistics were calculated using the SciPy~\cite{jones_scipy:_2014} and Pandas~\cite{mckinney_data_2010} packages, in Python~\cite{vanrossum_python_2010}.
 % MJW: I recommend a line here with a reference to what you used to physically compute the stats: R, Python, whatever.
+%@RCK: done
 
 \section*{Results and Discussion}
 %=summary - we found that CE evolved populations are genetically distinct. Stochastic pretty similar to CCE
@@ -709,8 +710,9 @@ The alternating selection in both benign and harsh changing environments results
 	\end{figure}
 
 %=arch of control, scattered XOR
-In terms of site placement over time, functional task site locations in the control treatment did not change substantially over the course of the experiment. In the benign treatment, many more regions that performed the fluctuating task (XOR) were scattered throughout the genome, but site positions remained relatively fixed throughout the run after an initial adaptive phase. In the harsh treatment, however, not only are the active sites scattered, but the positions of active sites change and proliferate wildly over time.
+In terms of site placement over time, functional task site locations in the control treatment did not change substantially over the course of the experiment. In the benign treatment, many more regions that performed the fluctuating task (XOR) were scattered throughout the genome, but site positions remained relatively fixed throughout the run after an initial adaptive phase. In the harsh treatment, however, not only were the active sites scattered, but the positions of active sites changed and proliferated wildly over time.
 % MJW Verb tense flagging.  You go from past to present in this paragraph.
+%@RCK: fixed
 
 %=site length
 In addition to the variation in site placement, populations in the benign and harsh changing environment treatments had significantly more functional sites devoted to performing just the \texttt{EQU} task (Wilcoxon Rank Sum Test: Z = -5.57 and -6.96, respectively, p $<<$ 0.001).
@@ -908,6 +910,8 @@ We found that once we began rewarding the \textbf{expanded task set}, population
 %@RCK: added more detail below
 In the harsh changing environments, the selective pressure to gain or lose the fluctuating tasks represents up to a $2 * 2^5$-fold bonus over the course of a single cycle, whereas the \textbf{expanded task set} can individually only offer a 1.2-fold bonus to execution speed. Thus, those organisms that promptly gain or lose a fluctuating task are more likely to survive, regardless of whether or not they have gained one of the new \textbf{expanded task-set} tasks. Thus pressures to gain and lose the fluctuating tasks are much stronger than the pressure to acquire new \textbf{expanded task-set} tasks, thereby depressing the rate at which they are found.
 % MJW: This is a place for the new expanded task set terminology, right?
+%@RCK: Fixed, and fricking everywhere else too.
+
 % MJW: I know that stats are TODO throughout this chapter, but this sentence in particular absolutely needs them, and it's the sort that would be easy to overlook so I'm flagging it. Though, to be fair, you don't necessarily need the stats if you just lay out the raw numbers -- the selective benefit towards either gaining \texttt{EQU} when it starts being rewarded or lose it when it starts being punished is X, the benefit of acquiring a Logic-77 task is Y.
 %@RCK: added something to expand on the reasoning
 
@@ -1050,6 +1054,7 @@ Understanding the mechanisms by which select environmental conditions alter fitn
 We would like to thank Alex Lalejini for helpful discussions and comments about the relationship between phenotypic plasticity and contingency loci, Joshua Nahum for discussions of experiments in changing environments, and Emily Dolson, Brian Goldman, and Anya Vostinar for their comments on early manuscript drafts.
 This material is based in part upon work supported by the National Science Foundation under Cooperative Agreement No. DBI-0939454 to CO and a Graduate Research Fellowship to RCK. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.
 % MJW: Flagging Josh v Joshua issue
+%@RCK: He didn't care, so I just went with Joshua for clarity
 
 %\bibliographystyle{apalike}
 \bibliography{changing_env}
