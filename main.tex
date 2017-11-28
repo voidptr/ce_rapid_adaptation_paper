@@ -389,7 +389,6 @@ Despite some common features, the relationship between short-term and long-term 
 % MJW: I feel like examples of these things would do a lot to bolster this paragraph. Are specific ones laid out the Pigliucci paper, or referenced in it?
 %@RCK: added an example (anti-robustness) A lot of this is rehashing of the introduction.
 
-%\todo[color=magenta,inline]{ch5 - background - fill this in about the prior research done in this area}
 % MJW: Are you looking to me for what prior research has shown, or is this more of a note to yourself?
 %@RCK: note to myself
 Finally, there is some evidence that the types of selection regimes typically used in experiments with changing environments and evolvability might preferentially favor individual evolvability (the probability of an individual's offspring accessing novel phenotypes) over population-level evolvability (the probability of the population at large accessing novel phenotypes)~\cite{wilder_reconciling_2015,lehman_critical_2016}. Adaptive selection, that is, selection toward a particular goal, has been shown to depress population diversity even while it increases individual evolvability in changing environment regimes. In contrast, divergent (diversity-promoting) selection, such as frequency-dependent selection, increases standing diversity, and thus evolvability at the population level~\cite{wilder_reconciling_2015}. Therefore, it is not clear that the kinds of selective pressures that promote short-term adaptation in changing environments would, in turn, promote exploration and exploitation of novel environments.
@@ -660,16 +659,6 @@ in the benign and control treatments led populations in them to have higher stan
 	}\label{fig:population-entropy}
 	\end{figure}
 
-% \todo[inline]{fix figure below so that it's two separate figures. Separate the mean entropy to its own figure.}
-% 	\begin{figure}[!h]
-% 	%\includegraphics{figures/CE/control__entropy}
-% 	\includegraphics[trim={-0.85cm 0 0.1cm 0.2cm},clip,width=0.5\columnwidth]{figures/CE/control__entropy}
-% 	%\includegraphics{figures/CE/benign__entropy}
-% 	\includegraphics[trim={0.25cm 0 0.1cm 0},clip,width=0.5\columnwidth]{figures/CE/benign__entropy}
-% 	\includegraphics[trim={-0.85cm 0 0.1cm 0},clip,width=0.5\columnwidth]{figures/CE/harsh__entropy}
-% 	\caption{\textbf{Population Per-site Entropy over time} of a representative sample population. Each vertical slice represents the per-site entropy of the population at each update, both by genetic locus (upper), and overall population mean (lower). Hotter colors (red/orange/yellow) indicate greater diversity at this locus, while cooler colors (blues) indicate the a locus is more consistent across the population. Mean population entropy indicates the relative diversity of the population at any given time, while the per-site entropy shows where in the genomes the population diversity is located.   %@CAO: I'm agreeing with Mike that we might want to make this two graphs. I added a bit in the description about the cooler colors just to lead the reader by the hand as much as possible.
-% 	}\label{fig:entropy}
-% 	\end{figure}
 
 
 \subsubsection*{Genetic Architecture}
@@ -678,17 +667,6 @@ The alternating selection in both benign and harsh changing environments results
 % @CAO: I'm not positive I understand this description for how things are laid out. It might be worth putting a bit more detail here, and highlighting also that there is a lot more separation in the harsh environment (or so it seems). Should we talk more here about why all of this is the case (highlighting that we are speculating) or will that come later?
 %@RCK: Reframed to clarify.
 
-% \todo[inline]{polish this figure, task layout, make three separate figures}
-% 	\begin{figure}[!h]
-% 	\setlength{\fboxsep}{0pt}%
-% 	\setlength{\fboxrule}{0pt}%
-% 	\fbox{\includegraphics[width=0.5625\columnwidth,trim={-0.82cm 0 5.5cm 0.25cm},clip]{figures/CE/control__whole_taskmap.png}}\fbox{\includegraphics[width=0.1875\columnwidth,trim={9.1cm 0.15cm 1.3cm 0},clip]{figures/CE/legend__whole_taskmap.png}}
-% 	\fbox{\includegraphics[width=0.75\columnwidth,trim={0.2cm 0 2.3cm 0},clip]{figures/CE/benign__whole_taskmap.png}}
-% 	\fbox{\includegraphics[width=0.5\columnwidth,trim={-0.82cm 0 5.2cm 0},clip]{figures/CE/harsh__whole_taskmap.png}}
-% 	\caption{\textbf{Varying genetic architecture of \texttt{XOR} and \texttt{EQU} over time} for the final dominant genotype in a randomly selected replicate. Proceeding from the left of each figure, each vertical slice represents an organism along the line-of-descent to the final dominant.
-% 	Positions along the Y-axis represent each genome locus; loci in an organism are colored based on the tasks that they code for. Sites in \textbf{red} are active sites that code for the \texttt{XOR} task only, sites in \textbf{blue} are active sites for the \texttt{EQU} task only, and \textbf{purple} sites code for both \texttt{XOR} and \texttt{EQU}. Knockouts to the sites in black are lethal to the organism. Sites in the lighter colors (tan, light blue, lavender) represent vestigial sites for \texttt{XOR} only, \texttt{EQU} only, or both tasks, respectively. As we proceed from left to right, we can see the evolutionary history of the final dominant genotype.}
-% 	\label{fig:lineage}
-% 	\end{figure}
 
 	\begin{figure}[!h]
 	\includegraphics[width=0.95\columnwidth]{figures/CE/control__whole_taskmap.png}
@@ -743,8 +721,118 @@ In order to identify the role that these longer task footprints and pseudogene-l
 
 We found that in both the benign and harsh treatments, there were many more mutations that resulted in loss of the fluctuating task as compared to the control (Wilcoxon Rank Sum Test: Z = -5.46 and -7.80 respectively, p $<<$ 0.001). An increase in task loss in the harsh treatment is to be expected, but why would the benign treatment lose \texttt{EQU} nearly as easily as the harsh treatment? One possibility is selective pressure to lose the task. There is no explicit pressure for task loss, merely an absence of reward. Even so, there is certainly an implicit penalty for performing a complex task for which there is no reward. Another possibility is drift. Indeed, in Figure~\ref{fig:CCE_equ_execution}, we observe a steady downward trend in execution of \texttt{EQU} when rewards are withdrawn. Then, as the reward returns, new mutations are applied that reactivate the task, and overall performance recovers quickly. This pattern of loss and regain would, over time tend, to increase the length of the task. Indeed, as noted in Figure~\ref{fig:lineage-harsh}, there is a rapid increase in task length as \texttt{EQU} is cyclically lost and regained. 
 
-\todo[inline]{make this a linear model, not just a correlation}
-However, is increased task length enough to account for increased task vulnerability to mutation? In order to begin to address this question, we calculated the correlation between task length and the fraction of mutants that lost each of the tasks. We discovered a strong correlation between the number of functional sites and the number of task-losing mutants for the \texttt{EQU} task, both alone, and overlapping with \texttt{XOR} (Spearman's Rho: $r_s$ = 8.72 and 6.45, respectively, p = $<<$ 0.001) (Fig~\ref{fig:CCE_func_vs_single_step}). We also found a weaker, but still significant correlation between the number of \texttt{XOR}-only functional sites and loss of the \texttt{XOR} task (Spearman's Rho: $r_s$ = 3.85, p $<<$ 0.001). This result confirms our intuition that the longer the task, the more targets there are for mutation to disable the task.
+%\todo[inline]{make this a linear model, not just a correlation}
+%@RCK: ugh. it's just so long :/
+However, is increased task length enough to account for increased task vulnerability to mutation? In order to begin to address this question, we performed a linear model relating the task length of each task with the fraction of mutants that lost each of the tasks. We discovered a strong relation between the number of functional sites and the number of task-losing mutants for the \texttt{EQU} task, both alone, and overlapping with \texttt{XOR}, such that we could predict approximately 77\% and 63\% of the variation in task loss, respectively (Fig~\ref{fig:CCE_func_vs_single_step}, see Tables~\ref{ce-olsregression-1step-EQU} and \ref{ce-olsregression-1step-XOREQU}). We also found a weaker, but still significant relationship between the number of \texttt{XOR}-only functional sites and loss of the \texttt{XOR} task, such that we could predict approximately 22\% (See Table~\ref{ce-olsregression-1step-XOR}). This result confirms our intuition that the longer the task, the more targets there are for mutation to disable the task.
+
+	\begin{table}[h]
+	\centering
+	\caption{\textbf{OLS Regression Results - Fraction of mutants losing \texttt{EQU} vs number of \texttt{EQU}-only functional sites}}
+	\label{ce-olsregression-1step-EQU-h}
+	\begin{tabular}{lclc}
+	\toprule
+	\textbf{Dep. Variable:}    &     Fraction     & \textbf{  R-squared:         } &     0.770   \\
+	\textbf{Model:}            &       OLS        & \textbf{  Adj. R-squared:    } &     0.768   \\
+	\textbf{Method:}           &  Least Squares   & \textbf{  F-statistic:       } &     477.6   \\
+	\textbf{No. Observations:} &         145      & \textbf{  Prob (F-statistic):} &  2.00e-47   \\
+	\textbf{Df Residuals:}     &         143      & \textbf{  Log-Likelihood:    } &    325.51   \\
+	\textbf{Df Model:}         &           1      & \textbf{  AIC:               } &    -647.0   \\
+	 & & \textbf{  BIC:               } &    -641.1   \\
+	 & & \textbf{                     } &             \\
+	\bottomrule
+	\end{tabular}
+	\begin{tabular}{lcccccc}
+	                   & \textbf{coef} & \textbf{std err} & \textbf{t} & \textbf{P$>$$|$t$|$} & \textbf{[0.025} & \textbf{0.975]}  \\
+	\midrule
+	\textbf{Intercept} &       0.1178  &        0.004     &    32.430  &         0.000        &        0.111    &        0.125     \\
+	\textbf{Sites}     &       0.0111  &        0.001     &    21.854  &         0.000        &        0.010    &        0.012     \\
+	\bottomrule
+	\end{tabular}
+	\begin{tabular}{lclc}
+	\textbf{Omnibus:}       & 25.415 & \textbf{  Durbin-Watson:     } &    2.073  \\
+	\textbf{Prob(Omnibus):} &  0.000 & \textbf{  Jarque-Bera (JB):  } &   43.864  \\
+	\textbf{Skew:}          &  0.836 & \textbf{  Prob(JB):          } & 2.99e-10  \\
+	\textbf{Kurtosis:}      &  5.114 & \textbf{  Cond. No.          } &     12.2  \\
+	\bottomrule
+	\end{tabular}
+	\begin{flushleft}Linear regression, predicting fraction of one-step mutants that lost \texttt{EQU}, based on the number of \texttt{EQU}-only functional sites in the original genome.  
+	\end{flushleft}
+	\label{ce-olsregression-1step-EQU}
+	\end{table}
+
+
+
+	\begin{table}[h]
+	\centering
+	\caption{\textbf{OLS Regression Results - Fraction of mutants losing \texttt{EQU} and \texttt{XOR} vs number of overlapping functional sites}}
+	\label{ce-olsregression-1step-XOREQU-h}
+	\begin{tabular}{lclc}
+	\toprule
+	\textbf{Dep. Variable:}    &     Fraction     & \textbf{  R-squared:         } &     0.631   \\
+	\textbf{Model:}            &       OLS        & \textbf{  Adj. R-squared:    } &     0.628   \\
+	\textbf{Method:}           &  Least Squares   & \textbf{  F-statistic:       } &     244.4   \\
+	\textbf{No. Observations:} &         145      & \textbf{  Prob (F-statistic):} &  9.41e-33   \\
+	\textbf{Df Residuals:}     &         143      & \textbf{  Log-Likelihood:    } &    457.55   \\
+	\textbf{Df Model:}         &           1      & \textbf{  AIC:               } &    -911.1   \\
+	&      & \textbf{  BIC:               } &    -905.2   \\
+	&      & \textbf{                     } &             \\
+	\bottomrule
+	\end{tabular}
+	\begin{tabular}{lcccccc}
+	                   & \textbf{coef} & \textbf{std err} & \textbf{t} & \textbf{P$>$$|$t$|$} & \textbf{[0.025} & \textbf{0.975]}  \\
+	\midrule
+	\textbf{Intercept} &       0.0127  &        0.007     &     1.832  &         0.069        &       -0.001    &        0.026     \\
+	\textbf{Sites}     &       0.0068  &        0.000     &    15.634  &         0.000        &        0.006    &        0.008     \\
+	\bottomrule
+	\end{tabular}
+	\begin{tabular}{lclc}
+	\textbf{Omnibus:}       & 29.951 & \textbf{  Durbin-Watson:     } &    1.875  \\
+	\textbf{Prob(Omnibus):} &  0.000 & \textbf{  Jarque-Bera (JB):  } &   47.950  \\
+	\textbf{Skew:}          &  1.023 & \textbf{  Prob(JB):          } & 3.87e-11  \\
+	\textbf{Kurtosis:}      &  4.938 & \textbf{  Cond. No.          } &     128.  \\
+	\bottomrule
+	\end{tabular}
+	\begin{flushleft}Linear regression, predicting fraction of one-step mutants that lost both \texttt{XOR} and \texttt{EQU}, based on the number of overlapping functional sites in the original genome.  
+	\end{flushleft}
+	\label{ce-olsregression-1step-XOREQU}
+	\end{table}
+
+
+
+	\begin{table}[h]
+	\centering
+	\caption{\textbf{OLS Regression Results - Fraction of mutants losing \texttt{XOR} vs number of \texttt{XOR}-only functional sites}}
+	\label{ce-olsregression-1step-XOR-h}
+	\begin{tabular}{lclc}
+	\toprule
+	\textbf{Dep. Variable:}    &     Fraction     & \textbf{  R-squared:         } &     0.228   \\
+	\textbf{Model:}            &       OLS        & \textbf{  Adj. R-squared:    } &     0.222   \\
+	\textbf{Method:}           &  Least Squares   & \textbf{  F-statistic:       } &     42.17   \\
+	\textbf{No. Observations:} &         145      & \textbf{  Prob (F-statistic):} &  1.29e-09   \\
+	\textbf{Df Residuals:}     &         143      & \textbf{  Log-Likelihood:    } &    367.39   \\
+	\textbf{Df Model:}         &           1      & \textbf{  AIC:               } &    -730.8   \\
+	&      & \textbf{  BIC:               } &    -724.8   \\
+	&      & \textbf{                     } &             \\
+	\bottomrule
+	\end{tabular}
+	\begin{tabular}{lcccccc}
+	                   & \textbf{coef} & \textbf{std err} & \textbf{t} & \textbf{P$>$$|$t$|$} & \textbf{[0.025} & \textbf{0.975]}  \\
+	\midrule
+	\textbf{Intercept} &       0.1152  &        0.004     &    31.955  &         0.000        &        0.108    &        0.122     \\
+	\textbf{Sites}     &       0.0111  &        0.002     &     6.494  &         0.000        &        0.008    &        0.014     \\
+	\bottomrule
+	\end{tabular}
+	\begin{tabular}{lclc}
+	\textbf{Omnibus:}       & 101.236 & \textbf{  Durbin-Watson:     } &     2.062  \\
+	\textbf{Prob(Omnibus):} &   0.000 & \textbf{  Jarque-Bera (JB):  } &   956.241  \\
+	\textbf{Skew:}          &   2.359 & \textbf{  Prob(JB):          } & 2.26e-208  \\
+	\textbf{Kurtosis:}      &  14.663 & \textbf{  Cond. No.          } &      5.62  \\
+	\bottomrule
+	\end{tabular}
+	\begin{flushleft}Linear regression, predicting fraction of one-step mutants that lost \texttt{XOR}, based on the number of \texttt{XOR}-only functional sites in the original genome.  
+	\end{flushleft}
+	\label{ce-olsregression-1step-XOR}
+	\end{table}
 
 %=[FIGURE - Frac 1-step vs task length]
 	\begin{figure}[!h] %% FIGURE 6
