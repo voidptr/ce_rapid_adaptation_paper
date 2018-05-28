@@ -234,6 +234,13 @@ We further show that populations in environments with harsh changes switch pheno
 
 % Use "Eq" instead of "Equation" for equation citations.
 \section*{Introduction}
+\todo[inline]{Add citations per reviewer 1}
+%Kashtan and Alon Citations
+%Cite:
+%2007 - Varying environments can speed up evolution - Kashtan, Noor, and Alon
+% 2008 - Facilitated Variation: How Evolution Learns from Past Environments To Generalize to New Environments - Parter, Kashtan, Alon
+% Note to the editors about not wanting to cite 2005 KA paper
+
 The interaction between an environment and possible genomes can be mathematically expressed by a fitness landscape.
 %=fitness landscapes are useful math but real-world landscapes are more complex than theory
 Fitness landscapes are a mathematical tool to map genetic sequences to reproductive fitness. Many studies have examined the important role that different types of fitness landscapes play on evolutionary dynamics and outcomes, both in biological populations~\cite{khan_negative_2011,szendro_quantitative_2013,weinreich_darwinian_2006,nahum_tortoisehare_2015} and in evolutionary computation settings~\cite{merz_fitness_2000,humeau_paradiseo-mo:_2013,kallel_theoretical_2013}. However, real-world fitness landscapes are far more complex and varied than the limited or idealized models that are used in most of these studies. Neighboring regions of real landscapes can have starkly different properties from each other based on the effects of and interactions among mutations; as such, a local region of a fitness landscape around a genotype is commonly referred to as its mutational landscape.% (i.e., the mutational landscape).  
@@ -406,6 +413,13 @@ In particular, we show that populations evolved under harsh, cyclically-changing
 Even so, we show that the strong selective pressures associated with these harsh environments are detrimental to long-term evolvability, and instead, that benign environments, with their higher standing diversity, are more successful at adapting to entirely new environments.
 
 %We also show how different kinds of changing environments affect long-term evolutionary potential. We introduce change-evolved populations from prior experiments, to an entirely new environment, where we can assess long-term variability generation in the form of new task discovery and exploration.
+
+\todo[inline]{R3: Add section explaining what is an experiment vs a simulation}
+% Add introduction note to forestall the arguments
+%   What is an experiment
+%   Is this a simulation?
+%   Evolution is not a simulation here. It’s an algorithm
+%   Strengthen statements about studying the process of evolution, the information arrangements of genetic architecture
 
 \section*{Methods}
 
@@ -598,6 +612,8 @@ All statistics were calculated using the SciPy~\cite{jones_scipy:_2014} and Pand
 %@RCK: done
 
 \section*{Results and Discussion}
+\todo[inline]{R2: improve figure legends 2,4,5}
+\todo[inline]{R3: emphasize argument about effect sizes}
 %=summary - we found that CE evolved populations are genetically distinct. Stochastic pretty similar to CCE
 Our experiments (detailed below) demonstrate that digital organisms that were evolved in changing environments differ substantially from those that evolved in static environments in a number of ways. These differences include the number of mutations that fix in the lineage from the ancestor (the ``phylogenetic depth"), key metrics of their genetic architecture, and the presence of reservoirs of pseudogenes that change the nearby mutational landscape. These features represent adaptation to the larger regime of repeated environmental switching. 
 %We also show that while populations evolved in cyclic environments are slightly better adapted to change than those that evolved in stochastic environments, in most measures of adaptation and short-term evolvability, these differences are generally not significant. This result indicates that while regular periodicity may offer a slight advantage for adaptation, stochastic environments perform similarly in most respects. 
@@ -881,7 +897,7 @@ As an overall measure of neutral exploration, we also measured the proportion of
 	Note that while overall neutral exploration capacity remains relatively stable between treatments (Kruskal-Wallis: H(2) = 1.44, p = 0.49), phenotypic exploration capacity is increased in both treatments, but especially in the Harsh treatment. (Wilcoxon Rank Sum Test: Z = -8.02, -8.39, respectively, p $<<$ 0.001). This result is consistent with changing environments promoting the phenotypic evolvability of populations.
 	}\label{fig:CCE_diffusion_rate}
 	\end{figure}
-
+\todo[inline]{R2: clean up the section about possible alternative explanations, tighten up howevers}
 What might account for this adaptation? Similar to the relationship between the number of functional sites of a task, and the number of single-step mutants that lost that task (see Fig~\ref{fig:CCE_func_vs_single_step}), we hypothesize that the reacquisition of tasks in the 2nd-step survey may be mediated by the amount of useful task material present in the genome. We performed a multiple linear regression, predicting the mean fraction of mutants that regained \texttt{EQU}, by the number of functional and vestigial sites contained in the original genome (see Table~\ref{ce-olsregression-2ndstep} and Fig~\ref{fig:CCE_2step_vs_func_vest_sites}).
 
 	%=[FIGURE 2nd-Step ~ Func + Vest]
