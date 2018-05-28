@@ -414,18 +414,21 @@ Even so, we show that the strong selective pressures associated with these harsh
 
 %We also show how different kinds of changing environments affect long-term evolutionary potential. We introduce change-evolved populations from prior experiments, to an entirely new environment, where we can assess long-term variability generation in the form of new task discovery and exploration.
 
-\todo[inline]{R3: Add section explaining what is an experiment vs a simulation}
+
+\subsection*{Digital Evolution}
+%=DE for studying evolution
+Digital Evolution uses self-replicating computer programs as model organisms to study evolutionary dynamics~\cite{mckinley_harnessing_2008}. Unlike theoretical simulations, digital organisms have a fully functional genome that direct them to self-replicate, mutate, and compete with their peers for resources and space in which to reproduce. Because digital organisms undergo random genetic mutations (i.e., variation) that are passed on to their offspring (inheritance), and their survival is based on the actions they take (differential selection), they undergo evolution by natural selection~\cite{dennett_darwins_1995}.
+
+%%%% NEW SECTION
+%\todo[inline]{R3: Add section explaining what is an experiment vs a simulation}
 % Add introduction note to forestall the arguments
 %   What is an experiment
 %   Is this a simulation?
 %   Evolution is not a simulation here. It’s an algorithm
 %   Strengthen statements about studying the process of evolution, the information arrangements of genetic architecture
-
-\section*{Methods}
-
-\subsection*{Digital Evolution}
-%=DE for studying evolution
-Digital Evolution uses self-replicating computer programs as model organisms to study evolutionary dynamics~\cite{mckinley_harnessing_2008}. Unlike theoretical simulations, digital organisms have a fully functional genome that direct them to self-replicate, mutate, and compete with their peers for resources and space in which to reproduce. Because digital organisms undergo genetic mutations (i.e., variation) that are passed on to their offspring (inheritance), and their survival is based on the actions they take (differential selection), they undergo evolution by natural selection~\cite{dennett_darwins_1995}.
+%=DE is not a simulation of evolution
+Indeed, because evolution is an algorithmic process, studies with digital organisms are not simulations of evolution, but actual instantiations of evolution, albeit on an artificial substrate. Therefore, research performed using digital organisms are not theoretical explorations, but rather true experiments, where hypotheses are tested, and the outcomes are not pre-arranged. Studies of evolutionary processes in digital organisms are particularly well suited to examining  fundamental questions about evolutionary principles, such as how information flows through evolutionary processes, how arrangements of genetic architecture can affect evolutionary trajectories, how different types of selective pressures interact to produce complexity, to name a few. 
+%%%% END NEW SECTION
 
 %=DE is better than natural for three reasons. 1 - reproduction rate
 Digital organisms do not suffer from many of the drawbacks of experimentation on natural organisms.  Three of the advantages of digital organisms are particularly relevant for our study.  First, the rates of reproduction in digital systems are much faster than in even the most rapidly-reproducing physical organisms; we can process generations of organisms in seconds, rather than the hours required for the fastest biological organisms under sustained conditions \cite{ryan_evolution_1953,lenski_long-term_1991}, or the weeks to years needed for more complex multicellular organisms \cite{anderson_outcrossing_2010,stearns_experimental_2000}.
@@ -435,6 +438,10 @@ Second, using digital organisms allows us to tightly control and verify experime
 
 %=3 - DE is completely knowable
 Finally, we can precisely and perfectly map the mutational landscape around the genome of a digital organism, and identify the role of every site in its genome\cite{ofria_evolution_2002}; such exhaustive techniques are not feasible in even the simplest physical organisms.  All of these factors make digital organisms ideal for studying the effects of changing environments on the mutational landscape.
+
+\section*{Methods}
+
+
 
 \subsubsection*{Avida Digital Evolution Platform}
 %=Avida for doing these experiments
@@ -601,6 +608,11 @@ For all of the experiments described in this paper, we held the individual genom
 We configured the Avida world to have local interactions on a toroidal grid that is 60-by-60 cells (3600 cells in total), and we seeded the initial populations with an ancestor that was previously evolved to perform \texttt{XOR} and \texttt{EQU} under a static reward. The genetic architecture for performing \texttt{XOR} and \texttt{EQU} is tightly intertwined in this ancestral organism, as it was evolved with no selective pressure for modularity.
 
 \subsection*{Statistical Methods}
+\todo[inline]{R3: emphasize argument about effect sizes}
+%%%%% NEW SECTION
+In experiments with digital organisms, it is fairly simple to perform so many replicates that questions of the meaning of significance arise. In order to paint a true statistical picture of the differences between our controls and experimental conditions, we limited our replicates to 50 for each experimental condition, and emphasize the effect size in all our statistical claims, in addition to reporting significance.
+%%%%%%%%%%%%%%%%%%%%%
+
 Most of the statistical techniques used in this paper are non-parametric, and focused on differentiating between sample distributions. In general, we applied Wilcoxon Rank-Sum tests~\cite{wilcoxon_individual_1945} to distinguish between pairs of distributions, as well as Kruskal-Wallis~\cite{kruskal_use_1952} for identifying whether we could reject the null hypothesis of sameness between several different distributions. We assume all distributions are independent, and that compared distributions have similar shapes. In all situations where there were multiple comparisons of a given distributions, we applied Bonferonni corrections~\cite{rice_analyzing_1989} before assessing statistical significance. 
 
 In certain cases, we report mean and median values of distributions. In these cases, we also report the standard deviation or 95\% confidence intervals.
@@ -613,7 +625,6 @@ All statistics were calculated using the SciPy~\cite{jones_scipy:_2014} and Pand
 
 \section*{Results and Discussion}
 \todo[inline]{R2: improve figure legends 2,4,5}
-\todo[inline]{R3: emphasize argument about effect sizes}
 %=summary - we found that CE evolved populations are genetically distinct. Stochastic pretty similar to CCE
 Our experiments (detailed below) demonstrate that digital organisms that were evolved in changing environments differ substantially from those that evolved in static environments in a number of ways. These differences include the number of mutations that fix in the lineage from the ancestor (the ``phylogenetic depth"), key metrics of their genetic architecture, and the presence of reservoirs of pseudogenes that change the nearby mutational landscape. These features represent adaptation to the larger regime of repeated environmental switching. 
 %We also show that while populations evolved in cyclic environments are slightly better adapted to change than those that evolved in stochastic environments, in most measures of adaptation and short-term evolvability, these differences are generally not significant. This result indicates that while regular periodicity may offer a slight advantage for adaptation, stochastic environments perform similarly in most respects. 
