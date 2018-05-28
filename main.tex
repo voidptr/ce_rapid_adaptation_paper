@@ -73,7 +73,7 @@
 % % % % % % % % % % % % % % % % % % % % % % % %
 
 %make the document class option "10pt,letterpaper,final" to remove todo list items
-\documentclass[10pt,letterpaper,final]{article}
+\documentclass[10pt,letterpaper]{article}
 \usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
 
 % amsmath and amssymb packages, useful for mathematical formulas and symbols
@@ -182,7 +182,7 @@
 \begin{document}
 
 \vspace*{0.2in}
-
+\todo[inline]{ADD SUPPLEMENTAL SECTION WITH SAMPLING}
 %=[TODO - new title]
 %=[TODO - cite the avida figure]
 
@@ -234,13 +234,6 @@ We further show that populations in environments with harsh changes switch pheno
 
 % Use "Eq" instead of "Equation" for equation citations.
 \section*{Introduction}
-\todo[inline]{Add citations per reviewer 1}
-%Kashtan and Alon Citations
-%Cite:
-%2007 - Varying environments can speed up evolution - Kashtan, Noor, and Alon
-% 2008 - Facilitated Variation: How Evolution Learns from Past Environments To Generalize to New Environments - Parter, Kashtan, Alon
-% Note to the editors about not wanting to cite 2005 KA paper
-
 The interaction between an environment and possible genomes can be mathematically expressed by a fitness landscape.
 %=fitness landscapes are useful math but real-world landscapes are more complex than theory
 Fitness landscapes are a mathematical tool to map genetic sequences to reproductive fitness. Many studies have examined the important role that different types of fitness landscapes play on evolutionary dynamics and outcomes, both in biological populations~\cite{khan_negative_2011,szendro_quantitative_2013,weinreich_darwinian_2006,nahum_tortoisehare_2015} and in evolutionary computation settings~\cite{merz_fitness_2000,humeau_paradiseo-mo:_2013,kallel_theoretical_2013}. However, real-world fitness landscapes are far more complex and varied than the limited or idealized models that are used in most of these studies. Neighboring regions of real landscapes can have starkly different properties from each other based on the effects of and interactions among mutations; as such, a local region of a fitness landscape around a genotype is commonly referred to as its mutational landscape.% (i.e., the mutational landscape).  
@@ -324,7 +317,10 @@ Assessing the qualities of the nearby mutational landscape requires measures tha
 To calculate the \textbf{Genomic Diffusion Rate} ($D_g$) in the local neighborhood of a genotype, first calculate its \textit{Fidelity} ($F$), or the probability of an offspring sharing this genotype with its parent.  Given a uniform mutation rate, Fidelity
 % MJW: You switch from capitalizing Fidelity to not doing so.  I think you need to be consistent.
 %@RCK: fixed
-can be calculated by measuring the probability that a single locus is not mutated ($1-\mu)$ and raising it to the power of the genome length ($l$). Next, measure the proportion of one-step mutants that are neutral or beneficial when compared to the parent ($p_\nu$) as well as those that are detrimental or lethal ($p_d$), which must sum to one ($p_\nu + p_d = 1$).  The \textit{Neutral Fidelity} ($F_\nu$) of a genotype is thus the probability that no harmful mutations occur, assuming no epistasis. Finally, subtracting Fidelity from Neutral Fidelity will yield the overall probability of producing an offspring with a different genotype, yet neutral or better fitness ($D_g$).
+can be calculated by measuring the probability that a single locus is not mutated ($1-\mu)$ and raising it to the power of the genome length ($l$)\footnote{%%%% NEW SECTION: R3 single-step vs multiple mutations
+For simplicity, these measures are calculated based on the probability of single mutations occurring. However, in nature, multiple mutations may occur at once. We performed parallel experiments using a sampling approach (which could collect multiple mutations) to calculate similar metrics. These experiments yielded qualitatively similar results to those in this paper. See Section 1 of the supplemental materials.}.
+%%%%%%%% END NEW SECTION
+Next, measure the proportion of one-step mutants that are neutral or beneficial when compared to the parent ($p_\nu$) as well as those that are detrimental or lethal ($p_d$), which must sum to one ($p_\nu + p_d = 1$).  The \textit{Neutral Fidelity} ($F_\nu$) of a genotype is thus the probability that no harmful mutations occur, assuming no epistasis. Finally, subtracting Fidelity from Neutral Fidelity will yield the overall probability of producing an offspring with a different genotype, yet neutral or better fitness ($D_g$).
 % MJW: Is Neutral Fidelity a term from the literature?  If it is, go ahead an use that.  If it's not, I don't think it's the best term, since it both incorporates neutral and beneficial changes.  Though you define it clearly here, people who are skimming are going to miss that.
 
 	\begin{eqnarray}
@@ -374,7 +370,14 @@ Sustained directional selection adjusts the composition of phenotypes and genoty
 %@RCK: Fixed
 
 %=CE promotes exploration
-In changing environments, however, the direction of selection is not fixed and peaks are not stable.  Instead, as the environment changes, populations are driven to explore new regions of the mutational landscape \cite{kashtan_varying_2007,connelly_negative_2015}. As they proceed, populations accumulate and carry with them the genetic material acquired in prior explorations and adaptations, and use this history as raw material for new adaptation \cite{mcclintock_significance_1993}. Indeed, earlier work has shown that changing environments promote evolvability in many contexts, without compromising robustness \cite{crombach_evolution_2008,wilke_evolution_2001}. Strength of selection is also an important component of this exploration, since the harshness of the environment drives the speed with which organisms adapt to new conditions \cite{goddard_sex_2005}.
+%%%%%% NEW CITATIONS R1
+%\todo[inline]{Add citations per reviewer 1}
+%Kashtan and Alon Citations
+%Cite:
+%2007 - Varying environments can speed up evolution - Kashtan, Noor, and Alon
+% 2008 - Facilitated Variation: How Evolution Learns from Past Environments To Generalize to New Environments - Parter, Kashtan, Alon
+% Note to the editors about not wanting to cite 2005 KA paper
+In changing environments, however, the direction of selection is not fixed and peaks are not stable.  Instead, as the environment changes, populations are driven to explore new regions of the mutational landscape \cite{kashtan_varying_2007,parter_facilitated_2008,connelly_negative_2015}. As they proceed, populations accumulate and carry with them the genetic material acquired in prior explorations and adaptations, and use this history as raw material for new adaptation \cite{mcclintock_significance_1993}. Indeed, earlier work has shown that changing environments promote evolvability in many contexts \cite{kashtan_varying_2007}, without compromising robustness \cite{crombach_evolution_2008,wilke_evolution_2001}. Strength of selection is also an important component of this exploration, since the harshness of the environment drives the speed with which organisms adapt to new conditions \cite{goddard_sex_2005}.
 
 
 %=how it affects long-term evo
@@ -502,13 +505,13 @@ The second stage takes these change-evolved populations and introduces them to a
 \multirow{2}{*}{ \thead{Treatment} } & \multirow{2}{*}{ \thead{Changing \\ Environment} } & \multicolumn{2}{c|}{ \thead{Rewarded Tasks} } \\\cline{3-4}
 & & \texttt{XOR} & \texttt{EQU} \\\hhline{|=|=|=|=|}
 Control & \makecell{None \\ (static)} & \makecell{constant \\ $2^3$} & \makecell{constant \\ $2^5$} \\\hline
-\makecell{Benign} & Cyclic & \makecell{constant \\ $2^3$} & \makecell{benign \\ fluctuating \\ 0 or $2^5$} \\\hline
-\makecell{Harsh} & Cyclic & \makecell{constant \\ $2^3$} & \makecell{harsh \\ fluctuating \\ $-2^5$ or $2^5$} \\\hline
+\makecell{Benign} & Cyclic & \makecell{constant \\ $2^3$} & \makecell{benign \\ fluctuating \\ $2^0$ or $2^5$} \\\hline
+\makecell{Harsh} & Cyclic & \makecell{constant \\ $2^3$} & \makecell{harsh \\ fluctuating \\ $2^{-5}$ or $2^5$} \\\hline
 %\makecell{SCE \\ Benign} & Stochastic & \makecell{constant \\ $2^3$} & \makecell{benign \\ fluctuating \\ 0 or $2^5$} \\\hline
-%\makecell{SCE \\ Harsh} & Stochastic & \makecell{constant \\ $2^3$} & \makecell{harsh \\ fluctuating \\ $-2^5$ or $2^5$} \\\hline
+%\makecell{SCE \\ Harsh} & Stochastic & \makecell{constant \\ $2^3$} & \makecell{harsh \\ fluctuating \\ $2^{-5}$ or $2^5$} \\\hline
 \end{tabular} 
 
-\begin{flushleft} Two types of changing environment, plus a static control. In the first two treatments, the environment switches in a predictable cycle. The benign treatment enables and disables reward for the \texttt{EQU} task, while the harsh treatment rewards and then punishes this task.
+\begin{flushleft} Two types of changing environment, plus a static control. In the first two treatments, the environment switches in a predictable cycle. The benign treatment enables and disables reward for the \texttt{EQU} task, while the harsh treatment rewards and then punishes this task. 
 \end{flushleft}
 \label{ce-treatments}
 \end{table}
@@ -548,11 +551,11 @@ The second stage of the experiment continues the evolution of these populations,
 	& & \multicolumn{2}{c||}{ \thead{Stage 1 \\ (0-200,000 Updates)} } & \multicolumn{3}{c|}{ \thead{Stage 2 \\ (200,000-400,000 Updates)} } \\\cline{3-7}
 	& & \texttt{XOR} & \texttt{EQU} & \texttt{XOR} & \texttt{EQU} & \makecell{Expanded \\ Task-set \\ (Logic-77 \\ minus \\ \texttt{XOR} \& \texttt{EQU})} \\\hhline{|=|=|=|=|=|=|=|}
 	Control & \makecell{None \\ (static)} & \makecell{constant \\ $2^3$} & \makecell{constant \\ $2^5$} & \makecell{constant \\ $2^3$} & \makecell{constant \\ $2^5$} & \makecell{constant \\ $2^{0.3}$} \\\hline
-	Benign & Cyclic & \makecell{constant \\ $2^3$} & \makecell{benign \\ fluctuating \\ 0 or $2^5$} & \makecell{constant \\ $2^3$} & \makecell{benign \\ fluctuating \\ 0 or $2^5$} & \makecell{constant \\ $2^{0.3}$} \\\hline
-	\makecell{Benign \\ Quiescent} & Cyclic & \makecell{constant \\ $2^3$} & \makecell{benign \\ fluctuating \\ 0 or $2^5$} & \makecell{constant \\ $2^3$} & \makecell{constant \\ $2^5$} & \makecell{constant \\ $2^{0.3}$} \\\hline
-	Harsh & Cyclic & \makecell{constant \\ $2^3$} & \makecell{harsh \\ fluctuating \\ $-2^5$ or $2^5$} & \makecell{constant \\ $2^3$} & \makecell{harsh \\ fluctuating \\ $-2^5$ or $2^5$} & \makecell{constant \\ $2^{0.3}$} \\\hline
-	\makecell{Harsh \\ Quiescent} & Cyclic & \makecell{constant \\ $2^3$} & \makecell{harsh \\ fluctuating \\ $-2^5$ or $2^5$} & \makecell{constant \\ $2^3$} & \makecell{constant \\ $2^5$} & \makecell{constant \\ $2^{0.3}$} \\\hline
-	%\makecell{Harsh \\ to \\ Benign} & Cyclic & \makecell{constant \\ $2^3$} & \makecell{harsh \\ fluctuating \\ $-2^5$ or $2^5$} & \makecell{constant \\ $2^3$} & \makecell{benign \\ fluctuating \\ 0 or $2^5$} & \makecell{constant \\ $2^{0.3}$} \\\hline
+	Benign & Cyclic & \makecell{constant \\ $2^3$} & \makecell{benign \\ fluctuating \\ $2^0$ or $2^5$} & \makecell{constant \\ $2^3$} & \makecell{benign \\ fluctuating \\ $2^0$ or $2^5$} & \makecell{constant \\ $2^{0.3}$} \\\hline
+	\makecell{Benign \\ Quiescent} & Cyclic & \makecell{constant \\ $2^3$} & \makecell{benign \\ fluctuating \\ $2^0$ or $2^5$} & \makecell{constant \\ $2^3$} & \makecell{constant \\ $2^5$} & \makecell{constant \\ $2^{0.3}$} \\\hline
+	Harsh & Cyclic & \makecell{constant \\ $2^3$} & \makecell{harsh \\ fluctuating \\ $2^{-5}$ or $2^5$} & \makecell{constant \\ $2^3$} & \makecell{harsh \\ fluctuating \\ $2^{-5}$ or $2^5$} & \makecell{constant \\ $2^{0.3}$} \\\hline
+	\makecell{Harsh \\ Quiescent} & Cyclic & \makecell{constant \\ $2^3$} & \makecell{harsh \\ fluctuating \\ $2^{-5}$ or $2^5$} & \makecell{constant \\ $2^3$} & \makecell{constant \\ $2^5$} & \makecell{constant \\ $2^{0.3}$} \\\hline
+	%\makecell{Harsh \\ to \\ Benign} & Cyclic & \makecell{constant \\ $2^3$} & \makecell{harsh \\ fluctuating \\ $2^{-5}$ or $2^5$} & \makecell{constant \\ $2^3$} & \makecell{benign \\ fluctuating \\ 0 or $2^5$} & \makecell{constant \\ $2^{0.3}$} \\\hline
 	\end{tabular} 
 
 	\begin{flushleft} Four types of cyclic changing environment, plus a static control. Each treatment is split into two stages. The first stage is a normal changing environment like those found in Table~\ref{ce-treatments-h}. The second stage introduces an additional set of tasks (the \textbf{expanded task set}) that are rewarded at a lower rate.
@@ -608,7 +611,7 @@ For all of the experiments described in this paper, we held the individual genom
 We configured the Avida world to have local interactions on a toroidal grid that is 60-by-60 cells (3600 cells in total), and we seeded the initial populations with an ancestor that was previously evolved to perform \texttt{XOR} and \texttt{EQU} under a static reward. The genetic architecture for performing \texttt{XOR} and \texttt{EQU} is tightly intertwined in this ancestral organism, as it was evolved with no selective pressure for modularity.
 
 \subsection*{Statistical Methods}
-\todo[inline]{R3: emphasize argument about effect sizes}
+%\todo[inline]{R3: emphasize argument about effect sizes}
 %%%%% NEW SECTION
 In experiments with digital organisms, it is fairly simple to perform so many replicates that questions of the meaning of significance arise. In order to paint a true statistical picture of the differences between our controls and experimental conditions, we limited our replicates to 50 for each experimental condition, and emphasize the effect size in all our statistical claims, in addition to reporting significance.
 %%%%%%%%%%%%%%%%%%%%%
@@ -693,7 +696,7 @@ in the benign and control treatments led populations in them to have higher stan
 The alternating selection in both benign and harsh changing environments results in qualitatively different architectural styles as compared with those genomes evolved in the static environment. The task arrangements evolved under both experimental treatments are much more scattered throughout the genome than in the control, which is tightly compacted. Specifically, the bulk of the sites responsible for performing the fluctuating task (\texttt{EQU}) did not overlap with the backbone task (\texttt{XOR}), except for a small core region, which represents portions of the tasks that are shared between \texttt{XOR} and \texttt{EQU}. That is, in the changing environment treatments, we see many more sites that only code for a single task, whereas in the static treatment, the majority of functional tasks sites code for both \texttt{XOR} and \texttt{EQU}. (See Figs~\ref{fig:lineage-control}, \ref{fig:lineage-benign}, and \ref{fig:lineage-harsh})
 % @CAO: I'm not positive I understand this description for how things are laid out. It might be worth putting a bit more detail here, and highlighting also that there is a lot more separation in the harsh environment (or so it seems). Should we talk more here about why all of this is the case (highlighting that we are speculating) or will that come later?
 %@RCK: Reframed to clarify.
-
+\todo[inline]{R2: improve figure legends 6-8}
 
 	\begin{figure}[!h]
 	\includegraphics[width=0.95\columnwidth]{figures/CE/control__whole_taskmap.png}
@@ -1150,6 +1153,7 @@ These results suggest, therefore, that architectural features that help with sho
 \subsection*{Long-Term Evolvability}
 The relationship between short- and long-term evolvability is non-obvious. Architectural features and selective pressures that promote repeated re-adaptation to a known set of environments may not be beneficial for the acquisition of entirely new adaptive traits. For example, harsh changing environments act to depress both fitness and population diversity, which might make these populations less effective at adaptation when introduced into a new environment.
 
+\todo[inline]{R2: Clean this up! Fix the howevers, and really bang this home}
 Indeed, our experiments show that harsh changing environments, with their strong selective pressures, suppress the ability of populations to acquire new, weakly-selected traits. However, benign changing environments, with their milder set of selective pressures, are able to leverage their accumulated heritage of dormant vestigial sites to rapidly respond to selection, and acquire new tasks at a faster rate than either harsh or non-change-evolved populations. However, despite the direct negative effects of harsh changing environments, populations initially evolved in these environments are able to rapidly acquire new tasks if alternating selection is removed. This result suggests that there are important architectural features conveyed by these environments that are beneficial for new task acquisition.
 
 
